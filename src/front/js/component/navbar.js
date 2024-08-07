@@ -17,7 +17,7 @@ export const Navbar = () => {
                         <a className="nav-link itemsNavbar px-3 my-1" >Shop</a>
                         <a className="nav-link itemsNavbar px-3 my-1" >Contact</a>
                         <a className="btn btnNavbar px-3 mx-2 my-1" >Sign Up</a>
-                        <a className="btn btnNavbar my-1" >Register</a>
+                        <a className="btn btnNavbar mx-2 my-1" >Register</a>
                     </div>
                 </div>
             </div>
