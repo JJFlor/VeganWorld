@@ -142,10 +142,15 @@
 
 
 .btnShopNow {
+  font-size: 24px;
   color: #ffffff;
   background-color: #F6995c;
   font-weight: 500;
-  z-index: 1;
+  text-shadow:  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+ -1px  1px 0 #000,
+  1px  1px 0 #000;
+  box-shadow: 3px 3px 10px black;
 }
 
 .btnShopNow:hover{
@@ -155,7 +160,8 @@
 }
 
 .txtDiscount{
-  color: #ffffff;
+  font-size: 18px;
+  color: #000000;
   font-weight: 500;
 }
 
