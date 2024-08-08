@@ -165,6 +165,72 @@
   font-weight: 500;
 }
 
+.contReview{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.imgReview{
+  border: 1px solid black;
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+.rollCardsReview{
+  display: flex;
+  overflow-x: auto;
+}
+
+.rollCardsReview::-webkit-scrollbar {
+  height: 10px;
+  background-color: #ffffff;
+}
+
+.rollCardsReview::-webkit-scrollbar-thumb {
+  background-color: #006769;
+  border-radius: 10px;
+}
+
+.rollCardsReview::-webkit-scrollbar-thumb:hover {
+  cursor: grab;
+}
+
+.baseCardReview{
+  min-width: 400px;
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+.slider-wrapper{
+  overflow-x: hidden;
+  max-width: 1200px;
+}
+
+.footer{
+  background-color: #006769;
+  color: #F6FB7A;
+  font-weight: 500;
+  width: 100%;
+  min-height: 13vh;
+}
+
+
+.lgFooter{
+  max-width: 80px;
+}
+
+.contLogoFooter{
+  padding-top: 1.65rem;
+}
+
+.btnFooter{
+  color: #F6FB7A;
+  font-weight: 500;
+}
+
 @media (max-width: 900) {
   .titleJumbo {
     font-size: 2.8rem;
