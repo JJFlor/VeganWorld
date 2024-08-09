@@ -4,6 +4,7 @@ import { Jbtron } from "../component/Jbtron";
 import { FindBusiness } from "../component/FindBusiness";
 import { Shops } from "../component/Shops";
 import { Reviews } from "../component/Reviews";
+import { Footer } from "../component/footer";
 
 export const Home = () => {
 
@@ -13,6 +14,7 @@ export const Home = () => {
 			<FindBusiness />
 			<Shops />
 			<Reviews />
+			<Footer />
 		</div>
 	);
 };
