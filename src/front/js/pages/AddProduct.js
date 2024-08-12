@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Navbar } from "../component/navbar";
-import { Footer } from "../component/footer";
 
 export const AddProduct = () => {
     return (
         <div className="container contAdd">
 
             <div className="text-center">
-                <Link to="/">
+                <Link to="/shop_business">
                     <span className="btn btnGoShop">Go Shop</span>
                 </Link>
             </div>
@@ -33,7 +31,7 @@ export const AddProduct = () => {
                     <label for="floatingTextarea">Description</label>
                 </div>
                 <div class="input-group my-4">
-                    <input type="file" class="form-control" id="inputGroupFile01"/>
+                    <input type="file" class="form-control" id="inputGroupFile01" />
                 </div>
                 <div className="btnsProduct">
                     <a className="btn btnCancel mx-2 mt-4">Cancel</a>
