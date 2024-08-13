@@ -1,7 +1,147 @@
+.create-account-title {
+    font-size: 30px;
+    text-align:left;
+    font-weight: bold;
+}
+
+.are-you-title {
+    font-size: 27px;
+    font-weight: 400;
+}
+
 .signUp-card {
-    background-color: #b4e380;
+    background-color: white;
     margin-left:auto;
     margin-right: auto;
-    margin-top: 90px;
+    margin-top: 130px;
+    width: 55%;
+}
+
+.form-wrapper{
+    background-color: #b4e380;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.white-wrapper{
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-left:auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.already_account {
+    color: #006769;
+}
+
+.log_in_text {
+    color: #F6995C;
+
+}
+.try-premium {
+    color: #F6995C;
+    font-weight: bold;
+}
+
+.btn-question-premium {
+    color: #F6995C;
     border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    background-color: #b4e380;
+
+}
+
+.btn-next {
+    background-color: #f6fb7a;
+    color: black;
+    float:right;
+    font-weight: bold;
+}
+
+.btn-free {
+    background-color: #F6995C;
+    color: #006769;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-premium {
+    background-color: #b4e380;
+    color: #006769;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.only-for {
+    color: #F6995C;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logoAvocado {
+    max-width: 120px;
+    float: right;
+    margin-top: 16px;
+    
+}
+
+.btn-signUp-user {
+    background-color: #f6fb7a;
+    color: black;
+    float:right;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.reset-password {
+    color:#006769;
+    font-weight: bold;
+}
+
+.btn-question-reset-password {
+    color: #006769;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    background-color: #b4e380;
+
+}
+
+.btn-reset-password {
+    background-color: #F6995C;
+    color: #006769;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+
+}
+
+.inputIsRelative {
+    position: relative;
+}
+
+.showPassword {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 11rem;
+    right: 35rem;
+}
+
+.inputRelativeBusiness {
+    position: relative;
+}
+
+.showPasswordBusiness {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 5.9rem;
+    right: 35rem;
 }

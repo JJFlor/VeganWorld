@@ -15,7 +15,7 @@ CORS(api)
 
 @api.route('/register', methods=['POST'])
 def register():
-    body = request._get_json()
+    body = request.json
     user = User.query.filter_by(email = body["email"]).first()
     if user is None:
         new_user = User(name = body["name"], email = body["email"], password = body["password"])
@@ -28,7 +28,7 @@ def register():
         return jsonify({"msg":"User already exist, Log in"}), 401
 
 #create a route to authenticate users and return JWT token
-@api.route('/log_in', methods = ['POST', 'GET'])
+@api.route('/log_in', methods = ['POST'])
 def log_in():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
