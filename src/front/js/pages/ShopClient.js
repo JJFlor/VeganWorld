@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const ShopBusiness = () => {
 
-  
+export const ShopClient = () => {
+
+
     return (
         <div className="container ">
 
@@ -25,8 +26,8 @@ export const ShopBusiness = () => {
                                 <p className="card-text">Price</p>
                                 <p className="card-text">Description</p>
                                 <div className="btnsCards">
-                                    <Link to="/add_product" className="btn btnEdit mx-2">Edit</Link>
-                                    <Link to="/" className="btn btnDelete mx-2">Delete</Link>
+                                    <Link to="/add_product" className="btn btnEdit mx-2">Buy</Link>
+                                    <Link to="/detail_view" className="btn btnDelete mx-2">Info</Link>
                                 </div>
                             </div>
                         </div>
