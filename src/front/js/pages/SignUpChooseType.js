@@ -28,11 +28,6 @@ export const SignUpChooseType = () => {
 
     }
 
-    // useEffect(() => {
-    //     console.log(user)
-    //     console.log(business)
-
-    // }, [user, business])
 
     return (
         <div className="container">

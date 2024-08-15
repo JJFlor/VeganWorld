@@ -16,9 +16,9 @@ export const SignUpBusiness = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [shown, setShown] = useState(false);
+    const [premium, setPremium] = useState(false);
     const navigate = useNavigate();
     const { actions } = useContext(Context);
-    const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
 
     useEffect(() => {
         const scrollToTop = () => {
@@ -28,12 +28,32 @@ export const SignUpBusiness = () => {
     }, []);
 
     const switchShown = () => {
-        setShown(!shown)
+        setShown(!shown);
     }
 
-    const SignUp = async (email, password, name, businessName, typeOfServices) => {
-        await actions.signUp(email, password, name, businessName, typeOfServices);
-        navigate('/private_profile');
+    // const SignUp = async (email, password, name, typeOfServices, premium) => {
+    //     await actions.signUp(email, password, name, typeOfServices, premium);
+    //     navigate('/private_profile');
+    // }
+
+    const handlePartnerPremiumClick = () => {
+           setPremium(true);
+    }
+
+    const handlePartnerFreeClick = () => {
+          setPremium(false);
+    }
+
+    const handleSignUp = async () => {
+        const signUpResult = await actions.SignUp(email, password, name, typeOfServices, premium);
+        if (signUpResult && premium == true) {
+            navigate('/to premium profile')
+        } else if (signUpResult && premium == false) {
+            navigate('/to free profile')
+        } else {
+            alert("Partner Sign Up failed");
+
+        }
     }
 
     return (
@@ -70,9 +90,9 @@ export const SignUpBusiness = () => {
                                             </ul>
                                             <h6 className="only-for text-center mt-4">Only for 4,99€/month!</h6>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-free" data-bs-dismiss="modal">Go Free</button>
-                                            <button type="button" class="btn btn-premium">Go Premium</button>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-free" data-bs-dismiss="modal" onClick={() => {handlePartnerFreeClick()}}>Go Free</button>
+                                            <button type="button" className="btn btn-premium" data-bs-dismiss="modal" onClick={() => {handlePartnerPremiumClick()}}>Go Premium</button>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +101,7 @@ export const SignUpBusiness = () => {
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
                             <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputRelativeBusiness" placeholder="Password" onChange={(e) => { setPassword(e.target.value); this.onChange }} value={password} />
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputRelativeBusiness" placeholder="Password" onChange={(e) => { setPassword(e.target.value)}} value={password} />
                                 <span className="showPasswordBusiness" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
                         </div>
@@ -91,7 +111,7 @@ export const SignUpBusiness = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => SignUp(email, password, "", businessName, typeOfServices)}>Sign up</button>
+                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => handleSignUp()}>Sign up</button>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@ export const LogIn = () => {
     const [repeatNewPassword, setRepeatNewPassword] = useState("");
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
+    // const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
 
 
     useEffect(() => {
@@ -32,14 +32,15 @@ export const LogIn = () => {
         setShown(!shown)
     }
 
-    const resetPassword = () => {
-        if(email == store.email && setNewPassword() == setRepeatNewPassword()){
-            store.recoverPassword = setNewPassword();
-        } else if (email == store.email && setNewPassword() != setRepeatNewPassword()){
-            alert("Passwords doesn't match");
-        } else {
-            alert("Enter a valid email and a new password");
+    const resetPassword = (email, newPassword) => {
+        console.log(newPassword)
+        console.log(repeatNewPassword)
+        if (email == store.email && newPassword == repeatNewPassword) {
+            actions.resetPassword(email, newPassword)
+        } else if (email == store.email && newPassword != repeatNewPassword()) {
+            alert("Email or passwords are incorrect");
         }
+
     }
 
 
@@ -64,7 +65,7 @@ export const LogIn = () => {
                                 </Link>
                             </p>
                             <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control isRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value); this.onChange }} value={password} />
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control isRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPasswordIcon" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
                             <p className="reset-password">
@@ -85,16 +86,16 @@ export const LogIn = () => {
                                                 <input type="email" className="form-control" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
                                             </div>
                                             <div className="form-group mt-3">
-                                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control modalIsRelative" placeholder="Create new password" onChange={(e) => { setNewPassword(e.target.value); this.onChange }} value={newPassword} />
+                                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control modalIsRelative" placeholder="Create new password" onChange={(e) => { setNewPassword(e.target.value); }} value={newPassword} />
                                                 <span className="modalShowPasswordIcon" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                                             </div>
                                             <div className="form-group mt-3">
-                                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control modalTwoIsRelative" placeholder="Repeat new password" onChange={(e) => { setRepeatNewPassword(e.target.value); this.onChange; resetPassword()}} value={repeatNewPassword} />
+                                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control modalTwoIsRelative" placeholder="Repeat new password" onChange={(e) => { setRepeatNewPassword(e.target.value); }} value={repeatNewPassword} />
                                                 <span className="modalTwoShowPasswordIcon" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-reset-password" data-bs-dismiss="modal">Reset password</button>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-reset-password" data-bs-dismiss="modal" onClick={() => resetPassword(email, newPassword)}>Reset password</button>
                                         </div>
                                     </div>
                                 </div>
