@@ -18,6 +18,12 @@
 
 }
 
+.premium-icon {
+    font-size: 50px;
+    margin-left: 10px;
+    vertical-align: text-bottom;
+}
+
 .edit-btn {
     background-color: none;
     margin-top: -20px;

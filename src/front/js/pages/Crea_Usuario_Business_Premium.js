@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import avatarImg from "../../img/avatarImg.png";
 import { MdEdit } from "react-icons/md";
+import { MdWorkspacePremium } from "react-icons/md";
 import { Context } from "../store/appContext";
 import "../../styles/Crea_Usuario_business.css";
 
@@ -17,10 +18,15 @@ export const Crea_Usuario_Business_Premium = () => {
                                 <img className="profile-img" src={avatarImg} href="#" />
                             </div>
                             <div className="edit-user mt-3">
-                                <div>
-                                    <p className="user-name">Partner Name</p>
-                                    <p>Type of service</p>
-                                    <p>Address</p>
+                                <div className="d-flex flex-row">
+                                    <div>
+                                        <p className="user-name">Partner Name</p>
+                                        <p>Type of service</p>
+                                        <p>Address</p>
+                                    </div>
+                                    <div className="premium-icon">
+                                        <MdWorkspacePremium />
+                                    </div>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <button type="button" class="btn edit-btn">
