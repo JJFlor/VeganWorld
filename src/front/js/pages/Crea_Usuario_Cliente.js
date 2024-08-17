@@ -33,7 +33,7 @@ export const Crea_Usuario_Cliente = () => {
                             </div>
                         </div>
                         <div className="rollCards my-4">
-                            <h2>Favourite places</h2>
+                            <h2 className="fav-places">Favourite places</h2>
                             <div className="baseCard mx-3 mb-4">
                                 <div className="card">
                                     <div className="card-body">
