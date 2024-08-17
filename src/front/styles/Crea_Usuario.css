@@ -2,15 +2,19 @@
     background-color: #006769;
     border-radius: 15px;
     color: #F6FB7A;
+    padding: 10px;
 }
 
 .user-name {
     font-size: 40px;
     font-weight: bold;
+    margin-left: 30px;
 }
 
 .edit-btn {
     background-color: none;
+    margin-top: -20px;
+    color:#F6FB7A;
 
 }
 
