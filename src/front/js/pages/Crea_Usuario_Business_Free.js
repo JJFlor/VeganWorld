@@ -19,6 +19,8 @@ export const Crea_Usuario_Business_Free = () => {
                             <div className="edit-user mt-3">
                                 <div>
                                     <p className="user-name">Partner Name</p>
+                                    <p>Type of service</p>
+                                    <p>Address</p>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <button type="button" class="btn edit-btn">
