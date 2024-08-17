@@ -24,13 +24,28 @@
     color:#F6FB7A;
 
 }
-.edit-btn:hover {
+.publish-btn {
+    background-color: #F6FB7A;
+    margin-top: -20px;
+    color:#F6995c;
+    margin-left:auto;
+}
+
+.edit-btn:hover, .publish-btn:hover, .add-new-product-btn:hover {
     transition: 0.4s;
     background-color: #F6995c;
     color: #006769;
 }
 
+.add-new-product-btn {
+    background-color: #F6FB7A;
+    margin-top: -20px;
+    color:#F6995c;
+    float: right;
 
+}
+
+ 
 .logoAvocado {
     max-width: 120px;
     float: right;
@@ -51,6 +66,13 @@
     border-radius: 15px;
     border: 1px solid black;
     max-width: 200px;
+    background-color: #ffffff;
+}
+
+.shop-pics{
+    border-radius: 15px;
+    border: 1px solid black;
+    max-width: 180px;
     background-color: #ffffff;
 }
 
@@ -83,6 +105,16 @@
     display: flex;
     flex-direction: column;
 }
+
+.shopProduct {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #b4e380;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
   
 .btnCards {
     color: #006769;
@@ -95,4 +127,30 @@
     transition: 0.4s;
     background-color: #F6995c;
     color: #006769;
+}
+
+.current-offers {
+    background-color: #b4e380;
+    color: black;
+    margin-top: 20px;
+    height: 70px;
+    border-radius: 15px;
+}
+
+.add-new-offers {
+    background-color: #b4e380;
+    color: black;
+    margin-top: 20px;
+    height: 90px;
+    border-radius: 15px;
+
+}
+
+.shop{
+    background-color: #b4e380;
+    color: black;
+    margin-top: 20px;
+    height: 20rem;
+    border-radius: 15px;
+
 }
