@@ -9,6 +9,7 @@ import { Single } from "./pages/single";
 import { Crea_Usuario_Cliente } from "./pages/Crea_Usuario_Cliente";
 import { Crea_Usuario_Business_Free } from "./pages/Crea_Usuario_Business_Free";
 import { Crea_Usuario_Business_Premium } from "./pages/Crea_Usuario_Business_Premium";
+import { BusinessProfileFromClient } from "./pages/BusinessProfileFromClient";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -34,6 +35,7 @@ const Layout = () => {
                         <Route element={<Crea_Usuario_Cliente />} path="/Crea_Usuario_Cliente" />
                         <Route element={<Crea_Usuario_Business_Free />} path="/Crea_Usuario_Business_Free" />
                         <Route element={<Crea_Usuario_Business_Premium />} path="/Crea_Usuario_Business_Premium" />
+                        <Route element={<BusinessProfileFromClient />} path="/BusinessProfileFromClient" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
