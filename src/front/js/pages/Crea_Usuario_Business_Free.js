@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LogoAvocado from "../../img/logoAguacate.png";
 import avatarImg from "../../img/avatarImg.png";
 import { MdEdit } from "react-icons/md";
 import { Context } from "../store/appContext";
