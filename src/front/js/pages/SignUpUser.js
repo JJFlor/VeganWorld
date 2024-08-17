@@ -28,8 +28,8 @@ export const SignUpUser = () => {
         setShown(!shown)
     }
 
-    const SignUp = async (email, password, name, businessName, typeOfServices) => {
-        await actions.signUp(email, password, name, businessName, typeOfServices);
+    const SignUp = async (email, password, name) => {
+        await actions.signUpUser(email, password, name);
         navigate('/private_profile');
     }
 

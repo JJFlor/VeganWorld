@@ -11,7 +11,7 @@ import { FaEyeSlash } from "react-icons/fa";
 
 
 export const SignUpBusiness = () => {
-    const [businessName, setBusinessName] = useState("");
+    const [name, setName] = useState("");
     const [typeOfServices, setTypeOfServices] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -31,24 +31,20 @@ export const SignUpBusiness = () => {
         setShown(!shown);
     }
 
-    // const SignUp = async (email, password, name, typeOfServices, premium) => {
-    //     await actions.signUp(email, password, name, typeOfServices, premium);
-    //     navigate('/private_profile');
-    // }
 
     const handlePartnerPremiumClick = () => {
-           setPremium(true);
+        setPremium(true);
     }
 
     const handlePartnerFreeClick = () => {
-          setPremium(false);
+        setPremium(false);
     }
 
     const handleSignUp = async () => {
-        const signUpResult = await actions.SignUp(email, password, name, typeOfServices, premium);
-        if (signUpResult && premium == true) {
+        const signUpResult = await actions.signUpPartner(email, password, name, typeOfServices, premium);
+        if (await signUpResult && premium == true) {
             navigate('/to premium profile')
-        } else if (signUpResult && premium == false) {
+        } else if (await signUpResult && premium == false) {
             navigate('/to free profile')
         } else {
             alert("Partner Sign Up failed");
@@ -64,7 +60,7 @@ export const SignUpBusiness = () => {
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
                             <div className="form-group mt-3">
-                                <input type="text" className="form-control" placeholder="Business name" onChange={(e) => setBusinessName(e.target.value)} value={businessName} />
+                                <input type="text" className="form-control" placeholder="Business name" onChange={(e) => setName(e.target.value)} value={name} />
                             </div>
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Type of services you offer" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
@@ -91,8 +87,8 @@ export const SignUpBusiness = () => {
                                             <h6 className="only-for text-center mt-4">Only for 4,99€/month!</h6>
                                         </div>
                                         <div className="modal-footer">
-                                            <button type="button" className="btn btn-free" data-bs-dismiss="modal" onClick={() => {handlePartnerFreeClick()}}>Go Free</button>
-                                            <button type="button" className="btn btn-premium" data-bs-dismiss="modal" onClick={() => {handlePartnerPremiumClick()}}>Go Premium</button>
+                                            <button type="button" className="btn btn-free" data-bs-dismiss="modal" onClick={() => { handlePartnerFreeClick() }}>Go Free</button>
+                                            <button type="button" className="btn btn-premium" data-bs-dismiss="modal" onClick={() => { handlePartnerPremiumClick() }}>Go Premium</button>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +97,7 @@ export const SignUpBusiness = () => {
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
                             <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputRelativeBusiness" placeholder="Password" onChange={(e) => { setPassword(e.target.value)}} value={password} />
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputRelativeBusiness" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPasswordBusiness" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
                         </div>

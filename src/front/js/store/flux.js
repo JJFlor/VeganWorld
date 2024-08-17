@@ -4,7 +4,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			token: sessionStorage.getItem("token") || null,
 			email: sessionStorage.getItem("email") || null,
-			recoverPassword: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -34,13 +33,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
-			signUpPartner: async (email, password, name,typeOfServices) => {
+			signUpPartner: async (email, password, name, typeOfServices, premium) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, password, name, typeOfServices }),
+							body: JSON.stringify({ email, password, name, typeOfServices, premium }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {
@@ -52,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.access_token) {
 						sessionStorage.getItem("token", data.access_token);
 						sessionStorage.getItem("email", data.email);
-						setStore({ ...store, token: data.access_token, email: data.email })
+						setStore({ ...store, token: data.access_token, partner: data.partner })
 						alert("Success")
 						return true;
 					} else {

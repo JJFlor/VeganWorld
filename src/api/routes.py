@@ -37,7 +37,7 @@ def register_partner():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_partner.id)
-        return jsonify({"msg":"Partner created", "access token": access_token}), 200
+        return jsonify({"msg":"Partner created", "access_token": access_token, "partner": new_partner.serialize()}), 200
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     

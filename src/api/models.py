@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), unique=False, nullable=False)
+    name = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
@@ -28,7 +28,7 @@ class User(db.Model):
 
 class Partner(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), unique=True, nullable=False)
+    name = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     type_of_services = db.Column(db.String(120), unique=False, nullable=False)
     password = db.Column(db.String(120), unique=False, nullable=False)
