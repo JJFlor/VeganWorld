@@ -4,3 +4,48 @@
     margin-top: 16px;
     
 }
+.profile-img{
+    border: 1px solid black;
+    border-radius: 100px;
+    max-width: 170px;
+    float: left;
+    margin-top: 16px;
+
+}
+
+.rollCards {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    margin-left: 30px;
+}
+  
+.rollCards::-webkit-scrollbar {
+    height: 10px;
+    background-color: #ffffff;
+}
+  
+.rollCards::-webkit-scrollbar-thumb {
+    background-color: #006769;
+    border-radius: 10px;
+}
+  
+.rollCards::-webkit-scrollbar-thumb:hover {
+    cursor: grab;
+}
+  
+.baseCard {
+    min-width: 300px;
+}
+  
+.btnCards {
+    color: #F6FB7A;
+    background-color: #006769;
+   font-weight: 500;
+}
+  
+.btnCards:hover {
+    transition: 0.4s;
+    background-color: #F6995c;
+    color: #006769;
+}

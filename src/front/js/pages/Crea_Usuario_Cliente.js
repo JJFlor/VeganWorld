@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import LogoAvocado from "../../img/logoAguacate.png";
+import avatarImg from "../../img/avatarImg.png";
 import { MdEdit } from "react-icons/md";
 import { Context } from "../store/appContext";
 import "../../styles/Crea_Usuario.css";
@@ -18,7 +19,7 @@ export const Crea_Usuario_Cliente = () => {
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
                             <div>
-                                <img className="profile-img" src="" />
+                                <img className="profile-img" src={avatarImg} href="#"/>
                             </div>
                             <div className="form-group mt-3">
                                 <p>Client Name</p>
