@@ -65,6 +65,10 @@ export const Crea_Usuario_Business_Free = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className="d-flex flex-row align-items-center justify-content-center mb-5">
+                                <button className="btn btnCards w-25 me-5">Contact us</button>
+                                <button className="btn btnCards w-25">Menu</button>
+                            </div>
                         </div>
                     </div>
                 </div>

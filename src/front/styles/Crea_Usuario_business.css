@@ -85,9 +85,10 @@
 }
   
 .btnCards {
-    color: #F6FB7A;
-    background-color: #006769;
-   font-weight: 500;
+    color: #006769;
+    background-color: #F6FB7A;
+    font-weight: 500;
+    
 }
   
 .btnCards:hover {
