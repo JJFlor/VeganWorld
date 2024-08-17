@@ -47,7 +47,7 @@
 
 }
 
-.rollCards {
+.rollCardsUser {
     display: flex;
     flex-direction: row;
     overflow-y: auto;
@@ -55,17 +55,17 @@
     margin-top: 60px;
 }
   
-.rollCards::-webkit-scrollbar {
+.rollCardsUser::-webkit-scrollbar {
     height: 10px;
     background-color: #ffffff;
 }
   
-.rollCards::-webkit-scrollbar-thumb {
+.rollCardsUser::-webkit-scrollbar-thumb {
     background-color: #006769;
     border-radius: 10px;
 }
   
-.rollCards::-webkit-scrollbar-thumb:hover {
+.rollCardsUser::-webkit-scrollbar-thumb:hover {
     cursor: grab;
 }
   

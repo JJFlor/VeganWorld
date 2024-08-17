@@ -76,7 +76,7 @@ export const Crea_Usuario_Cliente = () => {
                             </div>
                         </div>
                         <div className="text-center my-4">
-                            <Link to="/" className="btn btnDiscover">Discover! :mag:</Link>
+                            <Link to="/" className="btn btnDiscover">Discover! 🔍</Link>
                         </div>
                     </div>
                 </div>

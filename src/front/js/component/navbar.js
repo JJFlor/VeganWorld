@@ -2,7 +2,7 @@ import React from 'react'
 import LogoNav from "../../img/aguaAmarillo.png"
 export const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg fixed-top">
+        <nav className="navbar navbar-expand-lg sticky-top">
             <div className="container-fluid px-5">
                 <img className="lgNav" href="#" src={LogoNav} />
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
