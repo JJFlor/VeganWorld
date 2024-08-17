@@ -1,3 +1,22 @@
+.info-client {
+    background-color: #006769;
+    border-radius: 15px;
+    color: #F6FB7A;
+}
+
+.user-name {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background-color: none;
+
+}
+
+
+
+
 .logoAvocado {
     max-width: 120px;
     float: right;
@@ -10,6 +29,7 @@
     max-width: 170px;
     float: left;
     margin-top: 16px;
+    background-color: #ffffff;
 
 }
 

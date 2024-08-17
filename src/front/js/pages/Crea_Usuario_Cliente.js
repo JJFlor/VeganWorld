@@ -13,22 +13,27 @@ export const Crea_Usuario_Cliente = () => {
 
     return (
         <div className="container">
-            <div className="d-flex flex-column signUp-card w-50">
-                <div className="p-5 form-wrapper">
-                    <h1 className="display-4 create-account-title">Create an account</h1>
-                    <div className="d-flex flex-row align-items-center justify-content-center">
-                        <div className="w-100">
+            <div className="p-5">
+                <div className="">
+                    <div className="d-flex flex-column align-items-center justify-content-center">
+                        <div className="info-client w-75 mt-5">
                             <div>
-                                <img className="profile-img" src={avatarImg} href="#"/>
+                                <img className="profile-img" src={avatarImg} href="#" />
                             </div>
-                            <div className="form-group mt-3">
-                                <p>Client Name</p>
-                                <button type="button" class="btn-question-premium">
-                                    <MdEdit />
-                                </button>
+                            <div className="edit-user mt-3">
+                                <div>
+                                    <p className="user-name">User Name</p>
+                                </div>
+                                <div className="d-flex flex-row">
+                                    <button type="button" class="btn edit-btn">
+                                        <MdEdit />
+                                    </button>
+                                    <p>Edit</p>
+                                </div>
                             </div>
                         </div>
                         <div className="rollCards my-4">
+                            <h2>Favourite places</h2>
                             <div className="baseCard mx-3 mb-4">
                                 <div className="card">
                                     <div className="card-body">
@@ -73,11 +78,6 @@ export const Crea_Usuario_Cliente = () => {
                                         <a href="#" className="btn btnCards">Go somewhere</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="ms-4">
-                                <img className="logoAvocado" src={LogoAvocado} href="#" />
                             </div>
                         </div>
                     </div>
