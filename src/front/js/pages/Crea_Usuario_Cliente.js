@@ -28,12 +28,14 @@ export const Crea_Usuario_Cliente = () => {
                                     <button type="button" class="btn edit-btn">
                                         <MdEdit />
                                     </button>
-                                    <p>Edit</p>
+                                    <p>Edit info</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="rollCards my-4">
+                        <div>
                             <h2 className="fav-places">Favourite places</h2>
+                        </div>
+                        <div className="rollCards my-4">
                             <div className="baseCard mx-3 mb-4">
                                 <div className="card">
                                     <div className="card-body">
