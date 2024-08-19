@@ -331,6 +331,16 @@
   font-weight: 500;
 }
 
+.btnAddContainer{
+  margin-left: auto;
+}
+
+.btnAddProduct{
+  background-color: #F6995c;
+  color: #006769;
+  font-weight: 500;
+}
+
 .contCards{
   border-left: 0.5px solid rgba(119, 119, 119, 0.363);
   width: 100%;

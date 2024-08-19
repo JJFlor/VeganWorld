@@ -15,7 +15,7 @@ export const Navbar = () => {
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1" href="/">Home</Link>
 						<a className="nav-link itemsNavbar px-3 my-1" >Business</a>
 						<a className="nav-link itemsNavbar px-3 my-1" >Blog</a>
-						<Link to={"/shop_business"} className="nav-link itemsNavbar px-3 my-1" >Shop</Link>
+						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1" >Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1" >Contact</a>
 						<a className="btn btnNavbar px-3 mx-2 my-1" >Sign Up</a>
 						<a className="btn btnNavbar mx-2 my-1" >Register</a>
