@@ -14,8 +14,6 @@ export const Home = () => {
 		<div>
 			
 			<Jbtron />
-
-			<ShopBusiness />
 			<Footer />
 		</div>
 	);

@@ -5,13 +5,14 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 
-import { ShopBusiness } from "./pages/ShopBusiness";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar.js";
-import { ShopClient } from "./pages/ShopClient";
+import { Shop } from "./pages/Shop";
+import { Usuario } from "./pages/Usuario";
+import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
 import { Footer } from "./component/Footer.js"
 
@@ -31,8 +32,9 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
 
-                        <Route element={<ShopBusiness />} path="/shop_business" />
-                        <Route element={<ShopClient />} path="/shop_client" />
+                        <Route element={<ShopPremium />} path="/shop_business" />
+                        <Route element={<Shop />} path="/shop_view" />
+                        <Route element={<Usuario />} path="/usuario" />
                         <Route element={<DetailView />} path="/detail_view" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />

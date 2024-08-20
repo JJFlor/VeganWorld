@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BurgerLogo from '/workspaces/VeganWorld/src/front/img/burgerlogo.png'
+import BusinessLogo1 from '/workspaces/VeganWorld/src/front/img/burgerlogo.png'
 import MenuBusiness from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
 import {Reviews} from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
 import {BotonDescuento} from '/workspaces/VeganWorld/src/front/js/component/BotonDescuento.js'
 import { WriteFeedback } from "../component/WriteFeedback";
-import { FindBusiness } from "../component/FindBusiness";
+import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import { BotonDomicilio } from "../component/BotonDomicilio";
 
 export const ShopBusiness = () => {
@@ -16,7 +16,7 @@ export const ShopBusiness = () => {
 
         <div className="jumbo_business_noreg">
             <div className="container_logo">    
-                <img className="business_noreg_logo" href="#" src={BurgerLogo} />
+                <img className="business_noreg_logo" href="#" src={BusinessLogo1} />
                 <h1 className="business_noreg_nombre">Nombre Negocio</h1>
                 <h2 className="business_noreg_adress">Av. Adress of business nº1 </h2>
             </div>
