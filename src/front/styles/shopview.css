@@ -1,0 +1,17 @@
+#pills-home-tab {
+    background-color: #006769;
+}
+
+#pills-menu-tab {
+    background-color: #006769;
+}
+#pills-profile-tab {
+    background-color: #006769;
+}
+#pills-map-tab {
+    background-color: #006769;
+}
+.nav {
+    justify-content: space-around;
+    margin-top: 20px;
+}

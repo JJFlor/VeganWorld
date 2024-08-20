@@ -1,11 +1,12 @@
 import React from 'react'
+import '../../styles/shopview.css';
 import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
 import {Reviews} from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
 
-export const Shop = () => {
+export const ShopView = () => {
   return (
     <div className="container my-5">
             <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
@@ -18,9 +19,13 @@ export const Shop = () => {
             </div>
             </div>
 
-            
+            <div className="b-example-divider"></div>
 
-            <ul className="nav nav-pills mb-3 justify-content-center mt-5" id="pills-tab" role="tablist">
+            <hr className="featurette-divider"/>
+
+            <ul className="nav nav-pills" id="pills-tab" role="tablist">
+            
+        
 
                 <li className="nav-item" role="presentation">
                 <button
@@ -45,7 +50,7 @@ export const Shop = () => {
                 role="tab"
                 aria-controls="pills-menu"
                 aria-selected="false">
-                <i class="fa-solid fa-utensils">  MENU</i>
+                <i className="fa-solid fa-utensils">  MENU</i>
                 </button>
                 </li>
                 <li className="nav-item" role="presentation">
@@ -58,7 +63,7 @@ export const Shop = () => {
                 role="tab"
                 aria-controls="pills-profile"
                 aria-selected="false">
-                <i class="fa-sharp fa-solid fa-comments">  FEEDBACKS</i>
+                <i className="fa-sharp fa-solid fa-comments">  FEEDBACKS</i>
                 </button>
                 </li>
                 <li className="nav-item" role="presentation">
@@ -71,10 +76,12 @@ export const Shop = () => {
                 role="tab"
                 aria-controls="pills-map"
                 aria-selected="false">
-                <i class="fa-duotone fa-solid fa-map">  LOCATION</i>
+                <i className="fa-duotone fa-solid fa-map">  LOCATION</i>
                 </button>
                 </li>
                 </ul>
+
+                <hr className="featurette-divider"/>
 
                 <div className="tab-content" id="pills-tabContent">
 

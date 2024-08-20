@@ -10,7 +10,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar.js";
-import { Shop } from "./pages/Shop";
+import { ShopView } from "./pages/ShopView.js";
 import { Usuario } from "./pages/Usuario";
 import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
@@ -32,8 +32,8 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
 
-                        <Route element={<ShopPremium />} path="/shop_business" />
-                        <Route element={<Shop />} path="/shop_view" />
+                        <Route element={<ShopPremium />} path="/shop_premium" />
+                        <Route element={<ShopView />} path="/shop_view" />
                         <Route element={<Usuario />} path="/usuario" />
                         <Route element={<DetailView />} path="/detail_view" />
                         <Route element={<Demo />} path="/demo" />
