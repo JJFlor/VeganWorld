@@ -3,11 +3,17 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useNavigate, Link } from "react-router-dom";
 import "../../styles/searchEngine.css";
 import { Context } from "../store/appContext";
-import LogoAvocado from "../../img/logoAguacate.png";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
+
 
 export const SearchEngineMainPage = () => {
+    const { store, actions } = useContext(Context);
+    const [toggled, setToggled] = useState(false);
+
+    useEffect(() => {
+        actions.getAllPartnersInfo();
+    }, [])
+
     const containerStyle = {
         minWidth: '300px',
         minHeight: '400px',
@@ -97,6 +103,7 @@ export const SearchEngineMainPage = () => {
         }
     ];
 
+
     return (
         <div className="container-fluid">
             <div className="chooseTitle">
@@ -108,33 +115,49 @@ export const SearchEngineMainPage = () => {
                 </form>
             </div>
             <div className="row">
-                <div className="text-center my-4">
+                <div className="text-center">
                     <a className="btn btnCategory mx-3" href="">🍴 Restaurants</a>
                     <a className="btn btnCategory mx-3" href="">👜 Shops</a>
                     <a className="btn btnCategory mx-3" href="">😄 Wellness</a>
-                    <a className="btn btnCategory mx-3" href="">🎮 Leisure</a>
+                    <a className="btn btnCategory mx-3" href="">✊ Activism</a>
                 </div>
             </div>
             <div className="mapSection">
-                <div className="map">
-                    <LoadScript
-                        googleMapsApiKey="AIzaSyCOCD1yeM2HWunb6IiX6OUwoRIIljWUw5k"
-                    >
-                        <GoogleMap
-                            mapContainerStyle={containerStyle}
-                            center={center}
-                            zoom={13}
-                            options={{
-                                styles: mapStyles,
-                                disableDefaultUI: true,
-                            }}
+                {toggled ?
+                    <div className="map ">
+                        <LoadScript
+                            googleMapsApiKey="AIzaSyCOCD1yeM2HWunb6IiX6OUwoRIIljWUw5k"
                         >
-                            {markers.map(marker => (
-                                <Marker key={marker.id} position={marker.position} />
-                            ))}
+                            <GoogleMap
+                                mapContainerStyle={containerStyle}
+                                center={center}
+                                zoom={13}
+                                options={{
+                                    styles: mapStyles,
+                                    disableDefaultUI: true,
+                                }}
+                            >
+                                {markers.map(marker => (
+                                    <Marker key={marker.id} position={marker.position} />
+                                ))}
 
-                        </GoogleMap>
-                    </LoadScript>
+                            </GoogleMap>
+                        </LoadScript>
+                    </div>
+                    :
+                    ""
+                }
+
+            </div>
+            <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
+                <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
+            </button>
+            <div>
+                <div className="d-flex flex-row">
+
+                    {console.log(store.premiumPartners)}
+
+                    {store.premiumPartners?.map(premiumPartners => (<SearchPremiumPartnerInfo key={premiumPartners.id} name={premiumPartners.name} typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
                 </div>
             </div>
         </div>

@@ -2,11 +2,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			token: sessionStorage.getItem("token") || null,
-			email: sessionStorage.getItem("email") || null,
+			token: localStorage.getItem("token") || null,
+			email: localStorage.getItem("email") || null,
+			partnerInfo: JSON.parse(localStorage.getItem("partner")) || null,
+			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || null
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
 			signUpUser: async (email, password, name) => {
 				const store = getStore();
 				try {
@@ -22,8 +24,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json();
 					if (data.access_token) {
-						sessionStorage.getItem("token", data.access_token);
-						sessionStorage.getItem("email", data.email);
+						localStorage.getItem("token", data.access_token);
+						localStorage.getItem("email", data.email);
 						setStore({ ...store, token: data.access_token, email: data.email })
 						alert("Success")
 					} else {
@@ -49,8 +51,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json();
 					if (data.access_token) {
-						sessionStorage.getItem("token", data.access_token);
-						sessionStorage.getItem("email", data.email);
+						localStorage.getItem("token", data.access_token);
+						localStorage.getItem("email", data.email);
 						setStore({ ...store, token: data.access_token, partner: data.partner })
 						alert("Success")
 						return true;
@@ -72,21 +74,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					const data = await response.json();
 					if (data.token) {
-						//guardar info token en sessionStorage
-						sessionStorage.setItem("token", data.token)
-						sessionStorage.setItem("email", data.email)
+						//guardar info token en localStorage
+						localStorage.setItem("token", data.token)
+						localStorage.setItem("email", data.email)
 						setStore({ ...store, token: data.token, email: data.email })
 					} else {
 						console.log("Token not received", data)
 					}
 				} catch (error) {
-					console.log("Error loading message from backend", error);
+					console.log("Log in failed", error);
 
 				}
 			},
 			logOut: () => {
 				const store = getStore();
-				sessionStorage.removeItem("token")
+				localStorage.removeItem("token")
 				setStore({ ...store, token: '', email: '' })
 			},
 			resetPassword: async (email, password) => {
@@ -104,6 +106,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				} catch (error) {
 					console.log("An error ocurred when updating your password", error);
+
+				}
+			},
+			getPartnerInfo: async (name, typeOfServices, premium) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/getPartnerInfo`,
+						{
+							method: 'GET',
+							body: JSON.stringify({ name, typeOfServices, premium }),
+							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
+						});
+					if (!response.ok) {
+						const errorData = await response.json();
+						alert("Error", errorData);
+					}
+					const data = await response.json();
+					if (data.partnerInfo) {
+						localStorage.setItem("partner", JSON.stringify(data.partnerInfo))
+						setStore({ partner: data.partnerInfo })
+					} else {
+						console.log("PartnerInfo not received", data)
+					}
+				} catch (error) {
+					console.log("Loading partner info failed", error);
+
+				}
+			},
+			getAllPartnersInfo: async () => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/getAllPartnersInfo`,
+						{
+							method: 'GET',
+							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
+						});
+					if (!response.ok) {
+						const errorData = await response.json();
+						alert("Error", errorData);
+					}
+					const data = await response.json();
+					console.log(data);
+					if (data.partners) {
+
+
+						localStorage.setItem("premiumPartners", JSON.stringify(data.partners));
+						setStore({ premiumPartners: data.partners });
+					} else {
+						console.log("Premium partners info not received", data);
+					}
+				} catch (error) {
+					console.log("Loading premium partners info failed", error);
 
 				}
 			}

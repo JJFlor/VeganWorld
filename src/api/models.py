@@ -45,6 +45,7 @@ class Partner(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
+            "type_of_services": self.type_of_services,
             "premium": self.premium
         }
     

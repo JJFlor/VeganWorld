@@ -41,6 +41,24 @@ def register_partner():
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     
+@api.route('/getPartnerInfo', methods=['GET'])
+@jwt_required()
+def getPartnerInfo():
+    body = request.json
+    partner = Partner.query.filter_by(email = body["email"]).first()
+    if partner is None:
+        return jsonify({"msg":"Partner not found"}), 404
+    else:
+        return jsonify({"msg":"Ok", "partnerInfo": partner.serialize()}), 200
+    
+@api.route('/getAllPartnersInfo', methods=['GET'])
+def getAllPartnersInfo():
+    premiumPartners = Partner.query.filter_by(premium = True)
+    if premiumPartners is None:
+        return jsonify({"msg":"Partners not found"}), 404
+    else:
+        return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
+    
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
