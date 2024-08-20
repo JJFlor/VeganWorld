@@ -16,46 +16,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+
+			setProducts: (newProducts) => {
+				setStore({ products: newProducts });
+			},
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 
 			setProductEdit: (item) => {
-				setStore({productEdit:item})
+				setStore({ productEdit: item });
 			},
 
-			getProducts: () => {
-				fetch('https://psychic-garbanzo-q7v9v97p6xj93x74p-3001.app.github.dev/api/products')
-					.then(response => response.json())
-					.then(data => setStore({products:data}))
-					.catch(error => console.error('Error fetching products:', error));
+			getProducts: async () => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + '/api/products');
+					const data = await response.json();
+					setStore({ products: data });
+					return data;
+				} catch (error) {
+					console.error('Error fetching products:', error);
+				}
 			},
 
 			getMessage: async () => {
 				try {
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
+					const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+					const data = await resp.json();
+					setStore({ message: data.message });
 					return data;
 				} catch (error) {
-					console.log("Error loading message from backend", error)
+					console.log("Error loading message from backend", error);
 				}
 			},
+
 			changeColor: (index, color) => {
-				//get the store
 				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
 
-				//reset the global store
 				setStore({ demo: demo });
 			}
 		}
@@ -63,3 +66,4 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+

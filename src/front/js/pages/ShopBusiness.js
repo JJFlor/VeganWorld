@@ -3,13 +3,30 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const ShopBusiness = () => {
-    const [products, setProducts] = useState([]);
-    const {store, actions} = useContext(Context)
+    const { store, actions } = useContext(Context);
+    const [products, setProducts] = useState(store.products || []);
+    const [filter, setFilter] = useState("new"); // Estado para almacenar el filtro seleccionado
 
-    // Fetch products when the component mounts
     useEffect(() => {
-        actions.getProducts()
-    }, []);
+        actions.getProducts().then(() => {
+            applyFilter(filter);
+        });
+    }, [store.products, filter]); // Dependencia en store.products y filter
+
+    // Función para aplicar el filtro según la opción seleccionada
+    const applyFilter = (filterType) => {
+        let filteredProducts = [...store.products]; // Clonar los productos desde el store
+
+        if (filterType === "new") {
+            filteredProducts = filteredProducts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        } else if (filterType === "price-asc") {
+            filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (filterType === "price-desc") {
+            filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
+        }
+
+        setProducts(filteredProducts); // Actualiza el estado local con los productos filtrados
+    };
 
     const handleDelete = (productId) => {
         fetch(`https://psychic-garbanzo-q7v9v97p6xj93x74p-3001.app.github.dev/api/products/${productId}`, {
@@ -17,8 +34,9 @@ export const ShopBusiness = () => {
         })
             .then(response => {
                 if (response.ok) {
-                    // Update the state by filtering out the deleted product
-                    setProducts(products.filter(product => product.id !== productId));
+                    const updatedProducts = store.products.filter(product => product.id !== productId);
+                    actions.setProducts(updatedProducts);
+                    applyFilter(filter); // Aplicar el filtro nuevamente después de la eliminación
                 } else {
                     console.error('Failed to delete product');
                 }
@@ -26,8 +44,8 @@ export const ShopBusiness = () => {
             .catch(error => console.error('Error deleting product:', error));
     };
 
-    const handleClick = (prod) =>{
-        actions.setProductEdit(prod)
+    const handleClick = (prod) => {
+        actions.setProductEdit(prod);
     }
 
     return (
@@ -37,9 +55,9 @@ export const ShopBusiness = () => {
             <div className="d-flex my-5 ms-4">
                 <div>
                     <span>filter by:</span>
-                    <a className="btn btnSort m-2">New</a>
-                    <a className="btn btnSort m-2">Price Ascending</a>
-                    <a className="btn btnSort m-2">Price Descending</a>
+                    <button className="btn btnSort m-2" onClick={() => setFilter("new")}>New</button>
+                    <button className="btn btnSort m-2" onClick={() => setFilter("price-asc")}>Price Ascending</button>
+                    <button className="btn btnSort m-2" onClick={() => setFilter("price-desc")}>Price Descending</button>
                 </div>
                 <div className="btnAddContainer">
                     <Link to="/add_product" className="btn btnAddProduct m-2">Add Product</Link>
@@ -48,10 +66,11 @@ export const ShopBusiness = () => {
 
             <div className="contCards">
                 <div className="row">
-                    {store.products?.map((product) => (
+                    {products.map((product) => (
                         <div className="col-4 productsCard my-3" key={product.id}>
                             <div className="card" style={{ minWidth: "16rem" }}>
-                                <img src="https://dummyimage.com/200x200/000/fff" className="card-img-top img-thumbnail" alt={product.product_name} />
+                                {/* Usar product.image_url para mostrar la imagen subida */}
+                                <img src={product.image_url || "https://dummyimage.com/200x200/000/fff"} className="card-img-top img-thumbnail" alt={product.product_name} />
                                 <div className="card-body">
                                     <h5 className="card-title">{product.product_name}</h5>
                                     <p className="card-text">Price: ${product.price}</p>
@@ -64,6 +83,7 @@ export const ShopBusiness = () => {
                             </div>
                         </div>
                     ))}
+
                 </div>
             </div>
         </div>

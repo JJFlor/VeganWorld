@@ -34,7 +34,7 @@ const Layout = () => {
                         <Route element={<EditProduct />} path="/edit_product/:id" />
                         <Route element={<ShopBusiness />} path="/shop_business" />
                         <Route element={<ShopClient />} path="/shop_client" />
-                        <Route element={<DetailView />} path="/detail_view" />
+                        <Route element={<DetailView />} path="/product_info/:id" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

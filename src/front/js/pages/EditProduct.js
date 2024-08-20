@@ -3,20 +3,33 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const EditProduct = () => {
-    const {store, actions} = useContext(Context)
+    const { store, actions } = useContext(Context);
     const { id } = useParams(); // Get the product ID from the URL
     const navigate = useNavigate();
 
-    // Fetch the product data when the component mounts
-    
+    // Local state for the product fields
+    const [productName, setProductName] = useState('');
+    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
+
+    // Initialize the local state when the component mounts
+    useEffect(() => {
+        if (store.productEdit) {
+            setProductName(store.productEdit.product_name || '');
+            setPrice(store.productEdit.price || '');
+            setDescription(store.productEdit.description || '');
+        }
+    }, [store.productEdit]);
 
     const handleSave = async () => {
         const updatedProduct = {
-            
+            product_name: productName,
+            price: price,
+            description: description
         };
 
         try {
-            const response = await fetch(`https://psychic-garbanzo-q7v9v97p6xj93x74p-3001.app.github.dev/api/products/${id}`, {
+            const response = await fetch(process.env.BACKEND_URL + `/api/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +63,7 @@ export const EditProduct = () => {
                             type="text"
                             className="form-control"
                             id="name"
-                            value={store.productEdit?.product_name}
+                            value={productName}
                             onChange={(e) => setProductName(e.target.value)}
                         />
                     </div>
@@ -62,7 +75,7 @@ export const EditProduct = () => {
                             type="number"
                             className="form-control"
                             id="price"
-                            value={store.productEdit?.price}
+                            value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
@@ -73,7 +86,7 @@ export const EditProduct = () => {
                         placeholder="Leave a comment here"
                         id="floatingTextarea"
                         style={{ minHeight: '200px' }}
-                        value={store.productEdit?.description}
+                        value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
                     <label>Description</label>
@@ -84,6 +97,7 @@ export const EditProduct = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 
