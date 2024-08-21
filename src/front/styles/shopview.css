@@ -1,17 +1,39 @@
-#pills-home-tab {
+#shopview_pills {
+    margin-bottom: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+#shopview_container_background {
+    background-color:#f7fcb9;
+}
+#shopview_pills-home-tab {
+    background-color: #006769;
+}
+#shopview_pills-menu-tab {
+    background-color: #006769;
+}
+#shopview_pills-profile-tab {
+    background-color: #006769;
+}
+#shopview_pills-map-tab {
     background-color: #006769;
 }
 
-#pills-menu-tab {
-    background-color: #006769;
-}
-#pills-profile-tab {
-    background-color: #006769;
-}
-#pills-map-tab {
-    background-color: #006769;
+.nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #ec3c3c;
+    --bs-nav-link-hover-color: #F6FB7A;
 }
 .nav {
-    justify-content: space-around;
-    margin-top: 20px;
+    --bs-nav-link-color: #fff;
+    --bs-nav-link-hover-color: #F6FB7A;
+}
+
+.card {
+    --bs-card-bg: #e9fce6;
+}
+.btn-outline-success {
+    --bs-btn-color: #000000;
 }

@@ -5,14 +5,15 @@ import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png
 import {Reviews} from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
+import {Footer} from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 
 export const ShopView = () => {
   return (
-    <div className="container my-5">
-            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                <h1 className="display-4 fw-bold lh-1 text-body-emphasis">BUSINESS NAME</h1>
-                <p className="lead">Business description and Adress</p>
+    <div id="shopview_container" className="container my-5">
+            <div id="shopview_container_background" className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                <div id="shopview_hero_cover" className="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <h1 id="shopview_hero_cover_h1" className="display-4 fw-bold lh-1 text-body-emphasis">BUSINESS NAME</h1>
+                <p id="shopview_hero_cover_p" className="lead">Business description and Adress</p>
                 </div>
             <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
                 <img className="rounded-lg-3" src={BusinessLogo1} alt="" width="720"/>
@@ -21,16 +22,14 @@ export const ShopView = () => {
 
             <div className="b-example-divider"></div>
 
-            <hr className="featurette-divider"/>
 
-            <ul className="nav nav-pills" id="pills-tab" role="tablist">
+            <ul id="shopview_pills" className="nav nav-pills" role="tablist">
             
-        
 
                 <li className="nav-item" role="presentation">
                 <button
                 className="nav-link active"
-                id="pills-home-tab"
+                id="shopview_pills-home-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-home"
                 type="button"
@@ -43,7 +42,7 @@ export const ShopView = () => {
                 <li className="nav-item" role="presentation">
                 <button
                 className="nav-link"
-                id="pills-menu-tab"
+                id="shopview_pills-menu-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-menu"
                 type="button"
@@ -56,7 +55,7 @@ export const ShopView = () => {
                 <li className="nav-item" role="presentation">
                 <button
                 className="nav-link"
-                id="pills-profile-tab"
+                id="shopview_pills-profile-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-profile"
                 type="button"
@@ -69,7 +68,7 @@ export const ShopView = () => {
                 <li className="nav-item" role="presentation">
                 <button
                 className="nav-link"
-                id="pills-map-tab"
+                id="shopview_pills-map-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-map"
                 type="button"
@@ -81,7 +80,6 @@ export const ShopView = () => {
                 </li>
                 </ul>
 
-                <hr className="featurette-divider"/>
 
                 <div className="tab-content" id="pills-tabContent">
 
@@ -253,6 +251,7 @@ export const ShopView = () => {
             </div>
 
         </div>
+        <Footer />
     </div>
 
                            
