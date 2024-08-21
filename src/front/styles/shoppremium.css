@@ -1,0 +1,22 @@
+.featurette-divider {
+    margin: 50px;
+    background-color: #fff;
+}
+
+#usuario_h1-form {
+    background-color: #f7fcb9;
+}
+
+#myCarrusel {
+    background-color: #000000;
+}
+.carousel-item {
+    background-color: #31fffc;
+}
+button:hover {
+    background-color: transparent;
+}
+.featurette-heading {
+    color: #006769;
+    background-color: #f7fcb9;
+}
