@@ -5,7 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") || null,
 			email: localStorage.getItem("email") || null,
 			partnerInfo: JSON.parse(localStorage.getItem("partner")) || null,
-			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || null
+			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || null,
+			premiumPartnersFiltered: null
 
 		},
 		actions: {
@@ -149,8 +150,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					console.log(data);
 					if (data.partners) {
-
-
 						localStorage.setItem("premiumPartners", JSON.stringify(data.partners));
 						setStore({ premiumPartners: data.partners });
 					} else {
@@ -160,6 +159,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Loading premium partners info failed", error);
 
 				}
+			},
+			setCathegoryFilter: (typeOfServices) => {
+				const store = getStore();
+				console.log("Hola")
+				const filteredPartners = store.premiumPartners.filter(partner => partner.type_of_services == typeOfServices);
+				console.log(filteredPartners)
+				setStore({ ...store, premiumPartnersFiltered: filteredPartners });
+			},
+			setFilteredPartnerNull: () => {
+				const store = getStore();
+				setStore({ ...store, premiumPartnersFiltered: null });
 			}
 		}
 	}

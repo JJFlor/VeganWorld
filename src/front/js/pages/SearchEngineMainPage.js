@@ -4,15 +4,19 @@ import { useNavigate, Link } from "react-router-dom";
 import "../../styles/searchEngine.css";
 import { Context } from "../store/appContext";
 import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
+import { SearchRestaurantsPartners } from "../component/SearchRestaurantsPartners";
 
 
 export const SearchEngineMainPage = () => {
     const { store, actions } = useContext(Context);
     const [toggled, setToggled] = useState(false);
+    const [search, setSearch] = useState("");
+
 
     useEffect(() => {
         actions.getAllPartnersInfo();
     }, [])
+
 
     const containerStyle = {
         minWidth: '300px',
@@ -28,15 +32,49 @@ export const SearchEngineMainPage = () => {
     const markers = [
         {
             id: 1,
-            position: { lat: 41.3880461278723, lng: 2.167037641404972 }, // San Francisco
+            position: { lat: 41.3880461278723, lng: 2.167037641404972 },
         },
         {
             id: 2,
-            position: { lat: 41.38649263978724, lng: 2.130763342351535 }, // Los Angeles 41.38649263978724, 2.130763342351535
+            position: { lat: 41.38649263978724, lng: 2.130763342351535 },
         },
         {
             id: 3,
-            position: { lat: 41.40155361180801, lng: 2.160093173042831 },  // New York 41.40155361180801, 2.160093173042831
+            position: { lat: 41.40155361180801, lng: 2.160093173042831 },
+        },
+        {
+            id: 4,
+            position: { lat: 41.40254062653742, lng: 2.1567984527937383 },
+        },
+        {
+            id: 5,
+            position: { lat: 41.40701325141857, lng: 2.1759425393017695 },
+        },
+        {
+            id: 6,
+            position: { lat: 41.400922808125536, lng: 2.1566481798289083 },
+        }, {
+            id: 7,
+            position: { lat: 41.38887919684671, lng: 2.1587300681363915 },
+        }, {
+            id: 8,
+            position: { lat: 41.388822058676006, lng: 2.1582306662850934 },
+        },
+        {
+            id: 9,
+            position: { lat: 41.395457939125016, lng: 2.1711297239573324 },
+        },
+        {
+            id: 10,
+            position: { lat: 41.39006425434672, lng: 2.157082452792872 },
+        },
+        {
+            id: 11,
+            position: { lat: 41.38912389430176, lng: 2.1569218527928116 },
+        },
+        {
+            id: 12,
+            position: { lat: 41.40010057980126, lng: 2.1542063816294656 },
         },
     ];
 
@@ -103,23 +141,36 @@ export const SearchEngineMainPage = () => {
         }
     ];
 
+    const Search = (search) => {
+        const keyWords = ["restaurant", "shop", "wellness", "activism"];
+        const foundWord = keyWords.includes(search);
+        if (foundWord) {
+            actions.setCathegoryFilter(search);
+            alert("See the results below");
+
+        } else {
+            alert("Word doesn't match any result. Try with: restaurant, shop, wellness or activism");
+        }
+
+    }
+
 
     return (
         <div className="container-fluid">
             <div className="chooseTitle">
                 <h2>Search a service or choose a topic:</h2>
             </div>
-            <div>
-                <form>
-                    <input type="text" className="form-control searchEngineInput" placeholder="🧭 Look for vegan services" />
-                </form>
+            <div className="d-flex flex-row justify-content-center align-items-center">
+                <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Look for vegan services" />
+                <button onClick={() => Search(search)} className="btn btnCards ms-3">Search</button>
             </div>
             <div className="row">
                 <div className="text-center">
-                    <a className="btn btnCategory mx-3" href="">🍴 Restaurants</a>
-                    <a className="btn btnCategory mx-3" href="">👜 Shops</a>
-                    <a className="btn btnCategory mx-3" href="">😄 Wellness</a>
-                    <a className="btn btnCategory mx-3" href="">✊ Activism</a>
+                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("restaurant")}>🍴 Restaurants</button>
+                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("shop")} >👜 Shops</button>
+                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("wellness")} >😄 Wellness</button>
+                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("activism")}>✊ Activism</button>
+                    <button className="btn btnCategory mx-3" onClick={() => actions.setFilteredPartnerNull()}>All Cathegories</button>
                 </div>
             </div>
             <div className="mapSection">
@@ -145,7 +196,7 @@ export const SearchEngineMainPage = () => {
                         </LoadScript>
                     </div>
                     :
-                    ""
+                    " "
                 }
 
             </div>
@@ -153,11 +204,15 @@ export const SearchEngineMainPage = () => {
                 <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
             </button>
             <div>
-                <div className="d-flex flex-row">
-
+                <div className="container rollCards d-flex flex-row">
                     {console.log(store.premiumPartners)}
-
-                    {store.premiumPartners?.map(premiumPartners => (<SearchPremiumPartnerInfo key={premiumPartners.id} name={premiumPartners.name} typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
+                    {store.premiumPartnersFiltered ? store.premiumPartnersFiltered.map(filteredPartner =>
+                    (<SearchRestaurantsPartners key={filteredPartner.id} name={filteredPartner.name}
+                        typeOfServices={filteredPartner.type_of_services} premium={filteredPartner.premium} />))
+                        :
+                        store.premiumPartners?.map(premiumPartners => (<SearchPremiumPartnerInfo key={premiumPartners.id}
+                            name={premiumPartners.name}
+                            typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
                 </div>
             </div>
         </div>
