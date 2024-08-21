@@ -11,9 +11,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { ShopClient } from "./pages/ShopClient";
-import { DetailView } from "./pages/DetailView";
-import { EditProduct } from "./pages/EditProduct";
+import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -30,11 +28,6 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<AddProduct />} path="/add_product" />
-                        <Route element={<EditProduct />} path="/edit_product/:id" />
-                        <Route element={<ShopBusiness />} path="/shop_business" />
-                        <Route element={<ShopClient />} path="/shop_client" />
-                        <Route element={<DetailView />} path="/product_info/:id" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

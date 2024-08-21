@@ -1,0 +1,36 @@
+.isRelative {
+    position: relative;
+}
+
+.showPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 13rem;
+    right: 36rem;
+}
+
+.modalIsRelative {
+    position: relative;
+}
+
+.modalShowPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 5rem;
+    right: 2rem;
+
+}
+
+.modalTwoIsRelative {
+    position: relative;
+}
+
+.modalTwoShowPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 1.5rem;
+    right: 2rem;
+}
