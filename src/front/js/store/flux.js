@@ -21,9 +21,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ products: newProducts });
 			},
 			
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 
 			setProductEdit: (item) => {
 				setStore({ productEdit: item });
@@ -38,6 +35,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.error('Error fetching products:', error);
 				}
+			},
+
+
+			
+			exampleFunction: () => {
+				getActions().changeColor(0, "green");
 			},
 
 			getMessage: async () => {

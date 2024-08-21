@@ -398,6 +398,8 @@
 }
 
 .imgDetail{
+  width: 500px;
+  max-height: 500px;
   border-radius: 15px;
 }
 
@@ -407,4 +409,8 @@
   }
 }
 
-
+.imgProducts{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}

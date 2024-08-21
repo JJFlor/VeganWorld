@@ -11,8 +11,19 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_cors import CORS
+import cloudinary
+import cloudinary.uploader
+
+
+
 
 # from models import Person
+
+cloudinary.config(
+    cloud_name='dulhrrkqi',
+    api_key='693798853349662',
+    api_secret='V29RBE-p9uctgcYKayG9shY6h-o'
+)
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(

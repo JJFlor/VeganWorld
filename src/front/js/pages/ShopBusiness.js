@@ -67,10 +67,10 @@ export const ShopBusiness = () => {
             <div className="contCards">
                 <div className="row">
                     {products.map((product) => (
-                        <div className="col-4 productsCard my-3" key={product.id}>
-                            <div className="card" style={{ minWidth: "16rem" }}>
+                        <div className="col productsCard my-3 mx-4" key={product.id}>
+                            <div className="card" style={{ maxWidth: "17rem" }}>
                                 {/* Usar product.image_url para mostrar la imagen subida */}
-                                <img src={product.image_url || "https://dummyimage.com/200x200/000/fff"} className="card-img-top img-thumbnail" alt={product.product_name} />
+                                <img src={product.image_url || "https://dummyimage.com/200x200/000/fff"} className="card-img-top img-thumbnail imgProducts" alt={product.product_name} />
                                 <div className="card-body">
                                     <h5 className="card-title">{product.product_name}</h5>
                                     <p className="card-text">Price: ${product.price}</p>

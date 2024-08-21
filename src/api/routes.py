@@ -27,11 +27,13 @@ def create_product():
     new_product = Product(
         product_name=data['product_name'],
         price=data['price'],
-        description=data['description']
+        description=data['description'],
+        image_url=data.get('image_url')  # Asegúrate de que la URL de la imagen se guarde
     )
     db.session.add(new_product)
     db.session.commit()
     return jsonify(new_product.serialize()), 201
+
 
 # Obtener todos los productos
 @api.route('/products', methods=['GET'])

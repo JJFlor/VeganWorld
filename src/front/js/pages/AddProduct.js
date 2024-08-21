@@ -19,6 +19,7 @@ export const AddProduct = () => {
                 body: formData,
             });
             const data = await response.json();
+            console.log('Cloudinary response:', data); // Verificar la respuesta de Cloudinary
             return data.url; // Devuelve la URL de la imagen subida
         } catch (error) {
             console.error('Failed to upload image:', error);
@@ -26,20 +27,23 @@ export const AddProduct = () => {
         }
     };
 
+
     const handleSave = async () => {
         let imageUrl = '';
         if (imageFile) {
             imageUrl = await uploadImage(imageFile);
             console.log('Image URL:', imageUrl); // Sube la imagen y obtiene la URL
         }
-        
+    
         const newProduct = {
             product_name: productName,
             price: parseFloat(price),
             description: description,
             image_url: imageUrl, // Incluye la URL de la imagen en los datos del producto
         };
-
+    
+        console.log('Product data:', newProduct); // Verifica los datos del producto
+    
         try {
             const response = await fetch(process.env.BACKEND_URL + '/api/products', {
                 method: 'POST',
@@ -48,7 +52,7 @@ export const AddProduct = () => {
                 },
                 body: JSON.stringify(newProduct),
             });
-
+    
             if (response.ok) {
                 navigate('/shop_business');
             } else {
