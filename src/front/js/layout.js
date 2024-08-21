@@ -16,6 +16,7 @@ import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
 import { Footer } from "./component/Footer.js";
 import {Form} from "./component/Form.js";
+import { Dashboard } from "./component/Dashboard.js";
 
 //create your first component
 const Layout = () => {
