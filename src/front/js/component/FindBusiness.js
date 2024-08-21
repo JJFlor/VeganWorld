@@ -6,7 +6,7 @@ export const FindBusiness = () => {
     const containerStyle = {
         minWidth: '400px',
         minHeight: '500px',
-        borderRadius: '15px'
+        borderRadius: '14px'
     };
 
     const center = {
