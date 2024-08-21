@@ -2,35 +2,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			token: localStorage.getItem("token") || null,
+			email: localStorage.getItem("email") || null,
+			partnerInfo: JSON.parse(localStorage.getItem("partner")) || null,
+			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || null,
+			premiumPartnersFiltered: null
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+
+			setProducts: (newProducts) => {
+				setStore({ products: newProducts });
+			},
+			
+
+			setProductEdit: (item) => {
+				setStore({ productEdit: item });
+			},
+
+			getProducts: async () => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + '/api/products');
+					const data = await response.json();
+					setStore({ products: data });
+					return data;
+				} catch (error) {
+					console.error('Error fetching products:', error);
+				}
+			},
+
+
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 
 			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
+				try {
+					const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+					const data = await resp.json();
+					setStore({ message: data.message });
 					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
+				} catch (error) {
+					console.log("Error loading message from backend", error);
 				}
 			},
 			changeColor: (index, color) => {
@@ -48,7 +62,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			}
 		}
-	};
-};
+	}
+}
 
 export default getState;
+

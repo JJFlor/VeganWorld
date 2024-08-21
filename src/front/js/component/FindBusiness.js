@@ -6,7 +6,7 @@ export const FindBusiness = () => {
     const containerStyle = {
         minWidth: '400px',
         minHeight: '500px',
-        borderRadius: '15px'
+        borderRadius: '14px'
     };
 
     const center = {
@@ -17,15 +17,15 @@ export const FindBusiness = () => {
     const markers = [
         {
             id: 1,
-            position: { lat: 41.3880461278723, lng: 2.167037641404972 }, // San Francisco
+            position: { lat: 41.3880461278723, lng: 2.167037641404972 }, 
         },
         {
             id: 2,
-            position: { lat: 41.38649263978724, lng: 2.130763342351535 }, // Los Angeles 41.38649263978724, 2.130763342351535
+            position: { lat: 41.38649263978724, lng: 2.130763342351535 }, 
         },
         {
             id: 3,
-            position: { lat: 41.40155361180801, lng: 2.160093173042831 },  // New York 41.40155361180801, 2.160093173042831
+            position: { lat: 41.40155361180801, lng: 2.160093173042831 },  
         },
     ];
 

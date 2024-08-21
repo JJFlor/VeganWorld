@@ -4,7 +4,8 @@ import ScrollToTop from "./component/ScrollToTop.js";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-
+import { AddProduct } from "./pages/AddProduct";
+import { ShopBusiness } from "./pages/ShopBusiness";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
