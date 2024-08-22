@@ -1,5 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
+		
 		store: {
 			message: null,
 			token: localStorage.getItem("token") || null,
