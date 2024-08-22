@@ -27,6 +27,7 @@ def register_user():
     else:
         return jsonify({"msg":"User already exist, Log in"}), 401
 
+
 @api.route('/register_partner', methods=['POST'])
 def register_partner():
     body = request.json
