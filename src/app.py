@@ -13,11 +13,11 @@ from api.commands import setup_commands
 from flask_cors import CORS
 import cloudinary
 import cloudinary.uploader
+from flask_jwt_extended import JWTManager
 
 
 
-
-# from models import Person
+# from models import Person 
 
 cloudinary.config(
     cloud_name='dulhrrkqi',

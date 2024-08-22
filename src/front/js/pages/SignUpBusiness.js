@@ -54,8 +54,8 @@ export const SignUpBusiness = () => {
 
     return (
         <div className="container">
-            <div className="d-flex flex-column signUp-card w-50">
-                <div className="p-5 form-wrapper">
+            <div className="d-flex flex-column signUp-card-business w-50">
+                <div className="p-4 form-wrapper">
                     <h1 className="display-4 create-account-title">Create an account</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">

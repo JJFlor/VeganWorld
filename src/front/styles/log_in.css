@@ -2,12 +2,20 @@
     position: relative;
 }
 
+.signUp-card-login {
+    background-color: white;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 55%;
+}
+
 .showPasswordIcon {
     position: absolute;
     display: block;
     user-select: none;
-    bottom: 13rem;
-    right: 36rem;
+    bottom: 13.8rem;
+    right: 35.6rem;
 }
 
 .modalIsRelative {
