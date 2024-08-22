@@ -10,8 +10,10 @@ export const Home = () => {
 
 	return (
 		<div>
-
 			<Jbtron />
+			<FindBusiness />
+			<Shops />
+			<Reviews />
 			<Footer />
 		</div>
 	);

@@ -29,7 +29,7 @@ export const ShopBusiness = () => {
     };
 
     const handleDelete = (productId) => {
-        fetch(`https://psychic-garbanzo-q7v9v97p6xj93x74p-3001.app.github.dev/api/products/${productId}`, {
+        fetch(process.env.BACKEND_URL + `/api/products/${productId}`, {
             method: 'DELETE'
         })
             .then(response => {
