@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import LogoNav from "../../img/aguaAmarillo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 
 	return (
 		<nav className="navbar navbar-expand-lg sticky-top">
@@ -35,8 +36,8 @@ export const Navbar = () => {
 						) : (
 							// Si no está autenticado, muestra los botones de Sign Up y Register
 							<>
-								<Link to="/signup" className="btn btnNavbar px-3 mx-2 my-1">Sign Up</Link>
-								<Link to="/register" className="btn btnNavbar mx-2 my-1">Register</Link>
+								<Link to="/SignUpChooseType" className="btn btnNavbar px-3 mx-2 my-1">Sign Up</Link>
+								<Link to="/Login" className="btn btnNavbar mx-2 my-1">Log in</Link>
 							</>
 						)}
 					</div>

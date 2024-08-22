@@ -28,9 +28,9 @@ export const SignUpUser = () => {
         setShown(!shown)
     }
 
-    const SignUp = async (email, password, name) => {
+    const signUpUser = async (email, password, name) => {
         await actions.signUpUser(email, password, name);
-        navigate('/private_profile');
+        navigate('/usuario');
     }
 
     return (
@@ -55,7 +55,7 @@ export const SignUpUser = () => {
                             <img className="logoAvocado" src={LogoAvocado} href="#" />
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => SignUp(email, password, name, "", "")}>Sign up</button>
+                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, name)}>Sign up</button>
                 </div>
             </div>
         </div>

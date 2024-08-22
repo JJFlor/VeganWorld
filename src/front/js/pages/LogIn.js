@@ -50,7 +50,7 @@ export const LogIn = () => {
     }
     return (
         <div className="container">
-            <div className="d-flex flex-column signUp-card w-50">
+            <div className="d-flex flex-column signUp-card-login w-50">
                 <div className="p-5 form-wrapper">
                     <h1 className="display-4 create-account-title">Log In</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">

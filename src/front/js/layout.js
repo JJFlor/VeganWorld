@@ -20,6 +20,10 @@ import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";
 import { EditProduct } from "./pages/EditProduct.js";
+import { SignUpChooseType } from "./pages/SignUpChooseType.js";
+import { SignUpUser } from "./pages/SignUpUser.js";
+import { SignUpBusiness } from "./pages/SignUpBusiness.js";
+import { LogIn } from "./pages/LogIn.js";
 
 //create your first component
 const Layout = () => {
@@ -43,6 +47,10 @@ const Layout = () => {
                         <Route element={<AddProduct />} path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
                         <Route element={<Usuario />} path="/usuario" />
+                        <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
+                        <Route element={<SignUpUser />} path="/SignUpUser" />
+                        <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
+                        <Route element={<LogIn />} path="/LogIn" />
                         <Route element={<DetailView />} path="/product_info/:id" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />

@@ -10,20 +10,20 @@ export const SignUpChooseType = () => {
     const navigate = useNavigate();
 
     const handleUserClick = () => {
-        setUser(true)
-        setBusiness(false)
+        setUser(true);
+        setBusiness(false);
     }
 
     const handleBusinessClick = () => {
-        setUser(false)
-        setBusiness(true)
+        setUser(false);
+        setBusiness(true);
     }
 
     const handleNext = (user, business) => {
         if (user) {
-            navigate('/SignUpUser')
+            navigate('/SignUpUser');
         } else if (business) {
-            navigate('/SignUpBusiness')
+            navigate('/SignUpBusiness');
         } else return
 
     }
