@@ -45,8 +45,7 @@ export const LogIn = () => {
 
     const logIn = async () => {
         const resp = await actions.logIn(email, password);
-        console.log(await resp)
-        await resp? navigate('/ProfileBussines') : navigate('/usuario')
+        await resp? navigate('/ProfileBusiness') : navigate('/usuario')
     }
 
 
