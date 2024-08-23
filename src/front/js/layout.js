@@ -23,7 +23,10 @@ import { EditProduct } from "./pages/EditProduct.js";
 import { SignUpChooseType } from "./pages/SignUpChooseType.js";
 import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
+import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
+import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
+import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
 
 //create your first component
 const Layout = () => {
@@ -47,10 +50,13 @@ const Layout = () => {
                         <Route element={<AddProduct />} path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
                         <Route element={<Usuario />} path="/usuario" />
+                        <Route element={<SearchEngineMainPage />} path="/SearchEngineMainPage" />
                         <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
+                        <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
+                        <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={<DetailView />} path="/product_info/:id" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />

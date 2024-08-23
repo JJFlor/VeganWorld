@@ -5,8 +5,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") || null,
 			email: localStorage.getItem("email") || null,
 			partnerInfo: JSON.parse(localStorage.getItem("partner")) || null,
-			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || null,
-			premiumPartnersFiltered: null
+			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || [],
+			premiumPartnersFiltered: null,
+			partnersWithPremiumIcon: null,
+			user: JSON.parse(localStorage.getItem("user")) || null
 
 		},
 		actions: {
@@ -100,7 +102,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						//guardar info token en localStorage
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.email)
-						setStore({ ...store, token: data.token, email: data.email })
+						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
+						setStore({ ...store, token: data.token, email: data.email, user: data.user }) // Actualizar el store con la información del usuario
 					} else {
 						console.log("Token not received", data)
 					}
@@ -111,8 +114,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			logOut: () => {
 				const store = getStore();
-				localStorage.removeItem("token")
-				setStore({ ...store, token: '', email: '' })
+				// Limpiar el estado del usuario y remover datos del localStorage
+                localStorage.removeItem("token");
+                localStorage.removeItem("email");
+                localStorage.removeItem("user");
+                setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
 			resetPassword: async (email, password) => {
 				const store = getStore();
@@ -184,10 +190,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setCathegoryFilter: (typeOfServices) => {
 				const store = getStore();
-				console.log("Hola")
 				const filteredPartners = store.premiumPartners.filter(partner => partner.type_of_services == typeOfServices);
 				console.log(filteredPartners)
 				setStore({ ...store, premiumPartnersFiltered: filteredPartners });
+			},
+			showPremiumIcon: (premium) => {
+				const store = getStore();
+				const havePremiumIcon = store.premiumPartners.some(partner => partner.premium === premium);
+				setStore({ ...store, partnersWithPremiumIcon: havePremiumIcon });
 			},
 			setFilteredPartnerNull: () => {
 				const store = getStore();

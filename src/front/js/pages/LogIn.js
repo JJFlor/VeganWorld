@@ -48,8 +48,10 @@ export const LogIn = () => {
 
     const logIn = async () => {
         await actions.logIn(email, password);
-        navigate('/private_profile')
+        navigate('/usuario')
     }
+
+
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">

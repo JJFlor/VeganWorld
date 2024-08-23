@@ -7,6 +7,12 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
+
+	const handleLogout = () => {
+        actions.logOut();  // Llama a la acción logOut para cerrar sesión
+        navigate('/');     // Redirige al usuario a la página de inicio
+    };
+
 	return (
 		<nav className="navbar navbar-expand-lg sticky-top">
 			<div className="container-fluid px-5">
@@ -17,7 +23,7 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse itemsNav" id="navbarNavAltMarkup">
 					<div className="navbar-nav">
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1">Home</Link>
-						<a className="nav-link itemsNavbar px-3 my-1">Business</a>
+						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Blog</a>
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
@@ -30,7 +36,7 @@ export const Navbar = () => {
 								</a>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a className="dropdown-item" href="#">Profile</a></li>
-									<li><a className="dropdown-item" href="#" onClick={() => actions.logoutUser()}>Logout</a></li>
+									<li><a className="dropdown-item" href="#" onClick={() => handleLogout()}>Logout</a></li>
 								</ul>
 							</div>
 						) : (
