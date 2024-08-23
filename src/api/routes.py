@@ -23,7 +23,7 @@ def register_user():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_user.id)
-        return jsonify({"msg":"User created", "access token": access_token}), 200
+        return jsonify({"msg":"User created", "access token": access_token, "user":new_user.serialize(), "rol": "user"}), 200
     else:
         return jsonify({"msg":"User already exist, Log in"}), 401
 
@@ -38,7 +38,7 @@ def register_partner():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_partner.id)
-        return jsonify({"msg":"Partner created", "access_token": access_token, "partner": new_partner.serialize()}), 200
+        return jsonify({"msg":"Partner created", "access_token": access_token, "partner": new_partner.serialize(), "rol":"partner"}), 200
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     
@@ -78,8 +78,6 @@ def reset_password():
     return jsonify({"msg":"Password got reset"}), 200
         
     
-
-
 #create a route to authenticate users and return JWT token
 @api.route('/log_in', methods = ['POST'])
 def log_in():
@@ -91,7 +89,7 @@ def log_in():
         return jsonify({"msg":"Bad username or password"}), 401 
     
     access_token = create_access_token(identity=user.id)
-    return jsonify({"token":access_token, "user_id": user.id, "email": user.email})
+    return jsonify({"token":access_token, "user": user.serialize()})
 
 #Protect one route with jwt_required, blocking petitions without a valid JWT 
 @api.route('/private_profile', methods=['GET'])

@@ -43,12 +43,11 @@ export const LogIn = () => {
 
     }
 
-    
-
-
     const logIn = async () => {
-        await actions.logIn(email, password);
-        navigate('/usuario')
+        const resp = await actions.logIn(email, password);
+        !resp ? navigate('/usuario') : navigate('/ProfileBusiness')
+
+
     }
 
 
