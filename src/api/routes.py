@@ -84,8 +84,6 @@ def reset_password():
     return jsonify({"msg":"Password got reset"}), 200
         
     
-
-
 #create a route to authenticate users and return JWT token
 @api.route('/log_in', methods = ['POST'])
 def log_in():

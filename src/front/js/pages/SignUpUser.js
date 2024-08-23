@@ -47,7 +47,7 @@ export const SignUpUser = () => {
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
                             <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputIsRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value)}} value={password} />
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputIsRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPassword" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
                         </div>

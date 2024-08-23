@@ -3,6 +3,17 @@ import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import "/workspaces/VeganWorld/src/front/styles/shoppremium.css"
 import { Form } from '../component/Form'
 import { Dashboard } from '../component/Dashboard'
+import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
+import { Reviews } from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
+import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
+import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
+import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
+import '../../styles/shopview.css';
+
+
+
+
+//PROFILE BUSINESS PREMIUM //
 
 export const ProfileBusinessPremium = () => {
     return (
@@ -125,3 +136,5 @@ export const ProfileBusinessPremium = () => {
         </div>
     )
 }
+
+

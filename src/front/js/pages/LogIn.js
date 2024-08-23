@@ -43,9 +43,6 @@ export const LogIn = () => {
 
     }
 
-    
-
-
     const logIn = async () => {
         const resp = await actions.logIn(email, password);
         console.log(await resp)

@@ -101,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.token) {
 						//guardar info token en localStorage
 						localStorage.setItem("token", data.token)
-						localStorage.setItem("email", data.email)
+						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
 						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, parter: data.user.partner? data.user.partner : null }) // Actualizar el store con la información del usuario
 						return data.user.partner
@@ -116,10 +116,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logOut: () => {
 				const store = getStore();
 				// Limpiar el estado del usuario y remover datos del localStorage
-                localStorage.removeItem("token");
-                localStorage.removeItem("email");
-                localStorage.removeItem("user");
-                setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
+				localStorage.removeItem("token");
+				localStorage.removeItem("email");
+				localStorage.removeItem("user");
+				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
 			resetPassword: async (email, password) => {
 				const store = getStore();
