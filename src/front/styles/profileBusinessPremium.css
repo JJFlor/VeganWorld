@@ -1,0 +1,110 @@
+.info-client {
+    background-color: #006769;
+    border-radius: 15px;
+    color: #F6FB7A;
+    padding: 15px;
+}
+
+.info-business {
+    border-radius: 15px;
+    color: #006769;
+    padding: 15px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+
+}
+
+.business-profile-img {
+    border: 1px solid black;
+    border-radius: 100px;
+    max-width: 150px;
+    float: left;
+    background-color: #ffffff;
+
+}
+
+.user-name {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.business-name {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.edit-business {
+    margin-left: 10px;
+}
+
+.fav-places {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+
+}
+
+.premium-icon {
+    font-size: 50px;
+    margin-left: 10px;
+    vertical-align: text-bottom;
+}
+
+.edit-btn {
+    background-color: none;
+    color:#F6FB7A;
+}
+.publish-btn {
+    background-color: #F6FB7A;
+    margin-top: -4px;
+    color:#F6995c;
+    margin-left:auto;
+}
+
+.shop-btn {
+    background-color:#F6995c;
+    color:#F6FB7A;
+    margin-top:20px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.shop-btn:hover{
+    transition: 0.4s;
+    background-color: #006769;
+    color: #F6FB7A;
+}
+
+.edit-btn:hover, .publish-btn:hover, .add-new-product-btn:hover {
+    transition: 0.4s;
+    background-color: #F6995c;
+    color: #006769;
+}
+
+.add-new-product-btn {
+    background-color: #F6FB7A;
+    margin-top: -20px;
+    color:#F6995c;
+    float: right;
+
+}
+
+ 
+.logoAvocado {
+    max-width: 120px;
+    float: right;
+    margin-top: 16px;
+    
+}
+.profile-img{
+    border: 1px solid black;
+    border-radius: 100px;
+    max-width: 150px;
+    float: left;
+    margin-top: 16px;
+    background-color: #ffffff;
+
+}

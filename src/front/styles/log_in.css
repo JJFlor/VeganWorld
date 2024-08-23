@@ -1,0 +1,44 @@
+.isRelative {
+    position: relative;
+}
+
+.signUp-card-login {
+    background-color: white;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 55%;
+}
+
+.showPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 13.8rem;
+    right: 35.6rem;
+}
+
+.modalIsRelative {
+    position: relative;
+}
+
+.modalShowPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 5rem;
+    right: 2rem;
+
+}
+
+.modalTwoIsRelative {
+    position: relative;
+}
+
+.modalTwoShowPasswordIcon {
+    position: absolute;
+    display: block;
+    user-select: none;
+    bottom: 1.5rem;
+    right: 2rem;
+}
