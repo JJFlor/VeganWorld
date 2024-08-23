@@ -55,7 +55,7 @@ export const SignUpUser = () => {
                             <img className="logoAvocado" src={LogoAvocado} href="#" />
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, name)}>Sign up</button>
+                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, username)}>Sign up</button>
                 </div>
             </div>
         </div>
