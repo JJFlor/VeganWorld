@@ -9,6 +9,7 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 
 api = Blueprint('api', __name__)
 
+
 # Allow CORS requests to this API
 CORS(api)
 
@@ -59,7 +60,8 @@ def getAllPartnersInfo():
         return jsonify({"msg":"Partners not found"}), 404
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
-    
+
+
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
