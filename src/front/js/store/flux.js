@@ -123,21 +123,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
 			resetPassword: async (email, password) => {
-				const store = getStore();
 				try {
-					// fetching data from the backend
 					const response = await fetch(`${process.env.BACKEND_URL}/api/resetPassword`, {
 						method: 'PUT',
 						body: JSON.stringify({ email, password }),
 						headers: { "Content-Type": "application/json" }
 					});
+			
+					if (!response.ok) {
+						const errorData = await response.json();
+						console.error("Failed to reset password:", errorData.message || response.statusText);
+						return { success: false, message: errorData.message || "Failed to reset password." };
+					}
+			
 					const data = await response.json();
 					if (data.ok) {
-						alert("Password was reset succesfully")
+						alert("Password was reset successfully");
+						return { success: true, message: "Password was reset successfully." };
+					} else {
+						return { success: false, message: data.message || "Failed to reset password." };
 					}
+			
 				} catch (error) {
-					console.log("An error ocurred when updating your password", error);
-
+					console.error("An error occurred when updating your password:", error);
+					return { success: false, message: "An error occurred when updating your password." };
 				}
 			},
 			getPartnerInfo: async (name, typeOfServices, premium) => {
