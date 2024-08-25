@@ -53,7 +53,7 @@ export const LogIn = () => {
 
     const logIn = async () => {
         const response = await actions.logIn(email, password);
-        if (!response.success) {
+        if (response.success) {
             navigate('/usuario');
         } else {
             navigate('/ProfileBusiness');

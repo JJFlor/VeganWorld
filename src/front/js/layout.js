@@ -11,9 +11,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.js";
-import { ShopView } from "./pages/ShopView.js";
 import { Usuario } from "./pages/Usuario";
-import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
 
 import { Form } from "./component/Form.js";
@@ -47,9 +45,7 @@ const Layout = () => {
                         <Route element={<ShopClient />} path="/shop_client" />
                         <Route element={<ShopBusiness />} path="/shop_business" />
                         <Route element={<EditProduct />} path="edit_product/:id" />
-                        <Route element={<ShopPremium />} path="/shop_premium" />
                         <Route element={<AddProduct />} path="/add_product" />
-                        <Route element={<ShopView />} path="/shop_view" />
                         <Route element={<Usuario />} path="/usuario" />
                         <Route element={<SearchEngineMainPage />} path="/SearchEngineMainPage" />
                         <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
