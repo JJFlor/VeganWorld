@@ -14,27 +14,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 
 
-			setProducts: (newProducts) => {
-				setStore({ products: newProducts });
-			},
+		setProducts: (newProducts) => {
+			setStore({ products: newProducts });
+		},
 
 
-			setProductEdit: (item) => {
-				setStore({ productEdit: item });
-			},
+		setProductEdit: (item) => {
+			setStore({ productEdit: item });
+		},
 
-			getProducts: async () => {
-				try {
+		getProducts: async () => {
+			try {
 					const response = await fetch(process.env.BACKEND_URL + '/api/products');
 					const data = await response.json();
 					setStore({ products: data });
 					return data;
-				} catch (error) {
+			} catch (error) {
 					console.error('Error fetching products:', error);
-				}
-			},
+			}
+		},
 
-			signUpUser: async (email, password, name) => {
+		    signUpUser: async (email, password, name) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
@@ -211,7 +211,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFilteredPartnerNull: () => {
 				const store = getStore();
 				setStore({ ...store, premiumPartnersFiltered: null });
-			}
+			}, 
 		}
 	}
 }

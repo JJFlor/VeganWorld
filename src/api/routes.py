@@ -112,6 +112,7 @@ def private_profile():
 
 # Crear un nuevo producto
 @api.route('/products', methods=['POST'])
+@jwt_required()
 def create_product():
     data = request.json
     new_product = Inventory(
@@ -127,12 +128,14 @@ def create_product():
 
 # Obtener todos los productos
 @api.route('/products', methods=['GET'])
+@jwt_required()
 def get_products():
     products = Inventory.query.all()
     return jsonify([product.serialize() for product in products]), 200
 
 # Editar un producto
 @api.route('/products/<int:product_id>', methods=['PUT'])
+@jwt_required()
 def update_product(product_id):
     data = request.json
     product = Inventory.query.get_or_404(product_id)
@@ -146,6 +149,7 @@ def update_product(product_id):
 
 # Eliminar un producto
 @api.route('/products/<int:product_id>', methods=['DELETE'])
+@jwt_required()
 def delete_product(product_id):
     product = Inventory.query.get_or_404(product_id)
     db.session.delete(product)
