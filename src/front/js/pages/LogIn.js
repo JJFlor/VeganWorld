@@ -37,29 +37,14 @@ export const LogIn = () => {
             return;
         }
 
-        if (newPassword !== repeatNewPassword) {
-            setResetMessage("Passwords do not match.");
-            return;
-        }
-
-        const response = await actions.resetPassword(email, newPassword);
-
-        if (response.success) {
-            setResetMessage(response.message);
-        } else {
-            setResetMessage(response.message);
-        }
-    }
 
     const logIn = async () => {
-        const response = await actions.logIn(email, password);
-        if (response.success) {
-            navigate('/usuario');
-        } else {
-            navigate('/ProfileBusiness');
-        }
+        const resp = await actions.logIn(email, password);
+        await resp? navigate('/ProfileBusiness') : navigate('/usuario')
+
     }
 
+   
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">

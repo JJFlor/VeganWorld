@@ -63,7 +63,7 @@ export function Form() {
         />
       </div>
       <div>
-        <label>About Me:</label>
+        <label>About:</label>
         <textarea
           name="aboutMe"
           value={formData.aboutMe}
@@ -74,4 +74,4 @@ export function Form() {
     </form>
   );
 }
-// Boton azul de edit profile habilita el formulario de edit profile
+// Boton azul de edit profile de la pagina usuario habilita el formulario de edit profile
