@@ -14,27 +14,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 
 
-			setProducts: (newProducts) => {
-				setStore({ products: newProducts });
-			},
+		setProducts: (newProducts) => {
+			setStore({ products: newProducts });
+		},
 
 
-			setProductEdit: (item) => {
-				setStore({ productEdit: item });
-			},
+		setProductEdit: (item) => {
+			setStore({ productEdit: item });
+		},
 
-			getProducts: async () => {
-				try {
+		getProducts: async () => {
+			try {
 					const response = await fetch(process.env.BACKEND_URL + '/api/products');
 					const data = await response.json();
 					setStore({ products: data });
 					return data;
-				} catch (error) {
+			} catch (error) {
 					console.error('Error fetching products:', error);
-				}
-			},
+			}
+		},
 
-			signUpUser: async (email, password, name) => {
+		signUpUser: async (email, password, name) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
@@ -52,15 +52,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.getItem("token", data.access_token);
 						localStorage.getItem("email", data.user.email);
 						setStore({ ...store, token: data.access_token, email: data.user.email, user: data.user })
-						alert("Success")
 					} else {
 						console.log("Token not received", data);
 					}
 				} catch (error) {
 					console.log("Error loading message from backend", error);
 				}
-			},
-			signUpPartner: async (email, password, name, typeOfServices, premium) => {
+		},
+		signUpPartner: async (email, password, name, typeOfServices, premium) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
@@ -102,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner? data.user.partner : null }) // Actualizar el store con la información del usuario
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner? data.user.partner : null }) 
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)
@@ -121,21 +120,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
 			resetPassword: async (email, password) => {
-				const store = getStore();
 				try {
-					// fetching data from the backend
 					const response = await fetch(`${process.env.BACKEND_URL}/api/resetPassword`, {
 						method: 'PUT',
 						body: JSON.stringify({ email, password }),
 						headers: { "Content-Type": "application/json" }
 					});
+			
+					if (!response.ok) {
+						const errorData = await response.json();
+						console.error("Failed to reset password:", errorData.message || response.statusText);
+						return { success: false, message: errorData.message || "Failed to reset password." };
+					}
+			
 					const data = await response.json();
 					if (data.ok) {
-						alert("Password was reset succesfully")
+						alert("Password was reset successfully");
+						return { success: true, message: "Password was reset successfully." };
+					} else {
+						return { success: false, message: data.message || "Failed to reset password." };
 					}
+			
 				} catch (error) {
-					console.log("An error ocurred when updating your password", error);
-
+					console.error("An error occurred when updating your password:", error);
+					return { success: false, message: "An error occurred when updating your password." };
 				}
 			},
 			getPartnerInfo: async (name, typeOfServices, premium) => {
@@ -202,7 +210,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFilteredPartnerNull: () => {
 				const store = getStore();
 				setStore({ ...store, premiumPartnersFiltered: null });
-			}
+			}, 
 		}
 	}
 }
