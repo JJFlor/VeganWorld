@@ -9,6 +9,7 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 
 api = Blueprint('api', __name__)
 
+
 # Allow CORS requests to this API
 CORS(api)
 
@@ -23,7 +24,7 @@ def register_user():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_user.id)
-        return jsonify({"msg":"User created", "access token": access_token}), 200
+        return jsonify({"msg":"User created", "access token": access_token, "user": user.serialize()}), 200
     else:
         return jsonify({"msg":"User already exist, Log in"}), 401
 
@@ -31,14 +32,20 @@ def register_user():
 @api.route('/register_partner', methods=['POST'])
 def register_partner():
     body = request.json
+
+    user = User.query.filter_by(email = body["email"]).first()
     partner = Partner.query.filter_by(email = body["email"]).first()
-    if partner is None:
-        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], password = body["password"], premium = body["premium"])
+
+    if user is None and partner is None:
+        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"])
         db.session.add(new_partner)
+        db.session.commit()
+        new_user = User(name = body["name"], email = body["email"], password = body["password"], partner_id=new_partner.id)
+        db.session.add(new_user)
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_partner.id)
-        return jsonify({"msg":"Partner created", "access_token": access_token, "partner": new_partner.serialize()}), 200
+        return jsonify({"msg":"Partner created", "access_token": access_token, "user": new_user.serialize(), 'partner': new_partner.serialize()}), 200
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     
@@ -59,7 +66,8 @@ def getAllPartnersInfo():
         return jsonify({"msg":"Partners not found"}), 404
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
-    
+
+
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
@@ -78,8 +86,6 @@ def reset_password():
     return jsonify({"msg":"Password got reset"}), 200
         
     
-
-
 #create a route to authenticate users and return JWT token
 @api.route('/log_in', methods = ['POST'])
 def log_in():
@@ -89,9 +95,10 @@ def log_in():
     user = User.query.filter_by(email = email, password = password).first()
     if user is None:
         return jsonify({"msg":"Bad username or password"}), 401 
-    
+
+
     access_token = create_access_token(identity=user.id)
-    return jsonify({"token":access_token, "user_id": user.id, "email": user.email})
+    return jsonify({"token":access_token, 'user': user.serialize()})
 
 #Protect one route with jwt_required, blocking petitions without a valid JWT 
 @api.route('/private_profile', methods=['GET'])
@@ -105,6 +112,7 @@ def private_profile():
 
 # Crear un nuevo producto
 @api.route('/products', methods=['POST'])
+@jwt_required()
 def create_product():
     data = request.json
     new_product = Inventory(
@@ -120,12 +128,14 @@ def create_product():
 
 # Obtener todos los productos
 @api.route('/products', methods=['GET'])
+@jwt_required()
 def get_products():
     products = Inventory.query.all()
     return jsonify([product.serialize() for product in products]), 200
 
 # Editar un producto
 @api.route('/products/<int:product_id>', methods=['PUT'])
+@jwt_required()
 def update_product(product_id):
     data = request.json
     product = Inventory.query.get_or_404(product_id)
@@ -139,6 +149,7 @@ def update_product(product_id):
 
 # Eliminar un producto
 @api.route('/products/<int:product_id>', methods=['DELETE'])
+@jwt_required()
 def delete_product(product_id):
     product = Inventory.query.get_or_404(product_id)
     db.session.delete(product)

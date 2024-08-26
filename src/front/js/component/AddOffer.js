@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "/workspaces/VeganWorld/src/front/styles/addoffer.css";
 
-export const AddProduct = () => {
+export const AddOffer = () => {
+
     const [productName, setProductName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -64,28 +65,19 @@ export const AddProduct = () => {
         }
     };
 
+
+
     return (
         <div className="container contAdd">
-            <div className="text-center">
-                <Link to="/shop_client">
-                    <span className="btn btnGoShop">Go to Shop</span>
-                </Link>
-            </div>
-            
+
 
             <div className="contFormAdd p-5 mb-3">
-                <h3 id="title-offer">ADD NEW PRODUCT:</h3>
+                <h3 id="title-offer">ADD NEW OFFER:</h3>
                 <br></br>
                 <div className="row mb-3">
-                    <label className="col-sm-2 col-form-label">Name</label>
+                    <label className="col-sm-2 col-form-label">Discount</label>
                     <div className="col-sm-10">
-                        <input type="text" className="form-control" id="name" value={productName} onChange={(e) => setProductName(e.target.value)} />
-                    </div>
-                </div>
-                <div className="row mb-3">
-                    <label className="col-sm-2 col-form-label">Price</label>
-                    <div className="col-sm-10">
-                        <input type="number" className="form-control" id="price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                        <input type="percentage" className="form-control" id="discount" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -99,10 +91,12 @@ export const AddProduct = () => {
                     <label>Description</label>
                 </div>
                 <div className="btnsProduct">
-                    <Link to="/shop_business" className="btn btnCancel mx-2 my-4">Cancel</Link>
+                    <Link className="btn btnCancel mx-2 my-4">Cancel</Link>
                     <button className="btn btnSave mx-2 my-4" onClick={handleSave}>Save</button>
                 </div>
             </div>
         </div>
     )
+
 }
+

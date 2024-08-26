@@ -30,6 +30,9 @@
     color: #F6FB7A;
     background-color: #006769;
    font-weight: 500;
+   margin-left: 85px;
+   margin-top: 30px;
+   margin-bottom: 20px;
 }
   
 .btnCards:hover {
@@ -37,3 +40,20 @@
     background-color: #F6995c;
     color: #006769;
 }
+
+.card-title{
+    margin-top: 31px;
+    margin-left: 29px;
+
+}
+.card-info {
+    margin-left: 179px;
+    margin-top: -94px;
+}
+
+.imgReview{
+    border: 1px solid black;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-top: 20px; 
+  }

@@ -2,25 +2,23 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/ScrollToTop.js";
 import { BackendURL } from "./component/backendURL";
+import PrivateRoute from "./component/PrivateRoute";
 
 import { Home } from "./pages/home";
 import { AddProduct } from "./pages/AddProduct";
 import { ShopBusiness } from "./pages/ShopBusiness";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
 import { Usuario } from "./pages/Usuario";
-import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
 
 import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";
 import { EditProduct } from "./pages/EditProduct.js";
-import { SignUpChooseType } from "./pages/SignUpChooseType.js";
+// import { SignUpChooseType } from "./pages/SignUpChooseType.js";
 import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";

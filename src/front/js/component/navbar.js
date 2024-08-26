@@ -42,7 +42,7 @@ export const Navbar = () => {
 						) : (
 							// Si no está autenticado, muestra los botones de Sign Up y Register
 							<>
-								<Link to="/SignUpChooseType" className="btn btnNavbar px-3 mx-2 my-1">Sign Up</Link>
+								<Link to="/SignUpUser" className="btn btnNavbar px-3 mx-2 my-1">Sign Up</Link>
 								<Link to="/Login" className="btn btnNavbar mx-2 my-1">Log in</Link>
 							</>
 						)}

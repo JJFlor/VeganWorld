@@ -18,20 +18,17 @@ export const LogIn = () => {
     const [repeatNewPassword, setRepeatNewPassword] = useState("");
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    // const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
 
-
+    
     useEffect(() => {
         const scrollToTop = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         scrollToTop();
     }, []);
-
     const switchShown = () => {
         setShown(!shown)
     }
-
     const resetPassword = (email, newPassword) => {
         console.log(newPassword)
         console.log(repeatNewPassword)
@@ -40,18 +37,11 @@ export const LogIn = () => {
         } else if (email == store.email && newPassword != repeatNewPassword()) {
             alert("Email or passwords are incorrect");
         }
-
     }
-
-    
-
-
     const logIn = async () => {
-        await actions.logIn(email, password);
-        navigate('/usuario')
+        const resp = await actions.logIn(email, password);
+        await resp? navigate('/ProfileBusiness') : navigate('/usuario')
     }
-
-
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">
