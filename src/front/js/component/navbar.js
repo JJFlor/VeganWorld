@@ -24,7 +24,6 @@ export const Navbar = () => {
 					<div className="navbar-nav">
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1">Home</Link>
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
-						<a className="nav-link itemsNavbar px-3 my-1">Blog</a>
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
 

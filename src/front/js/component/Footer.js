@@ -1,5 +1,6 @@
 import React from "react";
 import LogoNav from "../../img/aguaAmarillo.png"
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
 
@@ -11,10 +12,9 @@ export const Footer = () => {
 						<img src={LogoNav} alt="logo" className="lgFooter" />
 					</div>
 					<div className="col-8 contLogoFooter text-center">
-						<a href="" className="btn btnFooter px-5 pt-3">Blog</a>
-						<a href="" className="btn btnFooter px-5 pt-3">Contact Us</a>
-						<a href="" className="btn btnFooter px-5 pt-3">Work With Us</a>
-						<a href="" className="btn btnFooter px-5 pt-3">Premium Zone</a>
+						
+						<Link to="#" className="btn btnFooter px-5 pt-3">Contact Us</Link>
+						
 					</div>
 					<div className="col-2 contLogoFooter text-center pt-5">
 						<a href="" className="mx-2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" fill="#F6FB7A" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg></a>

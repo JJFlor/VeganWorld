@@ -63,7 +63,7 @@ export const Shops = () => {
             </div>
             <div className="goShop" style={backgroundImage}>
                 <div className="container text-end">
-                    <a className="btn btnShopNow">SHOP NOW!</a>
+                    <a className="btn btnShopNow">BUY NOW!</a>
                 </div>
                 <div className="container">
                     <p className="txtDiscount text-start">Use code: 4GEEKS and get 20% discount</p>

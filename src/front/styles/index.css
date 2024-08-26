@@ -56,15 +56,14 @@
 }
 
 
-.mapSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.mapSectionHome {
+  display: block;
+  min-height: 500px;
 }
 
-.map {
-  width: 60%;
-  height: 400px;
+.mapHome {
+  width: 100%;
+  
   border-radius: 15px;
   margin-top: 4rem;
   margin-bottom: 3rem;
