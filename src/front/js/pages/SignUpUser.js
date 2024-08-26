@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { FaQuestionCircle } from "react-icons/fa";
 
 
 
@@ -33,6 +34,10 @@ export const SignUpUser = () => {
         navigate('/usuario');
     }
 
+    const areYouAbusiness = () => {
+        navigate('/SignUpBusiness')
+    }
+
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card w-50">
@@ -47,15 +52,18 @@ export const SignUpUser = () => {
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
                             <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputIsRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value)}} value={password} />
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputIsRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPassword" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
+                            <p className="try-premium">
+                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium"onClick={() => areYouAbusiness()}>Click here!</a>
+                            </p>
                         </div>
                         <div className="ms-4">
                             <img className="logoAvocado" src={LogoAvocado} href="#" />
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, name)}>Sign up</button>
+                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, username)}>Sign up</button>
                 </div>
             </div>
         </div>

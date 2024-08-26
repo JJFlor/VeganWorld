@@ -3,9 +3,6 @@ import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import "/workspaces/VeganWorld/src/front/styles/profileBusinessPremium.css"
 import { Form } from '../component/Form'
 import { Dashboard } from '../component/Dashboard'
-import '/workspaces/VeganWorld/src/front/styles/profileBusinessPremium.css';
-import { AddProduct } from './AddProduct'
-import { AddOffer } from '/workspaces/VeganWorld/src/front/js/component/AddOffer.js'
 
 export const ProfileBusinessPremium = () => {
 

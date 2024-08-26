@@ -42,10 +42,8 @@ export const SignUpBusiness = () => {
 
     const handleSignUp = async () => {
         const signUpResult = await actions.signUpPartner(email, password, name, typeOfServices, premium);
-        if (await signUpResult && premium == true) {
-            navigate('/to premium profile')
-        } else if (await signUpResult && premium == false) {
-            navigate('/to free profile')
+        if (await signUpResult) {
+            navigate('/ProfileBusiness')
         } else {
             alert("Partner Sign Up failed");
 
@@ -66,7 +64,7 @@ export const SignUpBusiness = () => {
                                 <input type="text" className="form-control" placeholder="Type of services you offer" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
                             </div>
                             <p className="try-premium">
-                                Try Premium
+                                Choose between Free or Premium!
                                 <button type="button" class="btn-question-premium" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <FaQuestionCircle />
                                 </button>

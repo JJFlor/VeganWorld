@@ -146,7 +146,6 @@ export const SearchEngineMainPage = () => {
         const foundWord = keyWords.includes(search);
         if (foundWord) {
             actions.setCathegoryFilter(search);
-            alert("See the results below");
 
         } else {
             alert("Word doesn't match any result. Try with: restaurant, shop, wellness or activism");
@@ -164,6 +163,9 @@ export const SearchEngineMainPage = () => {
                 <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Look for vegan services" />
                 <button onClick={() => Search(search)} className="btn btnCards ms-3">Search</button>
             </div>
+            <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
+                <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
+            </button>
             <div className="row">
                 <div className="text-center">
                     <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("restaurant")}>🍴 Restaurants</button>
@@ -189,7 +191,7 @@ export const SearchEngineMainPage = () => {
                                 }}
                             >
                                 {markers.map(marker => (
-                                    <Marker key={marker.id} position={marker.position} />
+                                    <Marker key={marker.id} position={marker.position}/>
                                 ))}
 
                             </GoogleMap>
@@ -200,11 +202,8 @@ export const SearchEngineMainPage = () => {
                 }
 
             </div>
-            <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
-                <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
-            </button>
             <div>
-                <div className="container rollCards d-flex flex-row">
+                <div className="container rollCards d-flex flex-column">
                     {console.log(store.premiumPartners)}
                     {store.premiumPartnersFiltered ? store.premiumPartnersFiltered.map(filteredPartner =>
                     (<SearchRestaurantsPartners key={filteredPartner.id} name={filteredPartner.name}
