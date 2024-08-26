@@ -15,7 +15,7 @@ import { ShopView } from "./pages/ShopView.js";
 import { Usuario } from "./pages/Usuario";
 import { ShopPremium } from "./pages/ShopPremium";
 import { DetailView } from "./pages/DetailView";
-
+import { AddOffer } from "/workspaces/VeganWorld/src/front/js/component/AddOffer.js";
 import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";

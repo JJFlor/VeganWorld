@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/shopview.css';
+import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
 import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
 import { Reviews } from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
@@ -10,14 +10,31 @@ import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 export const ProfileBusinessFree = () => {
     return (
         <div id="shopview_container" className="container my-5">
-            <div id="shopview_container_background" className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                <div id="shopview_hero_cover" className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                    <h1 id="shopview_hero_cover_h1" className="display-4 fw-bold lh-1 text-body-emphasis">BUSINESS NAME</h1>
-                    <p id="shopview_hero_cover_p" className="lead">Business description and Adress</p>
+
+            <h1 id="usuario_h1" className="profile_name text-center col-12">Business Free NAME</h1>
+            <div className="profile_header">
+
+                <img src={BusinessLogo1} className="profile_img" alt="..." />
+
+
+                <div id="usuario_p_background" className="profile_aboutme">
+                    <h3 id="usuario_h3" className="text-bold">About Us</h3>
+
+                    <p className="profile_aboutme-texto">
+                        As you can see the paragraphs gracefully wrap around the floated image.
+                        Now imagine how this would look with some actual content in here,
+                        rather than just this boring placeholder text that goes on and on,
+                        but actually conveys no tangible information at.
+                        It simply takes up space and should not really be read.
+                        <br></br>
+                        <br></br>
+                        And yet, here you are, still persevering in reading this placeholder text,
+                        hoping for some more insights, or some hidden easter egg of content.
+                        A joke, perhaps. Unfortunately, there's none of that here.
+                    </p>
+
                 </div>
-                <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-                    <img className="rounded-lg-3" src={BusinessLogo1} alt="" width="720" />
-                </div>
+
             </div>
 
             <div className="b-example-divider"></div>

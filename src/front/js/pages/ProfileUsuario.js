@@ -9,7 +9,7 @@ export const ProfileUsuario = () => {
 
         <div className="container-fluid">
 
-            <h1 id="usuario_h1" className="profile_name text-center col-12">N A M E</h1>
+            <h1 id="usuario_h1" className="profile_name text-center col-12">USERNAME</h1>
             <div className="profile_header">
 
                 <img src={JorgePic} className="profile_img" alt="..." />
@@ -75,8 +75,8 @@ export const ProfileUsuario = () => {
                 </div>
 
                 <div className="boton_delete d-sm-flex justify-content-sm-center">
-                        <button type="button" className="btn btn-danger btn-lg px-4 align-self-center">DELETE ACCOUNT</button>
-                    </div>
+                    <button type="button" className="btn btn-danger btn-lg px-4 align-self-center">DELETE ACCOUNT</button>
+                </div>
 
             </div>
 
