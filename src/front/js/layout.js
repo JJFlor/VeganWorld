@@ -16,7 +16,7 @@ import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";
 import { EditProduct } from "./pages/EditProduct.js";
-import { SignUpChooseType } from "./pages/SignUpChooseType.js";
+// import { SignUpChooseType } from "./pages/SignUpChooseType.js";
 import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
@@ -70,7 +70,7 @@ const Layout = () => {
                                 <SearchEngineMainPage />
                             </PrivateRoute>
                         } path="/SearchEngineMainPage" />
-                        <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
+                        {/* <Route element={<SignUpChooseType />} path="/SignUpChooseType" /> */}
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />

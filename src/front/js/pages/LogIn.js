@@ -7,6 +7,9 @@ import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+
+
+
 export const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +18,8 @@ export const LogIn = () => {
     const [repeatNewPassword, setRepeatNewPassword] = useState("");
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    // const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
+
+    
     useEffect(() => {
         const scrollToTop = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });

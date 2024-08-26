@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			}
 		},
 
-		    signUpUser: async (email, password, name) => {
+		signUpUser: async (email, password, name) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
@@ -52,15 +52,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.getItem("token", data.access_token);
 						localStorage.getItem("email", data.user.email);
 						setStore({ ...store, token: data.access_token, email: data.user.email, user: data.user })
-						alert("Success")
 					} else {
 						console.log("Token not received", data);
 					}
 				} catch (error) {
 					console.log("Error loading message from backend", error);
 				}
-			},
-			signUpPartner: async (email, password, name, typeOfServices, premium) => {
+		},
+		signUpPartner: async (email, password, name, typeOfServices, premium) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
@@ -102,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner? data.user.partner : null }) // Actualizar el store con la información del usuario
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner? data.user.partner : null }) 
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)

@@ -64,7 +64,7 @@ export const SignUpBusiness = () => {
                                 <input type="text" className="form-control" placeholder="Type of services you offer" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
                             </div>
                             <p className="try-premium">
-                                Try Premium
+                                Choose between Free or Premium!
                                 <button type="button" class="btn-question-premium" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <FaQuestionCircle />
                                 </button>
