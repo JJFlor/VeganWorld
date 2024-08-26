@@ -1,5 +1,5 @@
 .profile_header {
-    
+
     margin-top: 10px;
     margin-bottom: 40px;
     max-width: 100%;
@@ -30,7 +30,7 @@
     color: #006769;
     border-radius: 20px;
     box-shadow: 0px 1px 15px;
-    
+
 }
 .profile_aboutme {
     padding: 20px;
@@ -51,7 +51,7 @@
 .profile_body {
     padding: 20px;
     margin: 20px;
-    
+
 }
 
 #usuario_h3_info {
@@ -80,7 +80,7 @@
     border-radius: 20px;
 }
 .profile_favoritos_coments {
-    
+
     padding:20px;
     margin: 20px;
     justify-content: space-evenly;

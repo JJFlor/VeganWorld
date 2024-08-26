@@ -3,16 +3,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/ScrollToTop.js";
 import { BackendURL } from "./component/backendURL";
 import PrivateRoute from "./component/PrivateRoute";
+import { ShopPremium } from "./pages/ShopPremium.js";
 
 import { Home } from "./pages/home";
-import { AddProduct } from "./pages/AddProduct";
+import { AddProduct } from "/workspaces/VeganWorld/src/front/js/pages/AddProduct.js";
 import { ShopBusiness } from "./pages/ShopBusiness";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
-import { Usuario } from "./pages/Usuario";
+import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js";
 import { DetailView } from "./pages/DetailView";
+import { SignUpChooseType } from "/workspaces/VeganWorld/src/front/js/pages/SignUpChooseType.js"
 
 import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
@@ -25,6 +27,7 @@ import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
 import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
 import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
+import { ContactUs } from "./pages/ContactUs.js";
 
 //create your first component
 const Layout = () => {
@@ -44,10 +47,9 @@ const Layout = () => {
                         <Route element={<ShopClient />} path="/shop_client" />
                         <Route element={<ShopBusiness />} path="/shop_business" />
                         <Route element={<EditProduct />} path="edit_product/:id" />
-                        <Route element={<ShopPremium />} path="/shop_premium" />
                         <Route element={<AddProduct />} path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
-                        <Route element={<Usuario />} path="/usuario" />
+                        <Route element={<ProfileUsuario />} path="/usuario" />
                         <Route element={<SearchEngineMainPage />} path="/SearchEngineMainPage" />
                         <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
                         <Route element={<SignUpUser />} path="/SignUpUser" />
@@ -56,8 +58,7 @@ const Layout = () => {
                         <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
                         <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={<DetailView />} path="/product_info/:id" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<ContactUs />} path="/ContactUs" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>

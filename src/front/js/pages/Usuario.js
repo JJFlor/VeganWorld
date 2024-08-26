@@ -1,202 +1,90 @@
 import React from 'react'
 import JorgePic from '/workspaces/VeganWorld/src/front/img/jorge.png'
-import "/workspaces/VeganWorld/src/front/styles/usuario.css";
+import "/workspaces/VeganWorld/src/front/styles/profileusuario.css";
 import { Form } from "/workspaces/VeganWorld/src/front/js/component/Form.js";
 import { Footer } from '../component/Footer';
 
-export const Usuario = () => {
+export const ProfileUsuario = () => {
     return (
 
-        <div className="container-fluid d-flex-row">
+        <div className="container-fluid">
+
+            <h1 id="usuario_h1" className="profile_name text-center col-12">N A M E</h1>
+            <div className="profile_header">
+
+                <img src={JorgePic} className="profile_img" alt="..." />
 
 
+                <div id="usuario_p_background" className="profile_aboutme">
+                    <h3 id="usuario_h3" className="text-bold">About me :</h3>
 
-            <div className="px-4 pt-5 my-5 text-center border-bottom">
-                <h1 id="usuario_h1" className="display-4 fw-bold text-body-emphasis">Name</h1>
-                <div id="usuario_p_background" className="col-lg-6 mx-auto">
-                    <p className="lead mb-4">Profile description</p>
+                    <p className="profile_aboutme-texto">
+                        As you can see the paragraphs gracefully wrap around the floated image.
+                        Now imagine how this would look with some actual content in here,
+                        rather than just this boring placeholder text that goes on and on,
+                        but actually conveys no tangible information at.
+                        It simply takes up space and should not really be read.
+                        <br></br>
+                        <br></br>
+                        And yet, here you are, still persevering in reading this placeholder text,
+                        hoping for some more insights, or some hidden easter egg of content.
+                        A joke, perhaps. Unfortunately, there's none of that here.
+                    </p>
+
                 </div>
-                <div className="overflow-hidden max-height-30vh">
-                    <div className="container px-5">
-                        <img src={JorgePic} id="usuario_img" className="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy" />
+
+            </div>
+
+
+            <div className="profile_body">
+
+                <div className="profile_favoritos container-fluid d-flex-column">
+
+                    <h3 id="profile_h3_fav">FAVOURITES</h3>
+
+                    <div className="profile_favoritos_coments">
+
+                        <div className="row">
+                            <div className="col-lg-4 text-center">
+                                <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                                <h2 className="fw-normal">Heading</h2>
+                                <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                                <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                            </div>
+                            <div className="col-lg-4 text-center">
+                                <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                                <h2 className="fw-normal">Heading</h2>
+                                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+                                <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                            </div>
+                            <div className="col-lg-4 text-center">
+                                <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                                <h2 className="fw-normal">Heading</h2>
+                                <p>And lastly this, the third column of representative placeholder content.</p>
+                                <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
-                <div className="text-center">
-                    <h1 id="usuario_h1-form">EDIT PROFILE INFO</h1>
+                <h3 id="usuario_h3_info"> PROFILE INFO</h3>
+
+                <div className="profile_form">
+                    <Form />
                 </div>
 
-                <Form />
-
-
-
-
-                <hr className="featurette-divider" />
-
-
-                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <div className="boton_delete d-sm-flex justify-content-sm-center">
                     <button type="button" className="btn btn-danger btn-lg px-4 align-self-center">DELETE ACCOUNT</button>
                 </div>
 
-                <div className="b-example-divider"></div>
-
-                <hr className="featurette-divider" />
-
-                <h1 id="usuario_h1-favoritos" mt-5>FAVOURITES</h1>
-
-                <div className="b-example-divider"></div>
-
-
-                <div className="container marketing">
-
-
-                    <div id="usuario_favoritos-cards" className="row">
-                        <div id="usuario_favoritos-card" className="col-lg-4">
-                            <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-                            <h2 className="fw-normal">Heading</h2>
-                            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first.</p>
-                            <button type="button" className="usuario_boton-rate">Rate</button>
-                        </div>
-                        <div className="col-lg-4">
-                            <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-                            <h2 className="fw-normal">Heading</h2>
-                            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                            <button type="button" className="usuario_boton-rate">Rate</button>
-                        </div>
-                        <div className="col-lg-4">
-                            <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-                            <h2 className="fw-normal">Heading</h2>
-                            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                            <button type="button" className="usuario_boton-rate">Rate</button>
-                        </div>
-                    </div>
-
-
-
-
-                    <hr className="featurette-divider" />
-
-                    <h1 id="usuario_blog-h1">BLOG</h1>
-
-                    <div id="usuario_blog-cards" className="row mb-2">
-                        <div className="col-md-6">
-                            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-4 d-flex flex-column position-static">
-                                    <strong className="d-inline-block mb-2 text-primary-emphasis">World</strong>
-                                    <h3 className="mb-0">Featured post</h3>
-                                    <div className="mb-1 text-body-secondary">Nov 12</div>
-                                    <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
-                                        Continue reading
-                                        <svg className="bi"><use href="#chevron-right"></use></svg>
-                                    </a>
-                                </div>
-                                <div className="col-auto d-none d-lg-block">
-                                    <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-4 d-flex flex-column position-static">
-                                    <strong className="d-inline-block mb-2 text-success-emphasis">Design</strong>
-                                    <h3 className="mb-0">Post title</h3>
-                                    <div className="mb-1 text-body-secondary">Nov 11</div>
-                                    <p className="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
-                                        Continue reading
-                                        <svg className="bi"><use href="#chevron-right"></use></svg>
-                                    </a>
-                                </div>
-                                <div className="col-auto d-none d-lg-block">
-                                    <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-4 d-flex flex-column position-static">
-                                    <strong className="d-inline-block mb-2 text-success-emphasis">Design</strong>
-                                    <h3 className="mb-0">Post title</h3>
-                                    <div className="mb-1 text-body-secondary">Nov 11</div>
-                                    <p className="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
-                                        Continue reading
-                                        <svg className="bi"><use href="#chevron-right"></use></svg>
-                                    </a>
-                                </div>
-                                <div className="col-auto d-none d-lg-block">
-                                    <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-4 d-flex flex-column position-static">
-                                    <strong className="d-inline-block mb-2 text-success-emphasis">Design</strong>
-                                    <h3 className="mb-0">Post title</h3>
-                                    <div className="mb-1 text-body-secondary">Nov 11</div>
-                                    <p className="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
-                                        Continue reading
-                                        <svg className="bi"><use href="#chevron-right"></use></svg>
-                                    </a>
-                                </div>
-                                <div className="col-auto d-none d-lg-block">
-                                    <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <hr className="featurette-divider" />
-
-                    <div className="text-center">
-                        <h1 id="usuario_h1-form">EDIT PROFILE INFO</h1>
-                    </div>
-
-                    <Form />
-
-
-
-
-                    <hr className="featurette-divider" />
-
-
-                    <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                        <button type="button" className="btn btn-danger btn-lg px-4 align-self-center">DELETE ACCOUNT</button>
-                    </div>
-
-
-
-                </div>
             </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <Footer />
-
-
         </div>
 
     )
-
-}
+};
