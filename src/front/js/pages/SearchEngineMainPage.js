@@ -191,7 +191,7 @@ export const SearchEngineMainPage = () => {
                                 }}
                             >
                                 {markers.map(marker => (
-                                    <Marker key={marker.id} position={marker.position} />
+                                    <Marker key={marker.id} position={marker.position}/>
                                 ))}
 
                             </GoogleMap>
