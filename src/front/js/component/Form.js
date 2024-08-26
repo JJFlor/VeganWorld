@@ -25,26 +25,6 @@ export function Form() {
   };
 
 
-  document.addEventListener('DomContentLoaded', () => {
-    const selectDrop = document.getElementById('countries');
-    fetch('https://restcountries.com/v3.1/all').then(res => {
-      return res.json();
-
-    }).then(data => {
-      data.forEach(country => {
-        console.log(country)
-      })
-
-    }).catch(err => {
-      console.log(err)
-
-    });
-
-  });
-
-
-
-
   return (
 
     <form>
@@ -54,7 +34,7 @@ export function Form() {
       </div>
       <div className="col-md-6">
         <label htmlFor="inputPassword4" className="form-label">Password</label>
-        <input type="password" className="form-control" id="inputPassword4" />
+        <input type="password" className="form-control" id="inputPassword4" placeholder="*******" />
 
       </div>
       <div className="col-12">
@@ -79,18 +59,16 @@ export function Form() {
         <label htmlFor="inputPostal" className="form-label">Postal Code</label>
         <input type="text" className="form-control" id="inputPostal" />
       </div>
-      <div className="col-12">
-        <div className="form-check">
-          <input className="form-check-input" type="checkbox" id="gridCheck" />
-          <label className="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
+
+      <div className="col-1">
+        <button type="submit" className="boton_form-edit btn btn-warning">Edit</button>
       </div>
-      <div className="col-12">
-        <button type="submit" className="boton_form-edit btn btn-warning">Edit Profile</button>
+
+      <div className="col-1">
+        <button type="submit" className="boton_form-edit btn btn-success">Save</button>
       </div>
+
     </form>
+
   );
 }
-// Boton azul de edit profile de la pagina usuario habilita el formulario de edit profile
