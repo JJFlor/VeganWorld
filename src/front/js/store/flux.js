@@ -86,6 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
+			
 			logIn: async (email, password) => {
 				const store = getStore();
 				try {
