@@ -1,0 +1,20 @@
+.container-fluid {
+    box-shadow: 3px 3px 10px black;
+}
+
+.carta {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    max-width: 500px;
+    background-color: #006769;
+}
+
+.titulo_contact {
+    color: #006769;
+    background-color: #F6FB7A;
+    justify-items: center;
+    width: 500px;
+    border-radius: 7.5px;
+    box-shadow: 3px 3px 10px black;
+
+}

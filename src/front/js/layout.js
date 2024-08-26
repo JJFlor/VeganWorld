@@ -29,6 +29,7 @@ import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
 import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
 import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js"
 import { ProfileShopX } from "/workspaces/VeganWorld/src/front/js/pages/ProfileShopX.js"
+import { ContactUs } from "./pages/ContactUs.js";
 
 //create your first component
 const Layout = () => {
@@ -61,6 +62,7 @@ const Layout = () => {
                         <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
                         <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={<DetailView />} path="/product_info/:id" />
+                        <Route element={<ContactUs />} path="/ContactUs" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
