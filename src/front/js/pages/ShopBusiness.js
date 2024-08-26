@@ -7,6 +7,7 @@ export const ShopBusiness = () => {
     const [products, setProducts] = useState(store.products || []);
     const [filter, setFilter] = useState("new"); // Estado para almacenar el filtro seleccionado
 
+
     useEffect(() => {
         actions.getProducts().then(() => {
             applyFilter(filter);

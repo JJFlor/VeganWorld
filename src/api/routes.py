@@ -40,7 +40,7 @@ def register_partner():
         new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"])
         db.session.add(new_partner)
         db.session.commit()
-        new_user = User(name = body["name"], email = body["email"], password = body["password"], partner_id=new_partner.id)
+        new_user = User(name = body["name"], email = body["email"], password = body["password"], partner_id = new_partner.id)
         db.session.add(new_user)
         db.session.commit()
         #generate Token
@@ -71,19 +71,21 @@ def getAllPartnersInfo():
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
-    email =  body["email"]
-    new_password =  body["new_password"]
-    print(new_password)
+    email =  body.get("email")
+    new_password =  body.get("password") 
+
     if not email or not new_password:
         return jsonify({"msg":"Email and password are required"}), 400
 
-    user = User.query.filter_by(email = body["email"]).first()
+    user = User.query.filter_by(email=email).first()
     if user is None:
-        return jsonify({"msg":"User not found"})
+        return jsonify({"msg":"User not found"}), 404
+
     user.password = new_password
     db.session.commit()
 
     return jsonify({"msg":"Password got reset"}), 200
+
         
     
 #create a route to authenticate users and return JWT token
@@ -100,14 +102,14 @@ def log_in():
     access_token = create_access_token(identity=user.id)
     return jsonify({"token":access_token, 'user': user.serialize()})
 
-#Protect one route with jwt_required, blocking petitions without a valid JWT 
-@api.route('/private_profile', methods=['GET'])
-@jwt_required()
-def private_profile():
-    current_user_id = get_jwt_identity()
-    user = User.query.get(current_user_id)
+# #Protect one route with jwt_required, blocking petitions without a valid JWT 
+# @api.route('/private_profile', methods=['GET'])
+# @jwt_required()
+# def private_profile():
+#     current_user_id = get_jwt_identity()
+#     user = User.query.get(current_user_id)
 
-    return jsonify({"user_id": user.id}), 200
+#     return jsonify({"user_id": user.id}), 200
 
 
 # Crear un nuevo producto

@@ -1,15 +1,18 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
+import { Context } from "../store/appContext";
 
-export function isAuthenticated() {
-  // Aquí podrías verificar un token en localStorage o cookies
-  return localStorage.getItem('token') !== null;
-}
 
 const PrivateRoute = ({ children }) => {
-  isAuthenticated();
-  // Si el usuario está autenticado, renderiza los children, de lo contrario redirige a /login
-  return isAuthenticated() ? children : <Navigate to="/LogIn" />;
+  const navigate = useNavigate();
+  const { store } = useContext(Context);
+
+  // Si el usuario no está autenticado, redirige a la página de inicio de sesión
+  if (!store.token) {
+    return navigate('/LogIn');
+  }
+  return children;   // Si está autenticado, renderiza el componente hijo
+
 };
 
 export default PrivateRoute;
