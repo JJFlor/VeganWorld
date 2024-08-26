@@ -10,7 +10,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar.js";
+import { Navbar } from "./component/Navbar.js";
 import { ShopView } from "./pages/ShopView.js";
 import { Usuario } from "./pages/Usuario";
 import { ShopPremium } from "./pages/ShopPremium";
