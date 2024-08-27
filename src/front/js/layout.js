@@ -25,6 +25,8 @@ import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
 import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
 import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
+import { ShopPremium } from "./pages/ShopPremium.js";
+import { SignUpChooseType } from "./pages/SignUpChooseType.js";
 
 //create your first component
 const Layout = () => {
@@ -56,8 +58,6 @@ const Layout = () => {
                         <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
                         <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={<DetailView />} path="/product_info/:id" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>
