@@ -1,0 +1,32 @@
+.cuerpo {
+    width: 600px;
+}
+
+.carta_form {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #006769;
+}
+
+.titulo_contact {
+    align-items: center;
+    color: #006769;
+    background-color: #F6FB7A;
+    justify-items: center;
+    width: 600px;
+    border-radius: 7.5px;
+    box-shadow: 3px 3px 3px black;
+
+}
+
+.boton_submit {
+    background-color: #F6FB7A;
+    color:#006769;
+    border-color: black;
+    
+}
+.boton_submit:hover {
+    transition: 0.4s;
+    background-color: #F6995c;
+    color: white;
+}

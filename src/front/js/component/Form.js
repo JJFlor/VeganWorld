@@ -24,54 +24,51 @@ export function Form() {
     console.log('Form Data Submitted:', formData);
   };
 
+
   return (
-    <form className="usuario-form-fields" onSubmit={handleSubmit}>
-      <div>
-        <label>Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+
+    <form>
+      <div className="col-md-6">
+        <label htmlFor="inputEmail4" className="form-label">Email</label>
+        <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
       </div>
-      <div>
-        <label>Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+      <div className="col-md-6">
+        <label htmlFor="inputPassword4" className="form-label">Password</label>
+        <input type="password" className="form-control" id="inputPassword4" placeholder="*******" />
+
       </div>
-      <div>
-        <label>Phone Number: </label>
-        <input
-          type="tel"
-          name="telephone"
-          value={formData.telephone}
-          onChange={handleChange}
-        />
+      <div className="col-12">
+        <label htmlFor="inputAddress" className="form-label">Address</label>
+        <input type="text" className="form-control" id="inputAddress" placeholder="Your Adress" />
       </div>
-      <div>
-        <label>Address:</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-        />
+      <div className="col-12">
+        <label htmlFor="inputAddress2" className="form-label">Website</label>
+        <input type="text" className="form-control" id="inputAddress2" placeholder="...@veganworld.blogspot.com" />
       </div>
-      <div>
-        <label>About:</label>
-        <textarea
-          name="aboutMe"
-          value={formData.aboutMe}
-          onChange={handleChange}
-        />
+      <div className="col-md-6">
+        <label htmlFor="inputCity" className="form-label">City</label>
+        <input type="text" className="form-control" id="inputCity" />
       </div>
-      <button type="submit" className="usuario_boton-rate">Submit</button>
+      <div className="col-md-4">
+        <label htmlFor="inputState" className="form-label">Country</label>
+        <select id="countries" className="form-select">
+          <option>Choose...</option>
+        </select>
+      </div>
+      <div className="col-md-2">
+        <label htmlFor="inputPostal" className="form-label">Postal Code</label>
+        <input type="text" className="form-control" id="inputPostal" />
+      </div>
+
+      <div className="col-1">
+        <button type="submit" className="boton_form-edit btn btn-warning">Edit</button>
+      </div>
+
+      <div className="col-1">
+        <button type="submit" className="boton_form-edit btn btn-success">Save</button>
+      </div>
+
     </form>
+
   );
 }
-// Boton azul de edit profile de la pagina usuario habilita el formulario de edit profile
