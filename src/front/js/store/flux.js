@@ -8,33 +8,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || [],
 			premiumPartnersFiltered: null,
 			partnersWithPremiumIcon: null,
-			user: JSON.parse(localStorage.getItem("user")) || null
+			user: JSON.parse(localStorage.getItem("user")) || null,
+			products: []
 
 		},
 		actions: {
 
 
-		setProducts: (newProducts) => {
-			setStore({ products: newProducts });
-		},
+			setProducts: (newProducts) => {
+				setStore({ products: newProducts });
+			},
 
 
-		setProductEdit: (item) => {
-			setStore({ productEdit: item });
-		},
+			setProductEdit: (item) => {
+				setStore({ productEdit: item });
+			},
 
-		getProducts: async () => {
-			try {
-					const response = await fetch(process.env.BACKEND_URL + '/api/products');
+			getProducts: async () => {
+				const store = getStore();
+				try {
+					const response = await fetch(process.env.BACKEND_URL + '/api/products', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
+						}
+					});
+
+					if (response.status === 401) {
+						console.error('Unauthorized access - token might be invalid or expired.');
+						return;
+					}
+
 					const data = await response.json();
-					setStore({ products: data });
+					setStore({ products: Array.isArray(data) ? data : [] });
 					return data;
-			} catch (error) {
+				} catch (error) {
 					console.error('Error fetching products:', error);
-			}
-		},
+					setStore({ products: [] });
+				}
+			},
 
-		signUpUser: async (email, password, name) => {
+
+			signUpUser: async (email, password, name) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
@@ -58,14 +74,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("Error loading message from backend", error);
 				}
-		},
-		signUpPartner: async (email, password, name, typeOfServices, premium) => {
+			},
+			signUpPartner: async (email, name, typeOfServices, premium, password) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, password, name, typeOfServices, premium }),
+							body: JSON.stringify({ email, name, typeOfServices, premium, password }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {
@@ -77,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.access_token) {
 						localStorage.getItem("token", data.access_token);
 						localStorage.getItem("email", data.email);
-						setStore({ ...store, token: data.access_token, partner: data.partner,  user: data.user  })
+						setStore({ ...store, token: data.access_token, partner: data.partner, user: data.user })
 						return true;
 					} else {
 						console.log("Token not received", data);
@@ -86,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
-			
+
 			logIn: async (email, password) => {
 				const store = getStore();
 				try {
@@ -102,7 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner? data.user.partner : null }) 
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner ? data.user.partner : null })
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)
@@ -127,13 +143,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify({ email, password }),
 						headers: { "Content-Type": "application/json" }
 					});
-			
+
 					if (!response.ok) {
 						const errorData = await response.json();
 						console.error("Failed to reset password:", errorData.message || response.statusText);
 						return { success: false, message: errorData.message || "Failed to reset password." };
 					}
-			
+
 					const data = await response.json();
 					if (data.ok) {
 						alert("Password was reset successfully");
@@ -141,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					} else {
 						return { success: false, message: data.message || "Failed to reset password." };
 					}
-			
+
 				} catch (error) {
 					console.error("An error occurred when updating your password:", error);
 					return { success: false, message: "An error occurred when updating your password." };
@@ -211,7 +227,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFilteredPartnerNull: () => {
 				const store = getStore();
 				setStore({ ...store, premiumPartnersFiltered: null });
-			}, 
+			},
 		}
 	}
 }

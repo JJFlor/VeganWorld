@@ -6,11 +6,13 @@ export const ShopClient = () => {
     const { store, actions } = useContext(Context);
     const [products, setProducts] = useState(store.products || []);
 
+
     useEffect(() => {
-        actions.getProducts().then(() => {
-            setProducts(store.products);
+        actions.getProducts().then((data) => {
+            setProducts(Array.isArray(data) ? data : []);
         });
     }, [store.products]);
+    
 
     const sortProducts = (criteria) => {
         let sortedProducts = [...products];

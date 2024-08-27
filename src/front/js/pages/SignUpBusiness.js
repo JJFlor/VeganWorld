@@ -41,9 +41,9 @@ export const SignUpBusiness = () => {
     }
 
     const handleSignUp = async () => {
-        const signUpResult = await actions.signUpPartner(email, password, name, typeOfServices, premium);
+        const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password);
         if (await signUpResult) {
-            navigate('/ProfileBusiness')
+            navigate('/ProfileBusiness');
         } else {
             alert("Partner Sign Up failed");
 
