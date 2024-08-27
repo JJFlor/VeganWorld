@@ -16,7 +16,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg sticky-top">
 			<div className="container-fluid px-5">
-				<img className="lgNav" href="#" src={LogoNav} alt="Logo" />
+				<img className="lgNav" href="/" src={LogoNav} alt="Logo" />
 				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
@@ -24,7 +24,7 @@ export const Navbar = () => {
 					<div className="navbar-nav">
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1">Home</Link>
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
-						<a className="nav-link itemsNavbar px-3 my-1">Blog</a>
+						
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
 
