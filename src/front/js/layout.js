@@ -10,6 +10,7 @@ import { AddProduct } from "/workspaces/VeganWorld/src/front/js/pages/AddProduct
 import { ShopBusiness } from "./pages/ShopBusiness";
 import injectContext from "./store/appContext";
 
+import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
 import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js";
@@ -28,6 +29,7 @@ import { LogIn } from "./pages/LogIn.js";
 import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
 import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
 import { ContactUs } from "./pages/ContactUs.js";
+import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
 
 //create your first component
 const Layout = () => {
@@ -49,12 +51,12 @@ const Layout = () => {
                         <Route element={<EditProduct />} path="edit_product/:id" />
                         <Route element={<AddProduct />} path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
-                        <Route element={<ProfileUsuario />} path="/usuario" />
                         <Route element={<SearchEngineMainPage />} path="/SearchEngineMainPage" />
                         <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
+                        <Route element={<ProfileUser />} path="/profile_user" />
                         <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
                         <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={<DetailView />} path="/product_info/:id" />

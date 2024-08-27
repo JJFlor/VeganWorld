@@ -4,7 +4,9 @@ import "/workspaces/VeganWorld/src/front/styles/profileBusinessPremium.css"
 import { Form } from '../component/Form'
 import { Dashboard } from '../component/Dashboard'
 import { AddProduct } from './AddProduct';
-import { AddOffer} from "/workspaces/VeganWorld/src/front/js/component/AddOffer.js"
+import { AddOffer } from "/workspaces/VeganWorld/src/front/js/component/AddOffer.js"
+import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
+import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 
 export const ProfileBusinessPremium = () => {
 
@@ -28,20 +30,18 @@ export const ProfileBusinessPremium = () => {
 
                 <div id="usuario_p_background" className="profile_aboutme">
 
-                    <h3 id="usuario_h3" className="text-bold">About Us</h3>
+                    <h2 id="usuario_h3" className="text-bold">About Us</h2>
 
-                    <p className="profile_aboutme-texto">
+                    <h3 className="profile_aboutme-texto">
                         As you can see the paragraphs gracefully wrap around the floated image.
-                        Now imagine how this would look with some actual content in here,
-                        rather than just this boring placeholder text that goes on and on,
+                        Now imagine how this would look with some actual content.
+                        <br></br>
+                        <br></br>
+                        Rather than just this boring placeholder text that goes on and on,
                         but actually conveys no tangible information at.
                         It simply takes up space and should not really be read.
                         <br></br>
-                        <br></br>
-                        And yet, here you are, still persevering in reading this placeholder text,
-                        hoping for some more insights, or some hidden easter egg of content.
-                        A joke, perhaps. Unfortunately, there's none of that here.
-                    </p>
+                    </h3>
 
                 </div>
 
@@ -49,32 +49,34 @@ export const ProfileBusinessPremium = () => {
 
             </div>
 
-
-            <hr className="featurette-divider" />
-
             <div className="addproduct">
                 <AddProduct />
             </div>
+
+            <div className="b-example-divider"></div>
 
             <div className="addoffer">
                 <AddOffer />
             </div>
 
-            <div className="Dashboard">
+            <div className="b-example-divider"></div>
+
+            <EditProfileModal />
+
+            <hr className="featurette-divider" />
+            <div className="b-example-divider"></div>
+
+
+            <div className="Administarcion d-flex-column">
+
                 <Dashboard />
             </div>
 
-            <hr className="featurette-divider" />
 
-            <h3 id="usuario_h3_info"> PROFILE INFO</h3>
 
-            <div className="profile_form">
-                <Form />
-            </div>
+            <Footer />
 
-            <div className="boton_delete d-sm-flex justify-content-sm-center">
-                <button type="button" className="btn btn-danger btn-lg px-4 align-self-center">DELETE ACCOUNT</button>
-            </div>
         </div>
+
     )
 }
