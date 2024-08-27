@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			premiumPartners: JSON.parse(localStorage.getItem("premiumPartners")) || [],
 			premiumPartnersFiltered: null,
 			partnersWithPremiumIcon: null,
-			user: JSON.parse(localStorage.getItem("user")) || null
+			user: JSON.parse(localStorage.getItem("user")) || null,
+			products: []
 
 		},
 		actions: {
@@ -24,15 +25,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getProducts: async () => {
+				const store = getStore();
 				try {
-					const response = await fetch(process.env.BACKEND_URL + '/api/products');
+					const response = await fetch(process.env.BACKEND_URL + '/api/products', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
+						}
+					});
+
+					if (response.status === 401) {
+						console.error('Unauthorized access - token might be invalid or expired.');
+						return;
+					}
+
 					const data = await response.json();
-					setStore({ products: data });
+					setStore({ products: Array.isArray(data) ? data : [] });
 					return data;
 				} catch (error) {
 					console.error('Error fetching products:', error);
+					setStore({ products: [] });
 				}
 			},
+
 
 			signUpUser: async (email, password, name) => {
 				const store = getStore();
@@ -65,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, name, typeOfServices, premium, password}),
+							body: JSON.stringify({ email, name, typeOfServices, premium, password }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {

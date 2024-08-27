@@ -112,28 +112,41 @@ def log_in():
 #     return jsonify({"user_id": user.id}), 200
 
 
+
+
 # Crear un nuevo producto
 @api.route('/products', methods=['POST'])
 @jwt_required()
 def create_product():
     data = request.json
-    new_product = Inventory(
-        product_name=data['product_name'],
-        price=data['price'],
-        description=data['description'],
-        image_url=data.get('image_url')  # Asegúrate de que la URL de la imagen se guarde
-    )
-    db.session.add(new_product)
-    db.session.commit()
-    return jsonify(new_product.serialize()), 201
+    
+    if not data or not all(key in data for key in ['product_name', 'price', 'description']):
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    try:
+        new_product = Inventory(
+            product_name=data['product_name'],
+            price=data['price'],
+            description=data['description'],
+            image_url=data.get('image_url')  # Asegúrate de que la URL de la imagen se guarde
+        )
+        db.session.add(new_product)
+        db.session.commit()
+        return jsonify(new_product.serialize()), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
 
 
 # Obtener todos los productos
 @api.route('/products', methods=['GET'])
 @jwt_required()
 def get_products():
-    products = Inventory.query.all()
-    return jsonify([product.serialize() for product in products]), 200
+    try:
+        products = Inventory.query.all()
+        return jsonify([product.serialize() for product in products]), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # Editar un producto
 @api.route('/products/<int:product_id>', methods=['PUT'])
@@ -142,18 +155,27 @@ def update_product(product_id):
     data = request.json
     product = Inventory.query.get_or_404(product_id)
     
-    product.product_name = data.get('product_name', product.product_name)
-    product.price = data.get('price', product.price)
-    product.description = data.get('description', product.description)
-    
-    db.session.commit()
-    return jsonify(product.serialize()), 200
+    try:
+        product.product_name = data.get('product_name', product.product_name)
+        product.price = data.get('price', product.price)
+        product.description = data.get('description', product.description)
+        
+        db.session.commit()
+        return jsonify(product.serialize()), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
 
 # Eliminar un producto
 @api.route('/products/<int:product_id>', methods=['DELETE'])
 @jwt_required()
 def delete_product(product_id):
     product = Inventory.query.get_or_404(product_id)
-    db.session.delete(product)
-    db.session.commit()
-    return jsonify({"message": "Product deleted successfully"}), 200
+    
+    try:
+        db.session.delete(product)
+        db.session.commit()
+        return jsonify({"message": "Product deleted successfully"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500

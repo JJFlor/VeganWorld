@@ -1,22 +1,14 @@
-/* src/App.css */
-
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
-}
-
 form {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 80%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 form div {
@@ -60,7 +52,6 @@ button:hover {
 }
 .usuario-form-fields {
   align-items: center;
-  margin-left: auto;
   margin-right: auto;
 
 }

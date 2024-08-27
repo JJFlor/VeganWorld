@@ -1,6 +1,7 @@
 // src/AdminDashboard.js
 
 import React from 'react';
+import "/workspaces/VeganWorld/src/front/styles/shoppremium.css";
 import { Bar, Line } from 'react-chartjs-2';
 import 'chart.js/auto';  // Automatically register all necessary chart components
 
