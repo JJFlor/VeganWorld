@@ -29,7 +29,7 @@ class User(db.Model):
 
 class Partner(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(200), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     type_of_services = db.Column(db.String(120), unique=False, nullable=False)
     premium = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -52,9 +52,9 @@ class Partner(db.Model):
 
 class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=False, nullable=False)
+    name = db.Column(db.String(200), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    address = db.Column(db.String(120), unique=False, nullable=False)
+    address = db.Column(db.String(200), unique=False, nullable=False)
     phone = db.Column(db.Integer, unique=True, nullable=False)
     cathegory = db.Column(db.String(120), unique=False, nullable=False)
     inventory = db.Column(db.Integer, unique=True, nullable=False)
