@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "/workspaces/VeganWorld/src/front/styles/addoffer.css";
 
 export const AddProduct = () => {
     const [productName, setProductName] = useState("");
@@ -86,11 +87,14 @@ export const AddProduct = () => {
         <div className="container contAdd">
             <div className="text-center">
                 <Link to="/shop_client">
-                    <span className="btn btnGoShop">Go Shop</span>
+                    <span className="btn btnGoShop">Go to Shop</span>
                 </Link>
             </div>
+            
 
             <div className="contFormAdd p-5 mb-3">
+                <h3 id="title-offer">ADD NEW PRODUCT:</h3>
+                <br></br>
                 <div className="row mb-3">
                     <label className="col-sm-2 col-form-label">Name</label>
                     <div className="col-sm-10">
