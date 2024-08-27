@@ -12,32 +12,27 @@ export const ProfileBusinessFree = () => {
         <div id="shopview_container" className="container my-5">
 
             <h1 id="usuario_h1" className="profile_name text-center col-12">Business Free NAME</h1>
-            <div className="profile_header">
+            <div className="profile_header d-flex-row">
 
-                <img src={BusinessLogo1} className="profile_img" alt="..." />
-
-
-                <div id="usuario_p_background" className="profile_aboutme">
-                    <h3 id="usuario_h3" className="text-bold">About Us</h3>
-
-                    <p className="profile_aboutme-texto">
-                        As you can see the paragraphs gracefully wrap around the floated image.
-                        Now imagine how this would look with some actual content in here,
-                        rather than just this boring placeholder text that goes on and on,
-                        but actually conveys no tangible information at.
-                        It simply takes up space and should not really be read.
-                        <br></br>
-                        <br></br>
-                        And yet, here you are, still persevering in reading this placeholder text,
-                        hoping for some more insights, or some hidden easter egg of content.
-                        A joke, perhaps. Unfortunately, there's none of that here.
-                    </p>
-
+                <img src={BusinessLogo1} className="profile_img col-12" alt="..." />
+                <div className="form_container">
+                    <form className="form_celdas">
+                        <label htmlFor="inputAddress" className="form-label">Adress</label>
+                        <input disabled type="text" className="form-control" id="inputAddress" placeholder="" />
+                        <label htmlFor="inputEmail4" className="form-label">Email</label>
+                        <input disabled type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
+                        <label className="form-label">Phone</label>
+                        <input disabled type="" className="form-control"></input>
+                        <label className="form-label">About Us</label>
+                        <textarea disabled row="30"></textarea>
+                    </form>
                 </div>
+
 
             </div>
 
             <div className="b-example-divider"></div>
+            <hr className="featurette-divider" />
 
 
             <ul id="shopview_pills" className="nav nav-pills" role="tablist">
@@ -253,8 +248,8 @@ export const ProfileBusinessFree = () => {
 
                 </div>
 
-                <div className="tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
-                    <img className="menu_business" src={MenuBusiness1}></img>
+                <div className="imagen_del_menu tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
+                    <img src={MenuBusiness1}></img>
 
                 </div>
 

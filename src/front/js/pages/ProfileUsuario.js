@@ -1,5 +1,5 @@
 import React from 'react'
-import JorgePic from '/workspaces/VeganWorld/src/front/img/jorge.png'
+import JorgePic from '/workspaces/VeganWorld/src/front/img/redonda_jorge.png'
 import "/workspaces/VeganWorld/src/front/styles/profileusuario.css";
 import { Form } from "/workspaces/VeganWorld/src/front/js/component/Form.js";
 import { Footer } from '../component/Footer';
