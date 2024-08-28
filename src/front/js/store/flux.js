@@ -64,10 +64,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Error", errorData);
 					}
 					const data = await response.json();
-					if (data.access_token) {
-						localStorage.getItem("token", data.access_token);
-						localStorage.getItem("email", data.user.email);
-						setStore({ ...store, token: data.access_token, email: data.user.email, user: data.user })
+					if (data.token) {
+						localStorage.setItem("token", data.token);
+						localStorage.setItem("email", data.user.email);
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user })
 					} else {
 						console.log("Token not received", data);
 					}
@@ -90,10 +90,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 					const data = await response.json();
-					if (data.access_token) {
-						localStorage.getItem("token", data.access_token);
-						localStorage.getItem("email", data.email);
-						setStore({ ...store, token: data.access_token, partner: data.partner, user: data.user })
+					if (data.token) {
+						localStorage.setItem("token", data.token);
+						localStorage.setItem("email", data.email);
+						setStore({ ...store, token: data.token, partner: data.partner, user: data.user })
 						return true;
 					} else {
 						console.log("Token not received", data);

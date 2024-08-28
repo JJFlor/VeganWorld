@@ -5,11 +5,11 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=False, nullable=False)
+    name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), unique=False, nullable=False)
-    address = db.Column(db.String(350), unique= False)
-    phone = db.Column(db.Integer, unique=True, nullable=True)
+    password = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(350))
+    phone = db.Column(db.String(20), unique=True)
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
     # relacion corregida
@@ -34,11 +34,11 @@ class Partner(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    type_of_services = db.Column(db.String(120), unique=False, nullable=False)
-    premium = db.Column(db.Boolean(), unique=False, nullable=False)
-    address = db.Column(db.String(350), unique= False)
-    phone = db.Column(db.Integer, unique=True, nullable=False)
-    about_us = db.Column(db.String(600), unique=False, nullable=False)
+    type_of_services = db.Column(db.String(120), nullable=False)
+    premium = db.Column(db.Boolean(), nullable=False)
+    address = db.Column(db.String(350))
+    phone = db.Column(db.String(20), unique=True, nullable=False)
+    about_us = db.Column(db.String(600), nullable=False)
 
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
@@ -61,11 +61,11 @@ class Partner(db.Model):
 
 class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), unique=False, nullable=False)
+    name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    address = db.Column(db.String(200), unique=False, nullable=False)
+    address = db.Column(db.String(200), nullable=False)
     phone = db.Column(db.Integer, unique=True, nullable=False)
-    cathegory = db.Column(db.String(120), unique=False, nullable=False)
+    cathegory = db.Column(db.String(120), nullable=False)
     inventory = db.Column(db.Integer, unique=True, nullable=False)
     id_partner = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
@@ -88,10 +88,10 @@ class Shop(db.Model):
 
 class Inventory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(120), unique=False, nullable=False)
-    description = db.Column(db.String(200), unique=False, nullable=False)
-    price = db.Column(db.Integer, unique=False, nullable=False)
-    image_url = db.Column(db.String(255), nullable=True)  # Campo opcional para la URL de la imagen
+    product_name = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"))
 
     # relacion corregida

@@ -17,6 +17,7 @@ CORS(api)
 @api.route('/register_user', methods=['POST'])
 def register_user():
     body = request.json
+    print(body)
     user = User.query.filter_by(email = body["email"]).first()
     if user is None:
         new_user = User(name = body["name"], email = body["email"], password = body["password"], address = body["address"], phone= body["phone"])
@@ -24,7 +25,7 @@ def register_user():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_user.id)
-        return jsonify({"msg":"User created", "access token": access_token, "user": user.serialize()}), 200
+        return jsonify({"msg":"User created", "token": access_token, "user": new_user.serialize()}), 200
     else:
         return jsonify({"msg":"User already exist, Log in"}), 401
 
@@ -45,7 +46,7 @@ def register_partner():
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_partner.id)
-        return jsonify({"msg":"Partner created", "access_token": access_token, "user": new_user.serialize(), 'partner': new_partner.serialize()}), 200
+        return jsonify({"msg":"Partner created", "token": access_token, "user": new_user.serialize(), 'partner': new_partner.serialize()}), 200
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     
