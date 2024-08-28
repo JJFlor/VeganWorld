@@ -37,6 +37,8 @@ class Partner(db.Model):
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
 
+    
+
     def __repr__(self):
         return f'<Partner {self.email}>'
 
