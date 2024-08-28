@@ -8,6 +8,8 @@ class User(db.Model):
     name = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), unique=False, nullable=False)
+    address = db.Column(db.String(350), unique= False)
+    phone = db.Column(db.Integer, unique=True, nullable=True)
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
     # relacion corregida
@@ -21,9 +23,10 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            #esta es otra forma de serializar las relaciones
+            "address": self.address,
+            "phone": self.phone,
+            #forma de serializar las relaciones
             "partner": self.partner.serialize() if self.partner else None
-            # do not serialize the password, its a security breach
         }
 
 

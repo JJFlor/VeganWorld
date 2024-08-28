@@ -13,7 +13,6 @@ import injectContext from "./store/appContext";
 import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
-import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js";
 import { DetailView } from "./pages/DetailView";
 
 
@@ -52,11 +51,6 @@ const Layout = () => {
                                 <EditProfileModal />
                             </PrivateRoute>
                         } path="/EditProfileModal" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileUsuario />
-                            </PrivateRoute>
-                        } path="/ProfileUsuario" />
                         <Route element={
                             <PrivateRoute>
                                 <Dashboard />
@@ -101,10 +95,26 @@ const Layout = () => {
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
-                        <Route element={<ProfileUser />} path="/profile_user" />
-                        <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
-                        <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
-                        <Route element={<DetailView />} path="/product_info/:id" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ProfileUser />
+                            </PrivateRoute>
+                        } path="/profile_user" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ProfileBusinessPremium />
+                            </PrivateRoute>
+                        } path="/ProfileBusinessPremium" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ProfileBusinessFree />
+                            </PrivateRoute>
+                        } path="/ProfileBusinessFree" />
+                        <Route element={
+                            <PrivateRoute>
+                                <DetailView />
+                            </PrivateRoute>
+                        } path="/product_info/:id" />
                         <Route element={<ContactUs />} path="/ContactUs" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

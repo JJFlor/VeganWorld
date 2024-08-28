@@ -50,13 +50,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			signUpUser: async (email, password, name) => {
+			signUpUser: async (email, password, name, address, phone) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, password, name }),
+							body: JSON.stringify({ email, password, name, address, phone }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {

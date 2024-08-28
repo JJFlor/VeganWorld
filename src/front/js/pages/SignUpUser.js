@@ -13,6 +13,8 @@ export const SignUpUser = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [address, setAddress] = useState("");
+    const [phone, setPhone] = useState("");
     const [shown, setShown] = useState(false);
     const navigate = useNavigate();
     const { actions } = useContext(Context);
@@ -29,8 +31,8 @@ export const SignUpUser = () => {
         setShown(!shown)
     }
 
-    const signUpUser = async (email, password, name) => {
-        await actions.signUpUser(email, password, name);
+    const signUpUser = async (email, password, name, address, phone) => {
+        await actions.signUpUser(email, password, name, address, phone);
         navigate('/usuario');
     }
 
@@ -49,6 +51,12 @@ export const SignUpUser = () => {
                                 <input type="text" className="form-control" placeholder="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
                             </div>
                             <div className="form-group mt-3">
+                                <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
+                            </div>
+                            <div className="form-group mt-3">
+                                <input type="text" className="form-control" placeholder="Phone number" onChange={(e) => setPhone(e.target.value)} value={phone} />
+                            </div>
+                            <div className="form-group mt-3">
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
                             <div className="form-group mt-3">
@@ -56,7 +64,7 @@ export const SignUpUser = () => {
                                 <span className="showPassword" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
                             <p className="try-premium">
-                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium"onClick={() => areYouAbusiness()}>Click here!</a>
+                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium" onClick={() => areYouAbusiness()}>Click here!</a>
                             </p>
                         </div>
                         <div className="ms-4">
