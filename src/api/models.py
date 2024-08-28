@@ -33,6 +33,9 @@ class Partner(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     type_of_services = db.Column(db.String(120), unique=False, nullable=False)
     premium = db.Column(db.Boolean(), unique=False, nullable=False)
+    address = db.Column(db.String(350), unique= False)
+    phone = db.Column(db.Integer, unique=True, nullable=False)
+    about_us = db.Column(db.String(600), unique=False, nullable=False)
 
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
@@ -46,7 +49,10 @@ class Partner(db.Model):
             "name": self.name,
             "email": self.email,
             "type_of_services": self.type_of_services,
-            "premium": self.premium
+            "premium": self.premium,
+            "address": self.address,
+            "phone": self.phone,
+            "about_us": self.about_us
         }
     
 

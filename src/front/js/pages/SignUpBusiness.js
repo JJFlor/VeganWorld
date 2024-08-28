@@ -13,7 +13,10 @@ import { FaEyeSlash } from "react-icons/fa";
 export const SignUpBusiness = () => {
     const [name, setName] = useState("");
     const [typeOfServices, setTypeOfServices] = useState("");
+    const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [aboutUs, setAboutUs] = useState("");
     const [password, setPassword] = useState("");
     const [shown, setShown] = useState(false);
     const [premium, setPremium] = useState(false);
@@ -41,7 +44,7 @@ export const SignUpBusiness = () => {
     }
 
     const handleSignUp = async () => {
-        const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password);
+        const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
         if (await signUpResult) {
             navigate('/ProfileBusiness');
         } else {
@@ -69,14 +72,14 @@ export const SignUpBusiness = () => {
                                     <FaQuestionCircle />
                                 </button>
                             </p>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
+                            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
                                             <h5 className="modal-title fs-5" id="exampleModalLabel">What premium offers to your business?</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div className="modal-body">
                                             <ul>
                                                 <li>Better positioning in our web.</li>
                                                 <li>Allows you to sell your products in our Shop.</li>
@@ -90,6 +93,15 @@ export const SignUpBusiness = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="form-group mt-3">
+                                <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
+                            </div>
+                            <div className="form-group mt-3">
+                                <input type="tel" className="form-control" placeholder="Phone" onChange={(e) => setPhone(e.target.value)} value={phone} />
+                            </div>
+                            <div className="form-group mt-3">
+                                <input type="text" className="form-control" placeholder="About the business" onChange={(e) => setAboutUs(e.target.value)} value={aboutUs} />
                             </div>
                             <div className="form-group mt-3">
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />

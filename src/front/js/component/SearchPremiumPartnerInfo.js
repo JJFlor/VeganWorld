@@ -5,7 +5,7 @@ import "../../styles/searchPremiumPartnerInfo.css";
 import { MdWorkspacePremium } from "react-icons/md";
 import AvatarImg from "../../img/avatarImg.png"
 
-export const SearchPremiumPartnerInfo = ({ name, typeOfServices, premium }) => {
+export const SearchPremiumPartnerInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
     const navigate = useNavigate();
     const { store } = useContext(Context);
     const haveToken = store.token;  //comprobar si usuario tiene token
@@ -23,8 +23,10 @@ export const SearchPremiumPartnerInfo = ({ name, typeOfServices, premium }) => {
                         </div>
                         <div className="card-info">
                             <p className="card-text">Type of service: {typeOfServices}</p>
-                            <p className="card-text">Address</p>
-                            <p className="card-text">Products available in our shop: Yes</p>
+                            <p className="card-text">Email: {email}</p>
+                            <p className="card-text">Address: {address}</p>
+                            <p className="card-text">Phone: {phone}</p>
+                            <p className="card-text">About us: {aboutUs}</p>
                         </div>
                         <a href="#" className="btn btnCards" onClick={() => navigate('/Shops')}>Buy now</a>
                         <a href="#" className="btn btnCards" onClick={() => navigate('/ProfileBusiness')}>See more</a>

@@ -15,7 +15,7 @@ import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
 import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js";
 import { DetailView } from "./pages/DetailView";
-import { SignUpChooseType } from "/workspaces/VeganWorld/src/front/js/pages/SignUpChooseType.js"
+
 
 import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
@@ -49,6 +49,26 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={
                             <PrivateRoute>
+                                <EditProfileModal />
+                            </PrivateRoute>
+                        } path="/EditProfileModal" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ProfileUsuario />
+                            </PrivateRoute>
+                        } path="/ProfileUsuario" />
+                        <Route element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        } path="/Dashboard" />
+                        <Route element={
+                            <PrivateRoute>
+                                <Form />
+                            </PrivateRoute>
+                        } path="/Form" />
+                        <Route element={
+                            <PrivateRoute>
                                 <ShopClient />
                             </PrivateRoute>
                         } path="/shop_client" />
@@ -73,11 +93,6 @@ const Layout = () => {
                             </PrivateRoute>
                         } path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
-                        <Route element={
-                            <PrivateRoute>
-                                <Usuario />
-                            </PrivateRoute>
-                        } path="/usuario" />
                         <Route element={
                             <PrivateRoute>
                                 <SearchEngineMainPage />

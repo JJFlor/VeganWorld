@@ -37,7 +37,7 @@ def register_partner():
     partner = Partner.query.filter_by(email = body["email"]).first()
 
     if user is None and partner is None:
-        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"])
+        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"], address = body["address"], phone= body["phone"], about_us = body["about_us"])
         db.session.add(new_partner)
         db.session.commit()
         new_user = User(name = body["name"], email = body["email"], password = body["password"], partner_id = new_partner.id)

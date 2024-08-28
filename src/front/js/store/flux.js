@@ -75,13 +75,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
-			signUpPartner: async (email, name, typeOfServices, premium, password) => {
+			signUpPartner: async (email, name, typeOfServices, premium, password, address, phone, aboutUs) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, name, typeOfServices, premium, password }),
+							body: JSON.stringify({ email, name, typeOfServices, premium, password, address, phone, aboutUs }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {
@@ -163,13 +163,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return { success: false, message: "An error occurred when updating your password." };
 				}
 			},
-			getPartnerInfo: async (name, typeOfServices, premium) => {
+			getPartnerInfo: async (name, typeOfServices, premium, email, password, address, phone, aboutUs) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getPartnerInfo`,
 						{
 							method: 'GET',
-							body: JSON.stringify({ name, typeOfServices, premium }),
+							body: JSON.stringify({ name, typeOfServices, premium, email, password, address, phone, aboutUs }),
 							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
 						});
 					if (!response.ok) {
