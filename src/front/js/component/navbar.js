@@ -7,11 +7,24 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
+	const handleGoToProfile = () => {
+		const partnerPremium = store.partner?.premium;
+		const userLogged = store.token;
+
+		if (partnerPremium) {
+			navigate('/ProfileBusinessPremium');
+		} else if (!partnerPremium) {
+			navigate('/ProfileBusinessFree');
+		} else if (userLogged) {
+			navigate('/Usuario');
+		}
+	}
+
 
 	const handleLogout = () => {
-        actions.logOut();  // Llama a la acción logOut para cerrar sesión
-        navigate('/');     // Redirige al usuario a la página de inicio
-    };
+		actions.logOut();  // Llama a la acción logOut para cerrar sesión
+		navigate('/');     // Redirige al usuario a la página de inicio
+	};
 
 	return (
 		<nav className="navbar navbar-expand-lg sticky-top">
@@ -24,7 +37,7 @@ export const Navbar = () => {
 					<div className="navbar-nav">
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1">Home</Link>
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
-						
+
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
 
@@ -35,7 +48,7 @@ export const Navbar = () => {
 									<img src={store.user.profileImage} alt="Profile" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
 								</a>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a className="dropdown-item" href="#">Profile</a></li>
+									<li><a className="dropdown-item" href="#" onClick={() => handleGoToProfile()}>Profile</a></li>
 									<li><a className="dropdown-item" href="#" onClick={() => handleLogout()}>Logout</a></li>
 								</ul>
 							</div>
