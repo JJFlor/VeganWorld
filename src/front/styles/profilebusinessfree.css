@@ -58,9 +58,7 @@
 .profile_img {
     align-items:center;
     padding: 10px;
-    background-color:#000000;
     margin: 20px;
-    flex-grow: 1;
     max-width: 400px;
     max-height: 400px;
     border-radius: 20px;
@@ -130,4 +128,7 @@
 }
 .boton_delete {
     margin-top: 20px;
+}
+.imagen_del_menu img {
+    margin-left: 300px;
 }

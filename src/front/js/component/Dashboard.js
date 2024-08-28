@@ -1,11 +1,22 @@
 // src/AdminDashboard.js
 
-import React from 'react';
-import "/workspaces/VeganWorld/src/front/styles/shoppremium.css";
+import React, { useState } from 'react';
+import "/workspaces/VeganWorld/src/front/styles/dashboard.css";
 import { Bar, Line } from 'react-chartjs-2';
 import 'chart.js/auto';  // Automatically register all necessary chart components
 
+
+
+
 export function Dashboard() {
+
+  const [isDashVisible, setDashVisible] = useState(false);
+
+  // Step 2: Toggle function
+  const toggleMenu = () => {
+    setDashVisible(!isDashVisible);
+  };
+
   // Sample data for the charts
   const barData = {
     labels: ['January', 'February', 'March', 'April', 'May'],
@@ -32,32 +43,47 @@ export function Dashboard() {
   };
 
   return (
-    <div className="dashboard col-8 align-items-center">
-      <h1 className="dashboard-h1 text-center">ADMIN DASHBOARD</h1>
-      <div className="stats-cards">
-        <div className="card">
-          <h3>Total Users</h3>
-          <p>1,200</p>
-        </div>
-        <div className="card">
-          <h3>Total Sales</h3>
-          <p>$12,500</p>
-        </div>
-        <div className="card">
-          <h3>Active Subscriptions</h3>
-          <p>300</p>
-        </div>
+
+    <div>
+
+      <div className="dash-h1">
+      <h3 onClick={toggleMenu} style={{ cursor: 'pointer', color: '#006769' }} className="text-center">
+      {isDashVisible ? 'Hide' : 'Admin Dashboard'}
+      </h3>
       </div>
-      <div className="charts">
-        <div className="chart-container">
-          <h3>Sales Over Time</h3>
-          <Bar data={barData} />
+
+      {isDashVisible && (
+
+        <div className="dashboard collapsible-menu col-8 align-items-center">
+          <div className="stats-cards">
+            <div className="card">
+              <h3>Total Users</h3>
+              <p>1,200</p>
+            </div>
+            <div className="card">
+              <h3>Total Sales</h3>
+              <p>$12,500</p>
+            </div>
+            <div className="card">
+              <h3>Active Subscriptions</h3>
+              <p>300</p>
+            </div>
+          </div>
+          <div className="charts">
+            <div className="chart-container">
+              <h3>Sales Over Time</h3>
+              <Bar data={barData} />
+            </div>
+            <div className="chart-container">
+              <h3>Visitors Over Time</h3>
+              <Line data={lineData} />
+            </div>
+          </div>
         </div>
-        <div className="chart-container">
-          <h3>Visitors Over Time</h3>
-          <Line data={lineData} />
-        </div>
-      </div>
+      )};
+
+
+
     </div>
   );
 }

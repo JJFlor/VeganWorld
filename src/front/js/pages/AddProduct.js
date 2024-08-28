@@ -87,10 +87,10 @@ export const AddProduct = () => {
         <div className="container contAdd">
             <div className="text-center">
                 <Link to="/shop_client">
-                    <span className="btn btnGoShop">Go to Shop</span>
+                    <span className="btn btnGoShop">SHOP NOW</span>
                 </Link>
             </div>
-            
+
 
             <div className="contFormAdd p-5 mb-3">
                 <h3 id="title-offer">ADD NEW PRODUCT:</h3>
