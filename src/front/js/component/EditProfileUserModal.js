@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Form } from '/workspaces/VeganWorld/src/front/js/component/Form.js';
+import { FormFree } from '/workspaces/VeganWorld/src/front/js/component/FormFree.js';
 import "/src/front/styles/editprofilemodal.css";
 
-export function EditProfileModal() {
+export function EditProfileUserModal() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,7 +20,7 @@ export function EditProfileModal() {
                     <div className="modal-content">
                         <span className="close-button" onClick={toggleModal}>&times;</span>
                         <div className="profile_form">
-                            <Form />
+                            <FormFree />
                         </div>
                     </div>
                 </div>

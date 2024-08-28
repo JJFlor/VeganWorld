@@ -3,22 +3,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/ScrollToTop.js";
 import { BackendURL } from "./component/backendURL";
 import PrivateRoute from "./component/PrivateRoute";
-import { ShopPremium } from "./pages/ShopPremium.js";
 
 import { Home } from "./pages/home";
 import { AddProduct } from "/workspaces/VeganWorld/src/front/js/pages/AddProduct.js";
 import { ShopBusiness } from "./pages/ShopBusiness";
 import injectContext from "./store/appContext";
 
-import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 import { Navbar } from "./component/navbar.js";
 import { ShopView } from "./pages/ShopView.js";
-import { ProfileUsuario } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUsuario.js";
 import { DetailView } from "./pages/DetailView";
 import { SignUpChooseType } from "/workspaces/VeganWorld/src/front/js/pages/SignUpChooseType.js"
 
-import { Form } from "./component/Form.js";
-import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";
 import { EditProduct } from "./pages/EditProduct.js";
 // import { SignUpChooseType } from "./pages/SignUpChooseType.js";
@@ -26,10 +21,15 @@ import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
+
 import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
 import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
-import { ContactUs } from "./pages/ContactUs.js";
 import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
+import { ContactUs } from "/workspaces/VeganWorld/src/front/js/pages/ContactUs.js";
+import { Form } from "./component/Form.js";
+import { Dashboard } from "./component/Dashboard.js";
+import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
+import { EditProfileUserModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileUserModal.js"
 
 //create your first component
 const Layout = () => {

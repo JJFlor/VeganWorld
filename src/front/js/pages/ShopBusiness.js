@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "/workspaces/VeganWorld/src/front/styles/shopview.css"
 
 export const ShopBusiness = () => {
     const { store, actions } = useContext(Context);

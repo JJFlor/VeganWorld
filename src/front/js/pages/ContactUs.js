@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import "/workspaces/VeganWorld/src/front/styles/contactus.css";
 import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js";
 

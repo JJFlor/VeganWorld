@@ -39,36 +39,9 @@ export function Form() {
         <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
       </div>
 
-      <div className="col-md-6">
-        <label htmlFor="inputPassword4" className="form-label">Password</label>
-        <input type="password" className="form-control" id="inputPassword4" placeholder="*******" />
-      </div>
-
       <div className="col-12">
         <label htmlFor="inputAddress" className="form-label">Address</label>
         <input type="text" className="form-control" id="inputAddress" placeholder="Your Adress" />
-      </div>
-
-      <div className="col-12">
-        <label htmlFor="inputAddress2" className="form-label">Website</label>
-        <input type="text" className="form-control" id="inputAddress2" placeholder="...@veganworld.blogspot.com" />
-      </div>
-
-      <div className="col-md-6">
-        <label htmlFor="inputCity" className="form-label">City</label>
-        <input type="text" className="form-control" id="inputCity" />
-      </div>
-
-      <div className="col-md-4">
-        <label htmlFor="inputState" className="form-label">Country</label>
-        <select id="countries" className="form-select">
-          <option>Choose...</option>
-        </select>
-      </div>
-
-      <div className="col-md-2">
-        <label htmlFor="inputPostal" className="form-label">Postal Code</label>
-        <input type="text" className="form-control" id="inputPostal" />
       </div>
 
       <div className="col-12">

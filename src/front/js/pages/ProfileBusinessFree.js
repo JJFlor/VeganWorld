@@ -6,6 +6,7 @@ import { Reviews } from '/workspaces/VeganWorld/src/front/js/component/Reviews.j
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
 import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
+import { EditProfileUserModal } from '../component/EditProfileUserModal';
 
 export const ProfileBusinessFree = () => {
     return (
@@ -14,17 +15,18 @@ export const ProfileBusinessFree = () => {
             <h1 id="usuario_h1" className="profile_name text-center col-12">Business Free NAME</h1>
             <div className="profile_header d-flex-row">
 
-                <img src={BusinessLogo1} className="profile_img col-12" alt="..." />
+                <img src={BusinessLogo1} className="profile_img_free col-12" alt="..." />
                 <div className="form_container">
                     <form className="form_celdas">
+                        <label htmlFor="inputService" className="form-label">Type of service</label>
+                        <input type="text" className="form-control" id="inputService" placeholder="" />
                         <label htmlFor="inputAddress" className="form-label">Adress</label>
-                        <input disabled type="text" className="form-control" id="inputAddress" placeholder="" />
+                        <input type="text" className="form-control" id="inputAddress" placeholder="" />
                         <label htmlFor="inputEmail4" className="form-label">Email</label>
-                        <input disabled type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
+                        <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
                         <label className="form-label">Phone</label>
-                        <input disabled type="" className="form-control"></input>
-                        <label className="form-label">About Us</label>
-                        <textarea disabled row="30"></textarea>
+                        <input type="" className="form-control"></input>
+                        <EditProfileUserModal />
                     </form>
                 </div>
 
