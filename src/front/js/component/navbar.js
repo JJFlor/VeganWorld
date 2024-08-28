@@ -8,14 +8,12 @@ export const Navbar = () => {
 	const navigate = useNavigate();
 
 	const handleGoToProfile = () => {
-		const partnerPremium = store.partner?.premium;
-		const userLogged = store.token;
 
-		if (partnerPremium) {
+		if (store.partner.premium) {
 			navigate('/ProfileBusinessPremium');
-		} else if (!partnerPremium) {
+		} else if (!store.partner.premium) {
 			navigate('/ProfileBusinessFree');
-		} else if (userLogged) {
+		} else {
 			navigate('/Usuario');
 		}
 	}
