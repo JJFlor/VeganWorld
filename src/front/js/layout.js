@@ -18,15 +18,15 @@ import { Form } from "./component/Form.js";
 import { Dashboard } from "./component/Dashboard.js";
 import { ShopClient } from "./pages/ShopClient.js";
 import { EditProduct } from "./pages/EditProduct.js";
-// import { SignUpChooseType } from "./pages/SignUpChooseType.js";
+
+
 import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
-import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
-import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
 import { ShopPremium } from "./pages/ShopPremium.js";
-import { SignUpChooseType } from "./pages/SignUpChooseType.js";
+import { ProfileBusiness } from "./pages/ProfileBusiness.js";
+
 
 //create your first component
 const Layout = () => {
@@ -43,21 +43,55 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<ShopClient />} path="/shop_client" />
-                        <Route element={<ShopBusiness />} path="/shop_business" />
-                        <Route element={<EditProduct />} path="edit_product/:id" />
-                        <Route element={<ShopPremium />} path="/shop_premium" />
-                        <Route element={<AddProduct />} path="/add_product" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ShopClient />
+                            </PrivateRoute>
+                        } path="/shop_client" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ShopBusiness />
+                            </PrivateRoute>
+                        } path="/shop_business" />
+                        <Route element={
+                            <PrivateRoute>
+                                <EditProduct />
+                            </PrivateRoute>
+                        } path="edit_product/:id" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ShopPremium />
+                            </PrivateRoute>
+                        } path="/shop_premium" />
+                        <Route element={
+                            <PrivateRoute>
+                                <AddProduct />
+                            </PrivateRoute>
+                        } path="/add_product" />
                         <Route element={<ShopView />} path="/shop_view" />
-                        <Route element={<Usuario />} path="/usuario" />
-                        <Route element={<SearchEngineMainPage />} path="/SearchEngineMainPage" />
-                        <Route element={<SignUpChooseType />} path="/SignUpChooseType" />
+                        <Route element={
+                            <PrivateRoute>
+                                <Usuario />
+                            </PrivateRoute>
+                        } path="/usuario" />
+                        <Route element={
+                            <PrivateRoute>
+                                <SearchEngineMainPage />
+                            </PrivateRoute>
+                        } path="/SearchEngineMainPage" />
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
-                        <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
-                        <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
-                        <Route element={<DetailView />} path="/product_info/:id" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ProfileBusiness />
+                            </PrivateRoute>
+                        } path="/ProfileBusiness" />
+                        <Route element={
+                            <PrivateRoute>
+                                <DetailView />
+                            </PrivateRoute>
+                        } path="/product_info/:id" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>
