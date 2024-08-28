@@ -1,26 +1,40 @@
 import React from 'react'
-import '../../styles/shopview.css';
+import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
 import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
 import { Reviews } from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
 import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
+import { EditProfileUserModal } from '../component/EditProfileUserModal';
 
 export const ProfileBusinessFree = () => {
     return (
         <div id="shopview_container" className="container my-5">
-            <div id="shopview_container_background" className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                <div id="shopview_hero_cover" className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                    <h1 id="shopview_hero_cover_h1" className="display-4 fw-bold lh-1 text-body-emphasis">BUSINESS NAME</h1>
-                    <p id="shopview_hero_cover_p" className="lead">Business description and Adress</p>
+
+            <h1 id="usuario_h1" className="profile_name text-center col-12">Business Free NAME</h1>
+            <div className="profile_header d-flex-row">
+
+                <img src={BusinessLogo1} className="profile_img_free col-12" alt="..." />
+                <div className="form_container">
+                    <form className="form_celdas">
+                        <label htmlFor="inputService" className="form-label">Type of service</label>
+                        <input type="text" className="form-control" id="inputService" placeholder="" />
+                        <label htmlFor="inputAddress" className="form-label">Adress</label>
+                        <input type="text" className="form-control" id="inputAddress" placeholder="" />
+                        <label htmlFor="inputEmail4" className="form-label">Email</label>
+                        <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
+                        <label className="form-label">Phone</label>
+                        <input type="" className="form-control"></input>
+                        <EditProfileUserModal />
+                    </form>
                 </div>
-                <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-                    <img className="rounded-lg-3" src={BusinessLogo1} alt="" width="720" />
-                </div>
+
+
             </div>
 
             <div className="b-example-divider"></div>
+            <hr className="featurette-divider" />
 
 
             <ul id="shopview_pills" className="nav nav-pills" role="tablist">
@@ -236,8 +250,8 @@ export const ProfileBusinessFree = () => {
 
                 </div>
 
-                <div className="tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
-                    <img className="menu_business" src={MenuBusiness1}></img>
+                <div className="imagen_del_menu tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
+                    <img src={MenuBusiness1}></img>
 
                 </div>
 

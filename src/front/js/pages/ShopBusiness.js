@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "/workspaces/VeganWorld/src/front/styles/shopview.css"
 
 export const ShopBusiness = () => {
     const { store, actions } = useContext(Context);
     const [products, setProducts] = useState(store.products || []);
     const [filter, setFilter] = useState("new"); // Estado para almacenar el filtro seleccionado
+
 
     useEffect(() => {
         actions.getProducts().then(() => {
@@ -15,7 +17,7 @@ export const ShopBusiness = () => {
 
     // Función para aplicar el filtro según la opción seleccionada
     const applyFilter = (filterType) => {
-        let filteredProducts = [...store.products]; // Clonar los productos desde el store
+        let filteredProducts = Array.isArray(store.products) ? [...store.products] : [];      // Clonar los productos desde el store
 
         if (filterType === "new") {
             filteredProducts = filteredProducts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));

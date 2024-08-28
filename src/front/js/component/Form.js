@@ -24,54 +24,51 @@ export function Form() {
     console.log('Form Data Submitted:', formData);
   };
 
+
   return (
-    <form className="usuario-form-fields" onSubmit={handleSubmit}>
-      <div>
-        <label>Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+
+    <form>
+
+      <div className="col-md-12">
+        <label htmlFor="inputName" className="form-label">Name</label>
+        <input type="text" className="form-control" id="inputName" placeholder="Change Name" />
       </div>
-      <div>
-        <label>Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+
+      <div className="col-md-6">
+        <label htmlFor="inputEmail4" className="form-label">Email</label>
+        <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
       </div>
-      <div>
-        <label>Phone Number: </label>
-        <input
-          type="tel"
-          name="telephone"
-          value={formData.telephone}
-          onChange={handleChange}
-        />
+
+      <div className="col-12">
+        <label htmlFor="inputAddress" className="form-label">Address</label>
+        <input type="text" className="form-control" id="inputAddress" placeholder="Your Adress" />
       </div>
-      <div>
-        <label>Address:</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-        />
+
+      <div className="col-12">
+        <label htmlFor="inputAbout" className="form-label">About</label>
+        <textarea type="text" rows="30" />
       </div>
-      <div>
-        <label>About:</label>
-        <textarea
-          name="aboutMe"
-          value={formData.aboutMe}
-          onChange={handleChange}
-        />
+
+
+      <div className="row">
+
+        <div className="col-md-4">
+          <button type="submit" className="boton_form-edit btn btn-success">Save</button>
+        </div>
+
+        <div className="col-md-4">
+          <button type="submit" className="boton_form-cancel btn btn-warning">Cancel</button>
+        </div>
+
+
+        <div className="col-md-4">
+          <button type="submit" className="boton_form-delete btn btn-danger btn-sm">Delete Account</button>
+
+        </div>
+
       </div>
-      <button type="submit" className="usuario_boton-rate">Submit</button>
+
     </form>
+
   );
 }
-// Boton azul de edit profile de la pagina usuario habilita el formulario de edit profile

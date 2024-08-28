@@ -4,35 +4,71 @@ import { Context } from "../store/appContext";
 
 export const EditProduct = () => {
     const { store, actions } = useContext(Context);
-    const { id } = useParams(); // Get the product ID from the URL
+    const { id } = useParams(); // Obtener el ID del producto desde la URL
     const navigate = useNavigate();
 
-    // Local state for the product fields
+    // Estado local para los campos del producto
     const [productName, setProductName] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
+    const [isLoading, setIsLoading] = useState(false); // Estado para mostrar el estado de carga
 
-    // Initialize the local state when the component mounts
+    // Inicializar el estado local cuando el componente se monta
     useEffect(() => {
-        if (store.productEdit) {
+        if (store.productEdit && store.productEdit.id === parseInt(id, 10)) {
             setProductName(store.productEdit.product_name || '');
             setPrice(store.productEdit.price || '');
             setDescription(store.productEdit.description || '');
+        } else {
+            // En caso de que el producto no esté en el store, podrías hacer una solicitud al backend para obtenerlo
+            const fetchProduct = async () => {
+                try {
+                    const token = localStorage.getItem('token');
+                    const response = await fetch(process.env.BACKEND_URL + `/api/products/${id}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    if (response.ok) {
+                        const product = await response.json();
+                        setProductName(product.product_name);
+                        setPrice(product.price);
+                        setDescription(product.description);
+                    } else {
+                        console.error("Failed to fetch product");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            };
+
+            fetchProduct();
         }
-    }, [store.productEdit]);
+    }, [store.productEdit, id]);
 
     const handleSave = async () => {
+        if (!productName || !price || !description) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        setIsLoading(true);
+
         const updatedProduct = {
             product_name: productName,
-            price: price,
+            price: parseFloat(price),
             description: description
         };
 
         try {
+            const token = localStorage.getItem('token'); // Suponiendo que el token está almacenado en el localStorage
             const response = await fetch(process.env.BACKEND_URL + `/api/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Incluye el token de autenticación
                 },
                 body: JSON.stringify(updatedProduct),
             });
@@ -41,9 +77,13 @@ export const EditProduct = () => {
                 navigate('/shop_business');
             } else {
                 console.error("Failed to save product");
+                alert("Failed to save product. Please try again.");
             }
         } catch (error) {
             console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -93,7 +133,13 @@ export const EditProduct = () => {
                 </div>
                 <div className="btnsProduct">
                     <Link to="/shop_business" className="btn btnCancel mx-2 my-4">Cancel</Link>
-                    <button className="btn btnSave mx-2 my-4" onClick={handleSave}>Save</button>
+                    <button
+                        className="btn btnSave mx-2 my-4"
+                        onClick={handleSave}
+                        disabled={isLoading}
+                    >
+                        {isLoading ? 'Saving...' : 'Save'}
+                    </button>
                 </div>
             </div>
         </div>

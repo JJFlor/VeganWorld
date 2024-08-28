@@ -4,11 +4,7 @@ import "../../styles/sign_up.css";
 import "../../styles/log_in.css";
 import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
-import { FaQuestionCircle } from "react-icons/fa";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
-
-
+import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const LogIn = () => {
     const [email, setEmail] = useState("");
@@ -16,10 +12,10 @@ export const LogIn = () => {
     const [shown, setShown] = useState(false);
     const [newPassword, setNewPassword] = useState("");
     const [repeatNewPassword, setRepeatNewPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    // const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
-
 
     useEffect(() => {
         const scrollToTop = () => {
@@ -29,28 +25,37 @@ export const LogIn = () => {
     }, []);
 
     const switchShown = () => {
-        setShown(!shown)
+        setShown(!shown);
     }
 
-    const resetPassword = (email, newPassword) => {
-        console.log(newPassword)
-        console.log(repeatNewPassword)
-        if (email == store.email && newPassword == repeatNewPassword) {
-            actions.resetPassword(email, newPassword)
-        } else if (email == store.email && newPassword != repeatNewPassword()) {
-            alert("Email or passwords are incorrect");
+    const resetPassword = async () => {
+        if (newPassword !== repeatNewPassword) {
+            setErrorMessage("Passwords do not match.");
+            return;
         }
 
+        try {
+            const response = await actions.resetPassword(email, newPassword);
+            if (response.success) {
+                setSuccessMessage(response.message);
+                setErrorMessage("");
+            } else {
+                setErrorMessage(response.message);
+            }
+        } catch (error) {
+            console.error("Error resetting password:", error);
+            setErrorMessage("An error occurred while resetting the password.");
+        }
     }
-
-    
-
 
     const logIn = async () => {
-        await actions.logIn(email, password);
-        navigate('/usuario')
+        const resp = await actions.logIn(email, password);
+        if (resp) {
+            navigate('/ProfileBusiness');
+        } else {
+            navigate('/usuario');
+        }
     }
-
 
     return (
         <div className="container">
@@ -74,18 +79,20 @@ export const LogIn = () => {
                             </div>
                             <p className="reset-password">
                                 Forgotten your password?
-                                <button type="button" class="btn-question-reset-password" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" className="btn-question-reset-password" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <FaQuestionCircle />
                                 </button>
                             </p>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
+                            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
                                             <h5 className="modal-title fs-5" id="exampleModalLabel">Recover your password</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div className="modal-body">
+                                            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+                                            {successMessage && <div className="alert alert-success">{successMessage}</div>}
                                             <div className="form-group mt-3">
                                                 <input type="email" className="form-control" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
                                             </div>
@@ -99,17 +106,17 @@ export const LogIn = () => {
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <button type="button" className="btn btn-reset-password" data-bs-dismiss="modal" onClick={() => resetPassword(email, newPassword)}>Reset password</button>
+                                            <button type="button" className="btn btn-reset-password" onClick={resetPassword}>Reset password</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="ms-4">
-                            <img className="logoAvocado" src={LogoAvocado} href="#" />
+                            <img className="logoAvocado" src={LogoAvocado} alt="Logo Avocado" />
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-50 mt-4 shadow-lg" onClick={() => logIn(email, password)}>Get logged in!</button>
+                    <button className="btn btn-signUp-user w-50 mt-4 shadow-lg" onClick={logIn}>Get logged in!</button>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ export const SearchEngineMainPage = () => {
     const { store, actions } = useContext(Context);
     const [toggled, setToggled] = useState(false);
     const [search, setSearch] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
 
     useEffect(() => {
@@ -33,50 +34,67 @@ export const SearchEngineMainPage = () => {
         {
             id: 1,
             position: { lat: 41.3880461278723, lng: 2.167037641404972 },
+            category: "restaurant"
         },
         {
             id: 2,
             position: { lat: 41.38649263978724, lng: 2.130763342351535 },
+            category: "shop"
         },
         {
             id: 3,
             position: { lat: 41.40155361180801, lng: 2.160093173042831 },
+            category: "wellness"
         },
         {
             id: 4,
             position: { lat: 41.40254062653742, lng: 2.1567984527937383 },
+            category: "activism"
         },
         {
             id: 5,
             position: { lat: 41.40701325141857, lng: 2.1759425393017695 },
+            category: "restaurant"
         },
         {
             id: 6,
             position: { lat: 41.400922808125536, lng: 2.1566481798289083 },
+            category: "shop"
         }, {
             id: 7,
             position: { lat: 41.38887919684671, lng: 2.1587300681363915 },
+            category: "wellness"
         }, {
             id: 8,
             position: { lat: 41.388822058676006, lng: 2.1582306662850934 },
+            category: "activism"
         },
         {
             id: 9,
             position: { lat: 41.395457939125016, lng: 2.1711297239573324 },
+            category: "restaurant"
         },
         {
             id: 10,
             position: { lat: 41.39006425434672, lng: 2.157082452792872 },
+            category: "shop"
         },
         {
             id: 11,
             position: { lat: 41.38912389430176, lng: 2.1569218527928116 },
+            category: "wellness"
         },
         {
             id: 12,
             position: { lat: 41.40010057980126, lng: 2.1542063816294656 },
+            category: "activism"
         },
     ];
+
+    const filteredMarkers =
+        selectedCategory ? markers.filter(marker => marker.category === selectedCategory)
+            : markers;
+
 
     const mapStyles = [
         {
@@ -146,13 +164,27 @@ export const SearchEngineMainPage = () => {
         const foundWord = keyWords.includes(search);
         if (foundWord) {
             actions.setCathegoryFilter(search);
-            alert("See the results below");
 
         } else {
             alert("Word doesn't match any result. Try with: restaurant, shop, wellness or activism");
         }
 
     }
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        actions.setCathegoryFilter(category);
+    }
+
+    const handleAllCategoriesClick = (category) => {
+        setSelectedCategory(category);
+        actions.setFilteredPartnerNull();
+    }
+
+
+
+
+
 
 
     return (
@@ -164,13 +196,16 @@ export const SearchEngineMainPage = () => {
                 <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Look for vegan services" />
                 <button onClick={() => Search(search)} className="btn btnCards ms-3">Search</button>
             </div>
+            <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
+                <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
+            </button>
             <div className="row">
                 <div className="text-center">
-                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("restaurant")}>🍴 Restaurants</button>
-                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("shop")} >👜 Shops</button>
-                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("wellness")} >😄 Wellness</button>
-                    <button className="btn btnCategory mx-3" onClick={() => actions.setCathegoryFilter("activism")}>✊ Activism</button>
-                    <button className="btn btnCategory mx-3" onClick={() => actions.setFilteredPartnerNull()}>All Cathegories</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("restaurant")}>🍴 Restaurants</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("shop")} >👜 Shops</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("wellness")} >😄 Wellness</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("activism")}>✊ Activism</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleAllCategoriesClick()}>All Cathegories</button>
                 </div>
             </div>
             <div className="mapSection">
@@ -188,7 +223,7 @@ export const SearchEngineMainPage = () => {
                                     disableDefaultUI: true,
                                 }}
                             >
-                                {markers.map(marker => (
+                                {filteredMarkers.map(marker => (
                                     <Marker key={marker.id} position={marker.position} />
                                 ))}
 
@@ -200,11 +235,8 @@ export const SearchEngineMainPage = () => {
                 }
 
             </div>
-            <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
-                <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
-            </button>
             <div>
-                <div className="container rollCards d-flex flex-row">
+                <div className="container rollCards d-flex flex-column">
                     {console.log(store.premiumPartners)}
                     {store.premiumPartnersFiltered ? store.premiumPartnersFiltered.map(filteredPartner =>
                     (<SearchRestaurantsPartners key={filteredPartner.id} name={filteredPartner.name}

@@ -13,8 +13,7 @@ export const Home = () => {
 			<Jbtron />
 			<FindBusiness />
 			<Shops />
-			<Reviews />
-			<Footer />
+			<Footer /> 
 		</div>
 	);
 };
