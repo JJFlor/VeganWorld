@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
 import { SearchRestaurantsPartners } from "../component/SearchRestaurantsPartners";
+import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js";
 
 
 
@@ -23,6 +24,10 @@ export const ProfileBusinessPremium = () => {
                 store.premiumPartners?.map(premiumPartners => (<SearchPremiumPartnerInfo key={premiumPartners.id}
                     name={premiumPartners.name}
                     typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
+            <div>
+                <Footer />
+            </div>
+
         </div>
 
     )

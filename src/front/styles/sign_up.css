@@ -139,8 +139,8 @@
     position: absolute;
     display: block;
     user-select: none;
-    bottom: 10.3rem;
-    right: 35.5rem;
+    bottom: 3.6rem;
+    right: 35.3rem;
 }
 
 .inputRelativeBusiness {
@@ -151,8 +151,8 @@
     position: absolute;
     display: block;
     user-select: none;
-    bottom: 7.1rem;
-    right: 34rem;
+    bottom: -2.7rem;
+    right: 33.5rem
 }
 
 .modalPremium {

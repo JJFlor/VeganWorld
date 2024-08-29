@@ -8,15 +8,25 @@ export const ProfileUser = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getUsersInfo();
+        actions.getUserInfo();
     }, [])
 
 
     return (
 
         <div className="container-fluid">
-            {store.user?.map(user => <SearchUserInfo key={user.id} name={user.name}
-                email={user.email} address={user.address} phone={user.phone} />)
+            {
+                user ?
+                    (<SearchUserInfo
+                        key={store.user.id}
+                        name={store.user.name}
+                        email={store.user.email}
+                        address={store.user.address}
+                        phone={store.user.phone} />
+                    )
+                    :
+                    (<p>No user data available</p>)
+
             }
         </div>
 

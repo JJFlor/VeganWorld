@@ -9,7 +9,7 @@ export const ProfileBusinessFree = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getAllPartnersInfo();
+        actions.getPartnerInfo();
     }, [])
 
 

@@ -10,6 +10,7 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(350))
     phone = db.Column(db.String(20), unique=True)
+    # image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
     # relacion corregida
@@ -25,7 +26,7 @@ class User(db.Model):
             "email": self.email,
             "address": self.address,
             "phone": self.phone,
-            "image_url": self.image_url,
+            # "image_url": self.image_url,
             #forma de serializar las relaciones
             "partner": self.partner.serialize() if self.partner else None
         }
@@ -39,6 +40,7 @@ class Partner(db.Model):
     premium = db.Column(db.Boolean(), unique=False, nullable=False)
     address = db.Column(db.String(350), unique= False)
     phone = db.Column(db.Integer, unique=True, nullable=False)
+    # image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     about_us = db.Column(db.String(600), unique=False, nullable=False)
 
     # relacion corregida
@@ -57,7 +59,7 @@ class Partner(db.Model):
             "address": self.address,
             "phone": self.phone,
             "about_us": self.about_us,
-            "image_url": self.image_url
+            # "image_url": self.image_url
         }
     
 

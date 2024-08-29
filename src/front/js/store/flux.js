@@ -213,7 +213,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				}
 			},
-			getUsersInfo: async (email, name, address, phone) => {
+			getUserInfo: async (email, name, address, phone) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,

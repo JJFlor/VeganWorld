@@ -8,6 +8,12 @@ import { EditProfileModal } from './EditProfileModal';
 
 export const SearchUserInfo = ({ email, name, address, phone }) => {
     const navigate = useNavigate();
+    const { store, actions } = useContext(Context);
+
+    useEffect(() => {
+        actions.getUserInfo();
+    }, [])
+
 
     return (
         <div className="container-fluid">

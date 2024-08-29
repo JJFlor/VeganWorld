@@ -15,7 +15,7 @@ export const SearchRestaurantsPartners = ({ name, typeOfServices, premium, email
     return (
         <div className="container">
             <div className="baseCard mx-3 mb-4 row">
-                <div className="col-7 card">
+                <div className="col-8 card">
                     <div className="card-body">
                         <div className="d-flex flex-row">
                             <img src={AvatarImg} alt="" className="imgReview" />

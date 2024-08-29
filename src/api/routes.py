@@ -68,7 +68,7 @@ def getAllPartnersInfo():
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
 
-@api.route('/getUsersInfo', methods=['GET'])
+@api.route('/getUserInfo', methods=['GET'])
 @jwt_required()
 def getUserInfo():
     body = request.json

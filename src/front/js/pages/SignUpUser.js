@@ -31,7 +31,7 @@ export const SignUpUser = () => {
         setShown(!shown)
     }
 
-    const signUpUser = async (email, password, username, address, phone) => {
+    const signUpUser = async () => {
         await actions.signUpUser(email, password, username, address, phone);
         navigate('/profile_user');
     }
