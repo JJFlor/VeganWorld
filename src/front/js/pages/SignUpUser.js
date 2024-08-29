@@ -31,8 +31,8 @@ export const SignUpUser = () => {
         setShown(!shown)
     }
 
-    const signUpUser = async (email, password, name, address, phone) => {
-        await actions.signUpUser(email, password, name, address, phone);
+    const signUpUser = async (email, password, username, address, phone) => {
+        await actions.signUpUser(email, password, username, address, phone);
         navigate('/profile_user');
     }
 
@@ -71,7 +71,7 @@ export const SignUpUser = () => {
                             <img className="logoAvocado" src={LogoAvocado} href="#" />
                         </div>
                     </div>
-                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, username)}>Sign up</button>
+                    <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, username, address, phone)}>Sign up</button>
                 </div>
             </div>
         </div>
