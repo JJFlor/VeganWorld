@@ -31,7 +31,7 @@ export const Shops = () => {
             <div className="container">
                 <div className="row">
                     <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Restaurant')}>🍴 Restaurants</button>
+                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Restaurants','restaurant')}>🍴 Restaurants</button>
                     </div>
                     <div className="col my-2">
                         <button className="btn btnCategory" onClick={() => handleCategoryClick('Shops')}>👜 Shops</button>

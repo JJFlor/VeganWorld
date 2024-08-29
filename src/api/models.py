@@ -86,6 +86,7 @@ class Inventory(db.Model):
     price = db.Column(db.Integer, unique=False, nullable=False)
     image_url = db.Column(db.String(255), nullable=True)  # Campo opcional para la URL de la imagen
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"))
+    user_id = db.Column(db.Integer, nullable=False)
 
     # relacion corregida
     shop = db.relationship("Shop", back_populates="inventories")
@@ -100,7 +101,8 @@ class Inventory(db.Model):
             "description": self.description,
             "price": self.price,
             "image_url": self.image_url,
-            "shop_id": self.shop_id
+            "shop_id": self.shop_id,
+            "user_id": self.user_id
         }
 
 

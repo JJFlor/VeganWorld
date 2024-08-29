@@ -114,10 +114,12 @@ def log_in():
 
 
 
+
 # Crear un nuevo producto
 @api.route('/products', methods=['POST'])
 @jwt_required()
 def create_product():
+    user_id = get_jwt_identity()  # Obtén el user_id del token JWT
     data = request.json
     
     if not data or not all(key in data for key in ['product_name', 'price', 'description']):
@@ -128,7 +130,8 @@ def create_product():
             product_name=data['product_name'],
             price=data['price'],
             description=data['description'],
-            image_url=data.get('image_url')  # Asegúrate de que la URL de la imagen se guarde
+            image_url=data.get('image_url'),
+            user_id=user_id  # Asigna el user_id al producto
         )
         db.session.add(new_product)
         db.session.commit()
@@ -147,6 +150,19 @@ def get_products():
         return jsonify([product.serialize() for product in products]), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+    # Obtener productos por user_id
+@api.route('/products/user', methods=['GET'])
+@jwt_required()
+def get_products_by_user():
+    user_id = get_jwt_identity()  # Obtén el user_id del token JWT
+    
+    try:
+        products = Inventory.query.filter_by(user_id=user_id).all()
+        return jsonify([product.serialize() for product in products]), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 # Editar un producto
 @api.route('/products/<int:product_id>', methods=['PUT'])

@@ -4,20 +4,19 @@ import { Context } from "../store/appContext";
 
 export const ShopClient = () => {
     const { store, actions } = useContext(Context);
-    const [products, setProducts] = useState(store.products || []);
-
+    const [products, setProducts] = useState([]); // Inicializa el estado sin depender de store.products
 
     useEffect(() => {
+        // Obtener los productos una sola vez al montar el componente
         actions.getProducts().then((data) => {
             setProducts(Array.isArray(data) ? data : []);
         });
-    }, [store.products]);
-    
+    }, []); // Se ejecuta una sola vez al montar el componente
 
     const sortProducts = (criteria) => {
         let sortedProducts = [...products];
         if (criteria === 'new') {
-            sortedProducts.sort((a, b) => new Date(b.date) - new Date(a.date)); // Assuming products have a 'date' field
+            sortedProducts.sort((a, b) => new Date(b.date) - new Date(a.date)); // Asumiendo que los productos tienen un campo 'date'
         } else if (criteria === 'price_asc') {
             sortedProducts.sort((a, b) => a.price - b.price);
         } else if (criteria === 'price_desc') {
@@ -41,7 +40,6 @@ export const ShopClient = () => {
                     {products.map((product) => (
                         <div className="col productsCard my-3 mx-4" key={product.id}>
                             <div className="card" style={{ maxWidth: "17rem" }}>
-                                {/* Usar la URL de la imagen del producto si está disponible, de lo contrario usar una imagen de relleno */}
                                 <img
                                     src={product.image_url || "https://dummyimage.com/200x200/000/fff"}
                                     className="card-img-top img-thumbnail imgProducts"

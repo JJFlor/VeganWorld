@@ -34,20 +34,87 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
 						}
 					});
-
-					if (response.status === 401) {
-						console.error('Unauthorized access - token might be invalid or expired.');
-						return;
+			
+					if (!response.ok) {
+						// Maneja el caso de una respuesta no exitosa
+						console.error('Failed to fetch products:', response.statusText);
+						return [];
 					}
-
+			
 					const data = await response.json();
-					setStore({ products: Array.isArray(data) ? data : [] });
+					if (!Array.isArray(data)) {
+						console.error('Unexpected data format:', data);
+						return [];
+					}
+			
+					setStore({ products: data });
 					return data;
 				} catch (error) {
 					console.error('Error fetching products:', error);
 					setStore({ products: [] });
+					return [];
 				}
 			},
+			
+
+			getProductsByUser: async () => {
+				const store = getStore();
+				try {
+					const response = await fetch(process.env.BACKEND_URL + '/api/products/user', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}`
+						}
+					});
+			
+					if (!response.ok) {
+						console.error('Failed to fetch user products:', response.statusText);
+						return [];
+					}
+			
+					const data = await response.json();
+					return Array.isArray(data) ? data : [];
+				} catch (error) {
+					console.error('Error fetching user products:', error);
+					return [];
+				}
+			},
+			
+			deleteProduct: async (productId) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/products/${productId}`, {
+						method: 'DELETE',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
+						}
+					});
+			
+					if (response.status === 401) {
+						console.error('Unauthorized access - token might be invalid or expired.');
+						return false; // Indica fracaso
+					}
+			
+					if (!response.ok) {
+						console.error('Error deleting product:', response.statusText);
+						return false; // Indica fracaso
+					}
+			
+					// Actualiza la lista de productos en el store eliminando el producto borrado
+					const newProducts = store.products.filter(product => product.id !== productId);
+					setStore({ products: newProducts });
+			
+					return true; // Indica éxito
+			
+				} catch (error) {
+					console.error('Error deleting product:', error);
+					return false; // Indica fracaso
+				}
+			},
+			
+			
 
 
 			signUpUser: async (email, password, name) => {
