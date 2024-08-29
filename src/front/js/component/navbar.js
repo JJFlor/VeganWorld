@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import LogoNav from "../../img/aguaAmarillo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
+import { CgProfile } from "react-icons/cg";
+
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -31,11 +33,11 @@ export const Navbar = () => {
 						{store.user ? (
 							// Si el usuario está autenticado, muestra su foto de perfil
 							<div className="nav-item dropdown">
-								<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src={store.user.profileImage} alt="Profile" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
-								</a>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a className="dropdown-item" href="#">Profile</a></li>
+								<Link to="" className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<CgProfile  style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}/> 
+								</Link>
+								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+									<li><Link to="/" className="dropdown-item">Profile</Link></li>
 									<li><a className="dropdown-item" href="#" onClick={() => handleLogout()}>Logout</a></li>
 								</ul>
 							</div>
