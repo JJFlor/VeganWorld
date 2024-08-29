@@ -6,11 +6,10 @@ db = SQLAlchemy()
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
-    email = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(350))
-    phone = db.Column(db.String(20), nullable=False)
-    image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
+    phone = db.Column(db.String(20), unique=True)
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
     # relacion corregida
@@ -34,14 +33,13 @@ class User(db.Model):
 
 class Partner(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    email = db.Column(db.String(120), nullable=False)
-    type_of_services = db.Column(db.String(120), nullable=False)
-    premium = db.Column(db.Boolean(), nullable=False)
-    address = db.Column(db.String(350))
-    phone = db.Column(db.String(20), nullable=False)
-    about_us = db.Column(db.String(600), nullable=False)
-    image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
+    name = db.Column(db.String(200), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    type_of_services = db.Column(db.String(120), unique=False, nullable=False)
+    premium = db.Column(db.Boolean(), unique=False, nullable=False)
+    address = db.Column(db.String(350), unique= False)
+    phone = db.Column(db.Integer, unique=True, nullable=False)
+    about_us = db.Column(db.String(600), unique=False, nullable=False)
 
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
