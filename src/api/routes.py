@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Partner, Inventory
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_mail import Message
+from api.mail.mailer import send_email
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 api = Blueprint('api', __name__)
@@ -68,7 +70,17 @@ def getAllPartnersInfo():
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
 
+@api.route('/getUserInfo', methods=['GET'])
+@jwt_required()
+def getUserInfo():
+    body = request.json
+    user = User.query.filter_by(email = body["email"]).first()
+    if user is None:
+        return jsonify({"msg":"User not found"}), 404
+    else:
+        return jsonify({"msg":"Ok", "userInfo": user.serialize()}), 200
 
+    
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
@@ -97,7 +109,7 @@ def log_in():
 
     user = User.query.filter_by(email = email, password = password).first()
     if user is None:
-        return jsonify({"msg":"Bad username or password"}), 401 
+        return jsonify({"msg":"Bad username or password"}), 403
 
 
     access_token = create_access_token(identity=user.id)

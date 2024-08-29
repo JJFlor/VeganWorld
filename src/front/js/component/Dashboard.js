@@ -46,10 +46,10 @@ export function Dashboard() {
 
     <div>
 
-      <div className="dash-h1">
-      <h3 onClick={toggleMenu} style={{ cursor: 'pointer', color: '#006769' }} className="text-center">
-      {isDashVisible ? 'Hide' : 'Admin Dashboard'}
-      </h3>
+      <div className="dash-h1 mt-5">
+        <h3 onClick={toggleMenu} style={{ cursor: 'pointer', color: '#006769' }} className="text-center">
+          {isDashVisible ? 'Hide' : 'Admin Dashboard'}
+        </h3>
       </div>
 
       {isDashVisible && (

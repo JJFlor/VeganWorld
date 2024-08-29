@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../../styles/sign_up.css";
+// import "../../styles/sign_up.css";
 import "../../styles/log_in.css";
 import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
@@ -46,7 +46,7 @@ export const LogIn = () => {
         if (resp) {
             navigate('/ProfileBusiness');
         } else {
-            navigate('/usuario');
+            navigate('/profile_user');
         }
     }
     return (
@@ -67,7 +67,7 @@ export const LogIn = () => {
                             </div>
                             <p className="try-premium">
                                 Don't you have an account?&nbsp;
-                                <Link to="/SignUpChooseType" className="log_in_text fw-bold text-decoration-none">
+                                <Link to="/SignUpUser" className="log_in_text fw-bold text-decoration-none">
                                     Sign up
                                 </Link>
                             </p>

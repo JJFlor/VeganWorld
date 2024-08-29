@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.token) {
 						localStorage.setItem("token", data.token);
 						localStorage.setItem("email", data.email);
-						setStore({ ...store, token: data.token, partner: data.partner, user: data.user })
+						setStore({ ...store, token: data.token, partnerInfo: data.partner, user: data.user })
 						return true;
 					} else {
 						console.log("Token not received", data);
@@ -118,7 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner ? data.user.partner : null })
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partnerInfo: data.user.partner ? data.user.partner : null })
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)
@@ -210,6 +210,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				} catch (error) {
 					console.log("Loading premium partners info failed", error);
+
+				}
+			},
+			getUserInfo: async (email, name, address, phone) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,
+						{
+							method: 'GET',
+							body: JSON.stringify({ email, name, address, phone }),
+							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
+						});
+					if (!response.ok) {
+						const errorData = await response.json();
+						alert("Error", errorData);
+					}
+					const data = await response.json();
+					if (data.user) {
+						localStorage.setItem("user", JSON.stringify(data.user))
+						setStore({ user: data.user })
+					} else {
+						console.log("User info not received", data)
+					}
+				} catch (error) {
+					console.log("Loading user info failed", error);
 
 				}
 			},

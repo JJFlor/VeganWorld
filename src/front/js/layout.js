@@ -26,10 +26,11 @@ import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
-import { ProfileBusinessPremium } from "./pages/ProfileBusinessPremium.js";
-import { ProfileBusinessFree } from "./pages/ProfileBusinessFree.js";
+import { ProfileBusiness } from "./pages/ProfileBusiness.js";
 import { ContactUs } from "./pages/ContactUs.js";
 import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
+import { SearchPremiumPartnerInfo } from "./component/SearchPremiumPartnerInfo.js";
+import { SearchBusinessFreeInfo } from "./component/SearchBusinessFreeInfo.js";
 
 //create your first component
 const Layout = () => {
@@ -86,7 +87,11 @@ const Layout = () => {
                                 <AddProduct />
                             </PrivateRoute>
                         } path="/add_product" />
-                        <Route element={<ShopView />} path="/shop_view" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ShopView /> />
+                            </PrivateRoute>
+                        } path="/shop_view" />
                         <Route element={
                             <PrivateRoute>
                                 <SearchEngineMainPage />
@@ -95,21 +100,10 @@ const Layout = () => {
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileUser />
-                            </PrivateRoute>
-                        } path="/profile_user" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileBusinessPremium />
-                            </PrivateRoute>
-                        } path="/ProfileBusinessPremium" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileBusinessFree />
-                            </PrivateRoute>
-                        } path="/ProfileBusinessFree" />
+                        <Route element={<ProfileUser />} path="/profile_user" />
+                        <Route element={<ProfileBusiness />} path="/ProfileBusiness" />
+                        <Route element={<SearchPremiumPartnerInfo />} path="/SearchPremiumPartnerInfo" />
+                        <Route element={<SearchBusinessFreeInfo />} path="/SearchBusinessFreeInfo" />
                         <Route element={
                             <PrivateRoute>
                                 <DetailView />

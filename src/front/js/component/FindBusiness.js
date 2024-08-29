@@ -17,16 +17,8 @@ export const FindBusiness = () => {
     const markers = [
         {
             id: 1,
-            position: { lat: 41.3880461278723, lng: 2.167037641404972 }, 
-        },
-        {
-            id: 2,
-            position: { lat: 41.38649263978724, lng: 2.130763342351535 }, 
-        },
-        {
-            id: 3,
-            position: { lat: 41.40155361180801, lng: 2.160093173042831 },  
-        },
+            position: { lat: 41.3880461278723, lng: 2.167037641404972 },
+        }
     ];
 
     const mapStyles = [
