@@ -67,7 +67,7 @@ export const LogIn = () => {
                             </div>
                             <p className="try-premium">
                                 Don't you have an account?&nbsp;
-                                <Link to="/SignUpChooseType" className="log_in_text fw-bold text-decoration-none">
+                                <Link to="/SignUpUser" className="log_in_text fw-bold text-decoration-none">
                                     Sign up
                                 </Link>
                             </p>
