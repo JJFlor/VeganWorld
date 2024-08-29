@@ -33,7 +33,7 @@ export const SignUpUser = () => {
 
     const signUpUser = async (email, password, name, address, phone) => {
         await actions.signUpUser(email, password, name, address, phone);
-        navigate('/usuario');
+        navigate('/profile_user');
     }
 
     const areYouAbusiness = () => {

@@ -86,7 +86,11 @@ const Layout = () => {
                                 <AddProduct />
                             </PrivateRoute>
                         } path="/add_product" />
-                        <Route element={<ShopView />} path="/shop_view" />
+                        <Route element={
+                            <PrivateRoute>
+                                <ShopView /> />
+                            </PrivateRoute>
+                        } path="/shop_view" />
                         <Route element={
                             <PrivateRoute>
                                 <SearchEngineMainPage />
@@ -95,21 +99,9 @@ const Layout = () => {
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileUser />
-                            </PrivateRoute>
-                        } path="/profile_user" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileBusinessPremium />
-                            </PrivateRoute>
-                        } path="/ProfileBusinessPremium" />
-                        <Route element={
-                            <PrivateRoute>
-                                <ProfileBusinessFree />
-                            </PrivateRoute>
-                        } path="/ProfileBusinessFree" />
+                        <Route element={<ProfileUser />} path="/profile_user" />
+                        <Route element={<ProfileBusinessPremium />} path="/ProfileBusinessPremium" />
+                        <Route element={<ProfileBusinessFree />} path="/ProfileBusinessFree" />
                         <Route element={
                             <PrivateRoute>
                                 <DetailView />

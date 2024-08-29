@@ -67,7 +67,17 @@ def getAllPartnersInfo():
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
 
+@api.route('/getUsersInfo', methods=['GET'])
+@jwt_required()
+def getUserInfo():
+    body = request.json
+    user = User.query.filter_by(email = body["email"]).first()
+    if user is None:
+        return jsonify({"msg":"User not found"}), 404
+    else:
+        return jsonify({"msg":"Ok", "userInfo": user.serialize()}), 200
 
+    
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json

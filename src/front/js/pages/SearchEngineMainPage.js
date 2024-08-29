@@ -182,11 +182,6 @@ export const SearchEngineMainPage = () => {
     }
 
 
-
-
-
-
-
     return (
         <div className="container-fluid">
             <div className="chooseTitle">

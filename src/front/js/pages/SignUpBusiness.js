@@ -19,23 +19,28 @@ export const SignUpBusiness = () => {
     const navigate = useNavigate();
     const { actions } = useContext(Context);
     const [showModal, setShowModal] = useState(false);
+    
     useEffect(() => {
         const scrollToTop = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         scrollToTop();
     }, []);
+    
     const switchShown = () => {
         setShown(!shown);
     }
+    
     const handlePartnerPremiumClick = () => {
         setPremium(true);
         setShowModal(false);
     }
+    
     const handlePartnerFreeClick = () => {
         setPremium(false);
         setShowModal(false);
     }
+    
     const handleSignUp = async () => {
         const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
         if (await signUpResult) {

@@ -131,7 +131,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logOut: () => {
 				const store = getStore();
 				// Limpiar el estado del usuario y remover datos del localStorage
-				localStorage.removeItem("token");
 				localStorage.removeItem("email");
 				localStorage.removeItem("user");
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
@@ -210,6 +209,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				} catch (error) {
 					console.log("Loading premium partners info failed", error);
+
+				}
+			},
+			getUsersInfo: async (email, name, address, phone) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,
+						{
+							method: 'GET',
+							body: JSON.stringify({ email, name, address, phone }),
+							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
+						});
+					if (!response.ok) {
+						const errorData = await response.json();
+						alert("Error", errorData);
+					}
+					const data = await response.json();
+					if (data.user) {
+						localStorage.setItem("user", JSON.stringify(data.user))
+						setStore({ user: data.user })
+					} else {
+						console.log("User info not received", data)
+					}
+				} catch (error) {
+					console.log("Loading user info failed", error);
 
 				}
 			},

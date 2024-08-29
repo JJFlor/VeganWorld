@@ -46,7 +46,7 @@ export const LogIn = () => {
         if (resp) {
             navigate('/ProfileBusiness');
         } else {
-            navigate('/usuario');
+            navigate('/profile_user');
         }
     }
     return (
