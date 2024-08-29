@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
 // import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
@@ -8,10 +8,13 @@ import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/Find
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
 import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 import { MdWorkspacePremium } from "react-icons/md";
+import { Context } from '../store/appContext';
+import AvatarImg from "../../img/avatarImg.png"
 
 
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
     const navigate = useNavigate();
+    const {store} = useContext(Context)
     const haveToken = store.token;  //comprobar si usuario tiene token
 
     return (

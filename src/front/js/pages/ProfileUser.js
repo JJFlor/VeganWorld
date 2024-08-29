@@ -16,13 +16,13 @@ export const ProfileUser = () => {
 
         <div className="container-fluid">
             {
-                user ?
+                store.user ?
                     (<SearchUserInfo
-                        key={store.user.id}
-                        name={store.user.name}
-                        email={store.user.email}
-                        address={store.user.address}
-                        phone={store.user.phone} />
+                        key={store.user?.id}
+                        name={store.user?.name}
+                        email={store.user?.email}
+                        address={store.user?.address}
+                        phone={store.user?.phone} />
                     )
                     :
                     (<p>No user data available</p>)

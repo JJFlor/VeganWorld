@@ -107,7 +107,7 @@ def log_in():
 
     user = User.query.filter_by(email = email, password = password).first()
     if user is None:
-        return jsonify({"msg":"Bad username or password"}), 401 
+        return jsonify({"msg":"Bad username or password"}), 403
 
 
     access_token = create_access_token(identity=user.id)

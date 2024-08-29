@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.token) {
 						localStorage.setItem("token", data.token);
 						localStorage.setItem("email", data.email);
-						setStore({ ...store, token: data.token, partner: data.partner, user: data.user })
+						setStore({ ...store, token: data.token, partnerInfo: data.partner, user: data.user })
 						return true;
 					} else {
 						console.log("Token not received", data);
@@ -118,7 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner ? data.user.partner : null })
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partnerInfo: data.user.partner ? data.user.partner : null })
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)

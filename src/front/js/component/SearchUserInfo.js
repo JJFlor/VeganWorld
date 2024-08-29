@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import AvatarImg from "../../img/avatarImg.png";
 // import JorgePic from "/workspaces/VeganWorld/src/front/img/redonda_jorge.png";
 import "/workspaces/VeganWorld/src/front/styles/profileuser.css";
 import { Footer } from './Footer';
 import { EditProfileModal } from './EditProfileModal';
+import { Context } from "../store/appContext";
 
 export const SearchUserInfo = ({ email, name, address, phone }) => {
     const navigate = useNavigate();

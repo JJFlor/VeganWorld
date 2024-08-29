@@ -239,6 +239,10 @@ export const SearchEngineMainPage = () => {
                         :
                         store.premiumPartners?.map(premiumPartners => (<SearchRestaurantsPartners key={premiumPartners.id}
                             name={premiumPartners.name}
+                            address={premiumPartners.address}
+                            phone={premiumPartners.phone}
+                            email={premiumPartners.email}
+                            aboutUs={premiumPartners.about_us}
                             typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
                 </div>
             </div>
