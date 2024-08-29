@@ -14,7 +14,7 @@ import AvatarImg from "../../img/avatarImg.png"
 
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
     const navigate = useNavigate();
-    const {store} = useContext(Context)
+    const { store } = useContext(Context)
     const haveToken = store.token;  //comprobar si usuario tiene token
 
     return (
@@ -63,7 +63,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                         <i className="fa-solid fa-utensils">  MENU</i>
                     </button>
                 </li>
-                <li className="nav-item" role="presentation">
+                {/* <li className="nav-item" role="presentation">
                     <button
                         className="nav-link"
                         id="shopview_pills-profile-tab"
@@ -75,7 +75,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                         aria-selected="false">
                         <i className="fa-sharp fa-solid fa-comments">  FEEDBACKS</i>
                     </button>
-                </li>
+                </li> */}
                 <li className="nav-item" role="presentation">
                     <button
                         className="nav-link"

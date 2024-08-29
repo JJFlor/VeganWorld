@@ -9,12 +9,12 @@ export const Navbar = () => {
 
 	const handleGoToProfile = () => {
 
-		if (store.partner.premium) {
-			navigate('/ProfileBusinessPremium');
-		} else if (!store.partner.premium) {
-			navigate('/ProfileBusinessFree');
+		if (store.partner?.premium) {
+			navigate('/SearchPremiumPartnerInfo');
+		} else if (!store.partner?.premium) {
+			navigate('/SearchBusinessFreeInfo');
 		} else {
-			navigate('/Usuario');
+			navigate('/profile_user');
 		}
 	}
 
