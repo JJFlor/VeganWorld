@@ -45,7 +45,9 @@ export const ContactUs = () => {
       </div>
 
 
-      <Footer />
+      <div className="fixed-bottom">
+        <Footer />
+      </div>
     </div>
 
   )

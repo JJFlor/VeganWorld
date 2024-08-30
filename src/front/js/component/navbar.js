@@ -39,18 +39,18 @@ export const Navbar = () => {
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
 
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
-						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
+						<Link to="/ContactUs" className="nav-link itemsNavbar px-3 my-1">Contact</Link>
 
 						{store.user ? (
 							// Si el usuario está autenticado, muestra su foto de perfil
 							<div className="nav-item dropdown">
 
 
-								<Link to="" className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<CgProfile  style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}/> 
+								<Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									<CgProfile style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }} />
 								</Link>
 								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-									<li><Link to="/" className="dropdown-item">Profile</Link></li>
+									<li><a className="dropdown-item" href="#" onClick={() => handleGoToProfile()}>Profile</a></li>
 									<li><a className="dropdown-item" href="#" onClick={() => handleLogout()}>Logout</a></li>
 								</ul>
 							</div>

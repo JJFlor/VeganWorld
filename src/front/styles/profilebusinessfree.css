@@ -4,6 +4,15 @@
     margin-top: 20px;
 }
 
+.btnCreateShop{
+    font-weight: 500;
+    background-color: #F6FB7A;
+    color:#006769
+}
+
+.btnCreateShop:hover{
+    background-color: #F6995c;
+}
 
 #shopview_container_background {
     background-color:#006769;
