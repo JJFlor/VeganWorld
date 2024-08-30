@@ -117,13 +117,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 
 
-			signUpUser: async (email, password, name) => {
+			signUpUser: async (email, password, name, address, phone) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_user`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, password, name }),
+							body: JSON.stringify({ email, password, name, address, phone }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {
@@ -131,10 +131,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Error", errorData);
 					}
 					const data = await response.json();
-					if (data.access_token) {
-						localStorage.getItem("token", data.access_token);
-						localStorage.getItem("email", data.user.email);
-						setStore({ ...store, token: data.access_token, email: data.user.email, user: data.user })
+					if (data.token) {
+						localStorage.setItem("token", data.token);
+						localStorage.setItem("email", data.user.email);
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user })
 					} else {
 						console.log("Token not received", data);
 					}
@@ -142,13 +142,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
-			signUpPartner: async (email, name, typeOfServices, premium, password) => {
+			signUpPartner: async (email, name, typeOfServices, premium, password, address, phone, aboutUs) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/register_partner`,
 						{
 							method: 'POST',
-							body: JSON.stringify({ email, name, typeOfServices, premium, password }),
+							body: JSON.stringify({ email, name, typeOfServices, premium, password, address, phone, aboutUs }),
 							headers: { "Content-Type": "application/json" }
 						});
 					if (!response.ok) {
@@ -157,10 +157,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 					const data = await response.json();
-					if (data.access_token) {
-						localStorage.getItem("token", data.access_token);
-						localStorage.getItem("email", data.email);
-						setStore({ ...store, token: data.access_token, partner: data.partner, user: data.user })
+					if (data.token) {
+						localStorage.setItem("token", data.token);
+						localStorage.setItem("email", data.email);
+						setStore({ ...store, token: data.token, partnerInfo: data.partner, user: data.user })
 						return true;
 					} else {
 						console.log("Token not received", data);
@@ -185,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.user.email)
 						localStorage.setItem("user", JSON.stringify(data.user)); // Guardar la información del usuario
-						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partner: data.user.partner ? data.user.partner : null })
+						setStore({ ...store, token: data.token, email: data.user.email, user: data.user, partnerInfo: data.user.partner ? data.user.partner : null })
 						return data.user.partner
 					} else {
 						console.log("Token not received", data)
@@ -230,13 +230,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return { success: false, message: "An error occurred when updating your password." };
 				}
 			},
-			getPartnerInfo: async (name, typeOfServices, premium) => {
+			getPartnerInfo: async (name, typeOfServices, premium, email, password, address, phone, aboutUs) => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getPartnerInfo`,
 						{
 							method: 'GET',
-							body: JSON.stringify({ name, typeOfServices, premium }),
+							body: JSON.stringify({ name, typeOfServices, premium, email, password, address, phone, aboutUs }),
 							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
 						});
 					if (!response.ok) {
@@ -277,6 +277,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				} catch (error) {
 					console.log("Loading premium partners info failed", error);
+
+				}
+			},
+			getUserInfo: async (email, name, address, phone) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,
+						{
+							method: 'GET',
+							body: JSON.stringify({ email, name, address, phone }),
+							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
+						});
+					if (!response.ok) {
+						const errorData = await response.json();
+						alert("Error", errorData);
+					}
+					const data = await response.json();
+					if (data.user) {
+						localStorage.setItem("user", JSON.stringify(data.user))
+						setStore({ user: data.user })
+					} else {
+						console.log("User info not received", data)
+					}
+				} catch (error) {
+					console.log("Loading user info failed", error);
 
 				}
 			},

@@ -1,6 +1,6 @@
 .create-account-title {
     font-size: 30px;
-    text-align:left;
+    text-align: left;
     font-weight: bold;
 }
 
@@ -11,7 +11,7 @@
 
 .signUp-card {
     background-color: white;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 80px;
     width: 55%;
@@ -19,23 +19,23 @@
 
 .signUp-card-business {
     background-color: white;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
     width: 55%;
 }
 
-.form-wrapper{
+.form-wrapper {
     background-color: #b4e380;
     border-radius: 15px;
     padding: 15px;
 }
 
-.white-wrapper{
+.white-wrapper {
     background-color: white;
     border-radius: 15px;
     padding: 15px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     width: 75%;
 }
@@ -48,6 +48,7 @@
     color: #F6995C;
 
 }
+
 .try-premium {
     color: #F6995C;
     font-weight: bold;
@@ -65,7 +66,7 @@
 .btn-next {
     background-color: #f6fb7a;
     color: black;
-    float:right;
+    float: right;
     font-weight: bold;
 }
 
@@ -95,20 +96,20 @@
     max-width: 120px;
     float: right;
     margin-top: 16px;
-    
+
 }
 
 .btn-signUp-user {
     background-color: #f6fb7a;
     color: black;
-    float:right;
+    float: right;
     font-weight: bold;
     margin-right: 10px;
     margin-top: 10px;
 }
 
 .reset-password {
-    color:#006769;
+    color: #006769;
     font-weight: bold;
 }
 
@@ -138,8 +139,8 @@
     position: absolute;
     display: block;
     user-select: none;
-    bottom: 10.3rem;
-    right: 35.5rem;
+    bottom: 3.6rem;
+    right: 35.3rem;
 }
 
 .inputRelativeBusiness {
@@ -150,6 +151,10 @@
     position: absolute;
     display: block;
     user-select: none;
-    bottom: 7.1rem;
-    right: 34rem;
+    bottom: -2.7rem;
+    right: 33.5rem
+}
+
+.modalPremium {
+    background-color: white;
 }

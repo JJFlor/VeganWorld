@@ -5,9 +5,12 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=False, nullable=False)
+    name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), unique=False, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(350))
+    phone = db.Column(db.String(20), unique=True)
+    # image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
     # relacion corregida
@@ -21,9 +24,11 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            #esta es otra forma de serializar las relaciones
+            "address": self.address,
+            "phone": self.phone,
+            # "image_url": self.image_url,
+            #forma de serializar las relaciones
             "partner": self.partner.serialize() if self.partner else None
-            # do not serialize the password, its a security breach
         }
 
 
@@ -33,6 +38,10 @@ class Partner(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     type_of_services = db.Column(db.String(120), unique=False, nullable=False)
     premium = db.Column(db.Boolean(), unique=False, nullable=False)
+    address = db.Column(db.String(350), unique= False)
+    phone = db.Column(db.Integer, unique=True, nullable=False)
+    # image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
+    about_us = db.Column(db.String(600), unique=False, nullable=False)
 
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
@@ -48,17 +57,21 @@ class Partner(db.Model):
             "name": self.name,
             "email": self.email,
             "type_of_services": self.type_of_services,
-            "premium": self.premium
+            "premium": self.premium,
+            "address": self.address,
+            "phone": self.phone,
+            "about_us": self.about_us,
+            # "image_url": self.image_url
         }
     
 
 class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), unique=False, nullable=False)
+    name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    address = db.Column(db.String(200), unique=False, nullable=False)
+    address = db.Column(db.String(200), nullable=False)
     phone = db.Column(db.Integer, unique=True, nullable=False)
-    cathegory = db.Column(db.String(120), unique=False, nullable=False)
+    cathegory = db.Column(db.String(120), nullable=False)
     inventory = db.Column(db.Integer, unique=True, nullable=False)
     id_partner = db.Column(db.Integer, db.ForeignKey("partner.id"))
 
@@ -81,10 +94,10 @@ class Shop(db.Model):
 
 class Inventory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(120), unique=False, nullable=False)
-    description = db.Column(db.String(200), unique=False, nullable=False)
-    price = db.Column(db.Integer, unique=False, nullable=False)
-    image_url = db.Column(db.String(255), nullable=True)  # Campo opcional para la URL de la imagen
+    product_name = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"))
     user_id = db.Column(db.Integer, nullable=False)
 
@@ -106,15 +119,15 @@ class Inventory(db.Model):
         }
 
 
-class Favorite(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+# class Favorite(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     partner_id = db.Column(db.Integer, db.ForeignKey("partner.id"))
+#     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
-    def __repr__(self):
-        return f'<Favorites {self.id}>'
+#     def __repr__(self):
+#         return f'<Favorites {self.id}>'
 
-    def serialize(self):
-        return {
-            "id": self.id,
-        }
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#         }

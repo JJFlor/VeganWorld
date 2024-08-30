@@ -1,11 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../../styles/sign_up.css";
+// import "../../styles/sign_up.css";
 import "../../styles/log_in.css";
 import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
-
 export const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,21 +16,17 @@ export const LogIn = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
-
     const switchShown = () => {
         setShown(!shown);
     }
-
     const resetPassword = async () => {
         if (newPassword !== repeatNewPassword) {
             setErrorMessage("Passwords do not match.");
             return;
         }
-
         try {
             const response = await actions.resetPassword(email, newPassword);
             if (response.success) {
@@ -46,16 +41,14 @@ export const LogIn = () => {
             setErrorMessage("An error occurred while resetting the password.");
         }
     }
-
     const logIn = async () => {
         const resp = await actions.logIn(email, password);
         if (resp) {
             navigate('/ProfileBusiness');
         } else {
-            navigate('/usuario');
+            navigate('/profile_user');
         }
     }
-
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">
@@ -74,7 +67,7 @@ export const LogIn = () => {
                             </div>
                             <p className="try-premium">
                                 Don't you have an account?&nbsp;
-                                <Link to="/SignUpChooseType" className="log_in_text fw-bold text-decoration-none">
+                                <Link to="/SignUpUser" className="log_in_text fw-bold text-decoration-none">
                                     Sign up
                                 </Link>
                             </p>

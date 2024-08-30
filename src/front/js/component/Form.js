@@ -31,17 +31,12 @@ export function Form() {
 
       <div className="col-md-12">
         <label htmlFor="inputName" className="form-label">Name</label>
-        <input type="text" className="form-control" id="inputName" placeholder="Change Name" />
+        <input type="text" className="form-control" id="inputName" placeholder="Name" />
       </div>
 
       <div className="col-md-6">
         <label htmlFor="inputEmail4" className="form-label">Email</label>
-        <input type="email" className="form-control" id="inputEmail4" placeholder="...@veganworld.com" />
-      </div>
-
-      <div className="col-md-6">
-        <label htmlFor="inputPassword4" className="form-label">Password</label>
-        <input type="password" className="form-control" id="inputPassword4" placeholder="*******" />
+        <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
       </div>
 
       <div className="col-12">
@@ -49,38 +44,10 @@ export function Form() {
         <input type="text" className="form-control" id="inputAddress" placeholder="Your Adress" />
       </div>
 
-      <div className="col-12">
-        <label htmlFor="inputAddress2" className="form-label">Website</label>
-        <input type="text" className="form-control" id="inputAddress2" placeholder="...@veganworld.blogspot.com" />
-      </div>
-
-      <div className="col-md-6">
-        <label htmlFor="inputCity" className="form-label">City</label>
-        <input type="text" className="form-control" id="inputCity" />
-      </div>
-
-      <div className="col-md-4">
-        <label htmlFor="inputState" className="form-label">Country</label>
-        <select id="countries" className="form-select">
-          <option>Choose...</option>
-        </select>
-      </div>
-
-      <div className="col-md-2">
-        <label htmlFor="inputPostal" className="form-label">Postal Code</label>
-        <input type="text" className="form-control" id="inputPostal" />
-      </div>
-
-      <div className="col-12">
-        <label htmlFor="inputAbout" className="form-label">About</label>
-        <textarea type="text" rows="30" />
-      </div>
-
-
       <div className="row">
 
-        <div className="col-md-4">
-          <button type="submit" className="boton_form-edit btn btn-success">Save</button>
+        <div className="col-md-8">
+          <button type="submit" className="boton_form-edit btn btn-success">Save Changes</button>
         </div>
 
         <div className="col-md-4">
@@ -88,10 +55,9 @@ export function Form() {
         </div>
 
 
-        <div className="col-md-4">
+        {/* <div className="col-md-4">
           <button type="submit" className="boton_form-delete btn btn-danger btn-sm">Delete Account</button>
-
-        </div>
+        </div> */}
 
       </div>
 

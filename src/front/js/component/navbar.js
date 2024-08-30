@@ -9,11 +9,22 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
+	const handleGoToProfile = () => {
+
+		if (store.partner?.premium) {
+			navigate('/SearchPremiumPartnerInfo');
+		} else if (!store.partner?.premium) {
+			navigate('/SearchBusinessFreeInfo');
+		} else {
+			navigate('/profile_user');
+		}
+	}
+
 
 	const handleLogout = () => {
-        actions.logOut();  // Llama a la acción logOut para cerrar sesión
-        navigate('/');     // Redirige al usuario a la página de inicio
-    };
+		actions.logOut();  // Llama a la acción logOut para cerrar sesión
+		navigate('/');     // Redirige al usuario a la página de inicio
+	};
 
 	return (
 		<nav className="navbar navbar-expand-lg sticky-top">
@@ -26,13 +37,15 @@ export const Navbar = () => {
 					<div className="navbar-nav">
 						<Link to={"/"} className="nav-link itemsNavbar px-3 my-1">Home</Link>
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
-						
+
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
 						<a className="nav-link itemsNavbar px-3 my-1">Contact</a>
 
 						{store.user ? (
 							// Si el usuario está autenticado, muestra su foto de perfil
 							<div className="nav-item dropdown">
+
+
 								<Link to="" className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<CgProfile  style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}/> 
 								</Link>

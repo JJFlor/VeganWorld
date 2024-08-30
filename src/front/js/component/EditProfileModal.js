@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from '/workspaces/VeganWorld/src/front/js/component/Form.js';
 import "/src/front/styles/editprofilemodal.css";
+import { FaUserEdit } from "react-icons/fa";
 
 export function EditProfileModal() {
 
@@ -10,8 +11,8 @@ export function EditProfileModal() {
 
     return (
         <div>
-            <h3 className="titulo_h3_modaledit" onClick={toggleModal} style={{ cursor: 'pointer', color: 'blue' }}>
-                EDIT PROFILE INFO
+            <h3 className="titulo_h3_modaledit" onClick={toggleModal} style={{ cursor: 'pointer' }}>
+                <FaUserEdit />  Edit
             </h3>
 
 

@@ -182,18 +182,13 @@ export const SearchEngineMainPage = () => {
     }
 
 
-
-
-
-
-
     return (
         <div className="container-fluid">
             <div className="chooseTitle">
                 <h2>Search a service or choose a topic:</h2>
             </div>
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Look for vegan services" />
+                <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Search by: restaurant, shop, wellness or activism!" />
                 <button onClick={() => Search(search)} className="btn btnCards ms-3">Search</button>
             </div>
             <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
@@ -242,8 +237,12 @@ export const SearchEngineMainPage = () => {
                     (<SearchRestaurantsPartners key={filteredPartner.id} name={filteredPartner.name}
                         typeOfServices={filteredPartner.type_of_services} premium={filteredPartner.premium} />))
                         :
-                        store.premiumPartners?.map(premiumPartners => (<SearchPremiumPartnerInfo key={premiumPartners.id}
+                        store.premiumPartners?.map(premiumPartners => (<SearchRestaurantsPartners key={premiumPartners.id}
                             name={premiumPartners.name}
+                            address={premiumPartners.address}
+                            phone={premiumPartners.phone}
+                            email={premiumPartners.email}
+                            aboutUs={premiumPartners.about_us}
                             typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
                 </div>
             </div>

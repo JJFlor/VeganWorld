@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 
+
 export const SignUpBusiness = () => {
     const [name, setName] = useState("");
     const [typeOfServices, setTypeOfServices] = useState("");
@@ -25,7 +26,7 @@ export const SignUpBusiness = () => {
         };
         scrollToTop();
     }, []);
-
+    
     const switchShown = () => {
         setShown(!shown);
     }
@@ -34,12 +35,12 @@ export const SignUpBusiness = () => {
         setPremium(true);
         setShowModal(false);
     }
-
+    
     const handlePartnerFreeClick = () => {
         setPremium(false);
         setShowModal(false);
     }
-
+    
     const handleSignUp = async () => {
         const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
         if (await signUpResult) {
@@ -48,7 +49,6 @@ export const SignUpBusiness = () => {
             alert("Partner Sign Up failed");
         }
     }
-
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-business w-50">
@@ -70,14 +70,15 @@ export const SignUpBusiness = () => {
                             </p>
 
                             {showModal && (
-                                <div className="modal show d-block" tabIndex="-1" role="dialog">
-                                    <div className="modal-dialog" role="document">
+                                <div className="modal" tabIndex="-1">
+                                    <div className="modal-dialog">
                                         <div className="modal-content">
                                             <div className="modal-header">
-                                                <h5 className="modal-title">What premium offers to your business?</h5>
-                                                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+                                                <h5 className="modal-title text-white">What premium offers to your business?</h5>
+                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setShowModal(false)}></button>
                                             </div>
-                                            <div className="modal-body">
+                                            <div className="modal-body text-white">
+
                                                 <ul>
                                                     <li>Better positioning in our web.</li>
                                                     <li>Allows you to sell your products in our Shop.</li>
@@ -94,6 +95,7 @@ export const SignUpBusiness = () => {
                                 </div>
                             )}
 
+                            
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
                             </div>

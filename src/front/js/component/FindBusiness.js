@@ -15,7 +15,7 @@ export const FindBusiness = () => {
         lng: 2.167037641404972,
     };
 
-    const markers = [
+   const markers = [
         {
             id: 1,
             position: { lat: 41.3880461278723, lng: 2.167037641404972 },

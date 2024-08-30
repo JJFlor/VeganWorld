@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Partner, Inventory
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_mail import Message
+from api.mail.mailer import send_email
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 api = Blueprint('api', __name__)
@@ -17,14 +19,15 @@ CORS(api)
 @api.route('/register_user', methods=['POST'])
 def register_user():
     body = request.json
+    print(body)
     user = User.query.filter_by(email = body["email"]).first()
     if user is None:
-        new_user = User(name = body["name"], email = body["email"], password = body["password"])
+        new_user = User(name = body["name"], email = body["email"], password = body["password"], address = body["address"], phone= body["phone"])
         db.session.add(new_user)
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_user.id)
-        return jsonify({"msg":"User created", "access token": access_token, "user": user.serialize()}), 200
+        return jsonify({"msg":"User created", "token": access_token, "user": new_user.serialize()}), 200
     else:
         return jsonify({"msg":"User already exist, Log in"}), 401
 
@@ -37,15 +40,15 @@ def register_partner():
     partner = Partner.query.filter_by(email = body["email"]).first()
 
     if user is None and partner is None:
-        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"])
+        new_partner = Partner(name = body["name"], email = body["email"], type_of_services = body["typeOfServices"], premium = body["premium"], address = body["address"], phone= body["phone"], about_us = body["aboutUs"])
         db.session.add(new_partner)
         db.session.commit()
-        new_user = User(name = body["name"], email = body["email"], password = body["password"], partner_id = new_partner.id)
+        new_user = User(name = body["name"], email = body["email"], password = body["password"], address = body["address"], phone= body["phone"], partner_id = new_partner.id)
         db.session.add(new_user)
         db.session.commit()
         #generate Token
         access_token = create_access_token(identity = new_partner.id)
-        return jsonify({"msg":"Partner created", "access_token": access_token, "user": new_user.serialize(), 'partner': new_partner.serialize()}), 200
+        return jsonify({"msg":"Partner created", "token": access_token, "user": new_user.serialize(), 'partner': new_partner.serialize()}), 200
     else:
         return jsonify({"msg":"Partner already exist, Log in"}), 401
     
@@ -67,7 +70,17 @@ def getAllPartnersInfo():
     else:
         return jsonify({"msg":"Ok", "partners": [partner.serialize() for partner in premiumPartners]}), 200
 
+@api.route('/getUserInfo', methods=['GET'])
+@jwt_required()
+def getUserInfo():
+    body = request.json
+    user = User.query.filter_by(email = body["email"]).first()
+    if user is None:
+        return jsonify({"msg":"User not found"}), 404
+    else:
+        return jsonify({"msg":"Ok", "userInfo": user.serialize()}), 200
 
+    
 @api.route('/resetPassword', methods=['PUT'])
 def reset_password():
     body = request.json
@@ -96,7 +109,7 @@ def log_in():
 
     user = User.query.filter_by(email = email, password = password).first()
     if user is None:
-        return jsonify({"msg":"Bad username or password"}), 401 
+        return jsonify({"msg":"Bad username or password"}), 403
 
 
     access_token = create_access_token(identity=user.id)
