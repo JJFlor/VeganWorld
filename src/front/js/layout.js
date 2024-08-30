@@ -26,7 +26,6 @@ import { SignUpUser } from "./pages/SignUpUser.js";
 import { SignUpBusiness } from "./pages/SignUpBusiness.js";
 import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
-import { ProfileBusiness } from "./pages/ProfileBusiness.js";
 import { ContactUs } from "./pages/ContactUs.js";
 import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
 import { SearchPremiumPartnerInfo } from "./component/SearchPremiumPartnerInfo.js";
@@ -89,7 +88,7 @@ const Layout = () => {
                         } path="/add_product" />
                         <Route element={
                             <PrivateRoute>
-                                <ShopView /> />
+                                <ShopView />
                             </PrivateRoute>
                         } path="/shop_view" />
                         <Route element={
