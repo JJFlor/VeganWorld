@@ -204,26 +204,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("user");
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
-			resetPassword: async (email, password) => {
+			editInfo: async (data) => {
 				try {
-					const response = await fetch(`${process.env.BACKEND_URL}/api/resetPassword`, {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/edit-info`, {
 						method: 'PUT',
-						body: JSON.stringify({ email, password }),
+						body: JSON.stringify(data),
 						headers: { "Content-Type": "application/json" }
 					});
+					console.log(data);
 
 					if (!response.ok) {
 						const errorData = await response.json();
-						console.error("Failed to reset password:", errorData.message || response.statusText);
-						return { success: false, message: errorData.message || "Failed to reset password." };
+						console.error("Failed to edit info:", errorData.message || response.statusText);
+						return { success: false, message: errorData.message || "Failed to edit info." };
 					}
 
 					const data = await response.json();
 					if (data.ok) {
-						alert("Password was reset successfully");
-						return { success: true, message: "Password was reset successfully." };
+						alert("Info was edited successfully");
+						return { success: true, message: "Info was edited successfully." };
 					} else {
-						return { success: false, message: data.message || "Failed to reset password." };
+						return { success: false, message: data.message || "Failed to edit info." };
 					}
 
 				} catch (error) {
@@ -237,7 +238,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getPartnerInfo`,
 						{
 							method: 'GET',
-							body: JSON.stringify({ name, typeOfServices, premium, email, password, address, phone, aboutUs }),
 							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
 						});
 					if (!response.ok) {
@@ -288,7 +288,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,
 						{
 							method: 'GET',
-							body: JSON.stringify({ email, name, address, phone }),
 							headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") }
 						});
 					if (!response.ok) {

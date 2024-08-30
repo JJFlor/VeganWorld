@@ -81,23 +81,38 @@ def getUserInfo():
         return jsonify({"msg":"Ok", "userInfo": user.serialize()}), 200
 
     
-@api.route('/resetPassword', methods=['PUT'])
-def reset_password():
+@api.route('/edit-info', methods=['PUT'])
+def edit_info():
     body = request.json
-    email =  body.get("email")
-    new_password =  body.get("password") 
+    partner = Partner.query.filter_by(email = body["email"]).first()
+    
+    if partner:
+        # Actualiza los atributos del objeto existente
+        partner.name = body.get("name")
+        partner.email = body.get("email")
+        partner.phone = body.get("phone")
+        partner.address = body.get("address")
+        partner.type_of_services = body.get("typeOfServices")
+        partner.about_us = body.get("aboutUs")
+        # Guarda los cambios en la base de datos
+        db.session.commit()
+        return jsonify({"msg": "Partner updated successfully"}), 200
+    
+    user = User.query.filter_by(email = body["email"]).first()
+    if user:
+        user.name = body.get("name")
+        user.email = body.get("email")
+        user.phone = body.get("phone")
+        user.address = body.get("address")
+        user.type_of_services = body.get("typeOfServices")
+        user.about_us = body.get("aboutUs")
+        # Guarda los cambios en la base de datos
+        db.session.commit()
+        return jsonify({"msg": "User updated successfully"}), 200
+    else:
+        return jsonify({"msg": "User/partner not found"}), 404
 
-    if not email or not new_password:
-        return jsonify({"msg":"Email and password are required"}), 400
 
-    user = User.query.filter_by(email=email).first()
-    if user is None:
-        return jsonify({"msg":"User not found"}), 404
-
-    user.password = new_password
-    db.session.commit()
-
-    return jsonify({"msg":"Password got reset"}), 200
 
         
     
