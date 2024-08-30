@@ -19,7 +19,7 @@ export const SignUpBusiness = () => {
     const navigate = useNavigate();
     const { actions } = useContext(Context);
     const [showModal, setShowModal] = useState(false);
-    
+
     useEffect(() => {
         const scrollToTop = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -30,7 +30,7 @@ export const SignUpBusiness = () => {
     const switchShown = () => {
         setShown(!shown);
     }
-    
+
     const handlePartnerPremiumClick = () => {
         setPremium(true);
         setShowModal(false);
@@ -68,6 +68,7 @@ export const SignUpBusiness = () => {
                                     <FaQuestionCircle />
                                 </button>
                             </p>
+
                             {showModal && (
                                 <div className="modal" tabIndex="-1">
                                     <div className="modal-dialog">
@@ -77,6 +78,7 @@ export const SignUpBusiness = () => {
                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setShowModal(false)}></button>
                                             </div>
                                             <div className="modal-body text-white">
+
                                                 <ul>
                                                     <li>Better positioning in our web.</li>
                                                     <li>Allows you to sell your products in our Shop.</li>
@@ -92,6 +94,8 @@ export const SignUpBusiness = () => {
                                     </div>
                                 </div>
                             )}
+
+                            
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
                             </div>

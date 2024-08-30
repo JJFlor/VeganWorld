@@ -104,6 +104,7 @@ export const LogIn = () => {
                     <button className="btn btn-signUp-user w-50 mt-4 shadow-lg" onClick={logIn}>Get logged in!</button>
                 </div>
             </div>
+
             {/* Modal */}
             {showModal && (
                 <div className="modal show d-block" tabIndex="-1">
