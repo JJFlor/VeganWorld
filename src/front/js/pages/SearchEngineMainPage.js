@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useNavigate, Link } from "react-router-dom";
 import "../../styles/searchEngine.css";
 import { Context } from "../store/appContext";
-import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
 import { SearchRestaurantsPartners } from "../component/SearchRestaurantsPartners";
 
 
@@ -15,7 +13,7 @@ export const SearchEngineMainPage = () => {
 
 
     useEffect(() => {
-        actions.getAllPartnersInfo();
+        actions.getAllPremiumPartnersInfo();
     }, [])
 
 

@@ -6,7 +6,7 @@ export const Shops = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getAllPartnersInfo();  // Obtener la información de los socios al cargar el componente
+        actions.getAllPremiumPartnersInfo();  // Obtener la información de los socios al cargar el componente
     }, []);
 
     const backgroundImage = {
@@ -31,7 +31,7 @@ export const Shops = () => {
             <div className="container">
                 <div className="row">
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Restaurants','Restaurant')}>🍴 Restaurants</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Restaurants', 'Restaurant')}>🍴 Restaurants</button>
                     </div>
                     <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Shops')}>👜 Shops</button>

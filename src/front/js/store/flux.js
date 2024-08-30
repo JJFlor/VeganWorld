@@ -34,19 +34,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
 						}
 					});
-			
+
 					if (!response.ok) {
 						// Maneja el caso de una respuesta no exitosa
 						console.error('Failed to fetch products:', response.statusText);
 						return [];
 					}
-			
+
 					const data = await response.json();
 					if (!Array.isArray(data)) {
 						console.error('Unexpected data format:', data);
 						return [];
 					}
-			
+
 					setStore({ products: data });
 					return data;
 				} catch (error) {
@@ -55,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return [];
 				}
 			},
-			
+
 
 			getProductsByUser: async () => {
 				const store = getStore();
@@ -67,12 +67,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Authorization': `Bearer ${store.token}`
 						}
 					});
-			
+
 					if (!response.ok) {
 						console.error('Failed to fetch user products:', response.statusText);
 						return [];
 					}
-			
+
 					const data = await response.json();
 					return Array.isArray(data) ? data : [];
 				} catch (error) {
@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return [];
 				}
 			},
-			
+
 			deleteProduct: async (productId) => {
 				const store = getStore();
 				try {
@@ -91,30 +91,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Authorization': `Bearer ${store.token}` // Asegúrate de que el token esté incluido en la solicitud
 						}
 					});
-			
+
 					if (response.status === 401) {
 						console.error('Unauthorized access - token might be invalid or expired.');
 						return false; // Indica fracaso
 					}
-			
+
 					if (!response.ok) {
 						console.error('Error deleting product:', response.statusText);
 						return false; // Indica fracaso
 					}
-			
+
 					// Actualiza la lista de productos en el store eliminando el producto borrado
 					const newProducts = store.products.filter(product => product.id !== productId);
 					setStore({ products: newProducts });
-			
+
 					return true; // Indica éxito
-			
+
 				} catch (error) {
 					console.error('Error deleting product:', error);
 					return false; // Indica fracaso
 				}
 			},
-			
-			
+
+
 
 
 			signUpUser: async (email, password, name, address, phone) => {
@@ -160,6 +160,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.token) {
 						localStorage.setItem("token", data.token);
 						localStorage.setItem("email", data.email);
+						console.log(data.partner)
 						setStore({ ...store, token: data.token, partnerInfo: data.partner, user: data.user })
 						return true;
 					} else {
@@ -246,7 +247,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					if (data.partnerInfo) {
 						localStorage.setItem("partner", JSON.stringify(data.partnerInfo))
-						setStore({ partner: data.partnerInfo })
+						setStore({ partnerInfo: data.partnerInfo })
 					} else {
 						console.log("PartnerInfo not received", data)
 					}
@@ -255,7 +256,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				}
 			},
-			getAllPartnersInfo: async () => {
+			getAllPremiumPartnersInfo: async () => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getAllPartnersInfo`,
@@ -271,7 +272,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(data);
 					if (data.partners) {
 						localStorage.setItem("premiumPartners", JSON.stringify(data.partners));
-						setStore({ premiumPartners: data.partners });
+						const premiums = data.partners.filter(partner => partner.premium == true)
+						setStore({ premiumPartners: premiums });
 					} else {
 						console.log("Premium partners info not received", data);
 					}

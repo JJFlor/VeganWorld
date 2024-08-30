@@ -5,42 +5,50 @@ import "../../styles/log_in.css";
 import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+
+
 export const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [shown, setShown] = useState(false);
-    const [newPassword, setNewPassword] = useState("");
-    const [repeatNewPassword, setRepeatNewPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-    const [showModal, setShowModal] = useState(false);
+    // const [newPassword, setNewPassword] = useState("");
+    // const [repeatNewPassword, setRepeatNewPassword] = useState("");
+    // const [errorMessage, setErrorMessage] = useState("");
+    // const [successMessage, setSuccessMessage] = useState("");
+    // const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
+    
+    
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
+    
     const switchShown = () => {
         setShown(!shown);
     }
-    const resetPassword = async () => {
-        if (newPassword !== repeatNewPassword) {
-            setErrorMessage("Passwords do not match.");
-            return;
-        }
-        try {
-            const response = await actions.resetPassword(email, newPassword);
-            if (response.success) {
-                setSuccessMessage(response.message);
-                setErrorMessage("");
-                setShowModal(false);  // Cerrar el modal después de un reseteo exitoso
-            } else {
-                setErrorMessage(response.message);
-            }
-        } catch (error) {
-            console.error("Error resetting password:", error);
-            setErrorMessage("An error occurred while resetting the password.");
-        }
-    }
+    
+    
+    // const resetPassword = async () => {
+    //     if (newPassword !== repeatNewPassword) {
+    //         setErrorMessage("Passwords do not match.");
+    //         return;
+    //     }
+    //     try {
+    //         const response = await actions.resetPassword(email, newPassword);
+    //         if (response.success) {
+    //             setSuccessMessage(response.message);
+    //             setErrorMessage("");
+    //             setShowModal(false);  // Cerrar el modal después de un reseteo exitoso
+    //         } else {
+    //             setErrorMessage(response.message);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error resetting password:", error);
+    //         setErrorMessage("An error occurred while resetting the password.");
+    //     }
+    // }
+   
     const logIn = async () => {
         const resp = await actions.logIn(email, password);
         if (resp) {
@@ -49,6 +57,7 @@ export const LogIn = () => {
             navigate('/profile_user');
         }
     }
+    
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">
@@ -105,7 +114,7 @@ export const LogIn = () => {
                 </div>
             </div>
 
-            {/* Modal */}
+            {/* Modal
             {showModal && (
                 <div className="modal show d-block" tabIndex="-1">
                     <div className="modal-dialog">
@@ -166,7 +175,7 @@ export const LogIn = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             )}
         </div>
     );
