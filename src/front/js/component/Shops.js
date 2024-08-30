@@ -27,23 +27,23 @@ export const Shops = () => {
     const partnersToDisplay = store.premiumPartnersFiltered || store.premiumPartners;
 
     return (
-        <div className="text-center mt-4">
+        <div className="text-center">
             <div className="container">
                 <div className="row">
-                    <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Restaurant')}>🍴 Restaurants</button>
+                    <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Restaurants','Restaurant')}>🍴 Restaurants</button>
                     </div>
-                    <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Shops')}>👜 Shops</button>
+                    <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Shops')}>👜 Shops</button>
                     </div>
-                    <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Wellness')}>😄 Wellness</button>
+                    <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Wellness')}>😄 Wellness</button>
                     </div>
-                    <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('Leisure')}>🎮 Leisure</button>
+                    <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Leisure')}>🎮 Leisure</button>
                     </div>
-                    <div className="col my-2">
-                        <button className="btn btnCategory" onClick={() => handleCategoryClick('All')}>Show All</button>
+                    <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('All')}>Show All</button>
                     </div>
                 </div>
 
@@ -62,7 +62,9 @@ export const Shops = () => {
                 </div>
             </div>
             <div className="goShop" style={backgroundImage}>
-                <div className="container text-end">
+
+                <div className="textInvite">Discover a world of incredible products in our shop</div>
+                <div className="container text-center">
 
                     <a className="btn btnShopNow">BUY NOW!</a>
 

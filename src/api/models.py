@@ -46,6 +46,8 @@ class Partner(db.Model):
     # relacion corregida
     users = db.relationship("User", back_populates="partner")
 
+    
+
     def __repr__(self):
         return f'<Partner {self.email}>'
 
@@ -97,6 +99,7 @@ class Inventory(db.Model):
     price = db.Column(db.Integer, nullable=False)
     image_url = db.Column(db.String(255))  # Campo opcional para la URL de la imagen
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"))
+    user_id = db.Column(db.Integer, nullable=False)
 
     # relacion corregida
     shop = db.relationship("Shop", back_populates="inventories")
@@ -111,7 +114,8 @@ class Inventory(db.Model):
             "description": self.description,
             "price": self.price,
             "image_url": self.image_url,
-            "shop_id": self.shop_id
+            "shop_id": self.shop_id,
+            "user_id": self.user_id
         }
 
 
