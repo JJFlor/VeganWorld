@@ -28,6 +28,7 @@ import { SearchEngineMainPage } from "./pages/SearchEngineMainPage.js";
 import { LogIn } from "./pages/LogIn.js";
 import { ProfileBusiness } from "./pages/ProfileBusiness.js";
 import { ContactUs } from "./pages/ContactUs.js";
+import { WorkWithUs } from "./component/WorkWithUs.js";
 import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
 import { SearchPremiumPartnerInfo } from "./component/SearchPremiumPartnerInfo.js";
 import { SearchBusinessFreeInfo } from "./component/SearchBusinessFreeInfo.js";
@@ -110,6 +111,7 @@ const Layout = () => {
                             </PrivateRoute>
                         } path="/product_info/:id" />
                         <Route element={<ContactUs />} path="/ContactUs" />
+                        <Route element={<WorkWithUs />} path="/workwithus" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>

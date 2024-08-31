@@ -26,7 +26,7 @@ export const SignUpBusiness = () => {
         };
         scrollToTop();
     }, []);
-    
+
     const switchShown = () => {
         setShown(!shown);
     }
@@ -35,12 +35,12 @@ export const SignUpBusiness = () => {
         setPremium(true);
         setShowModal(false);
     }
-    
+
     const handlePartnerFreeClick = () => {
         setPremium(false);
         setShowModal(false);
     }
-    
+
     const handleSignUp = async () => {
         const signUpResult = await actions.signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
         if (await signUpResult) {
@@ -95,7 +95,7 @@ export const SignUpBusiness = () => {
                                 </div>
                             )}
 
-                            
+
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
                             </div>
