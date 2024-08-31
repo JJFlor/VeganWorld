@@ -18,17 +18,18 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
     const haveToken = store.token;  //comprobar si usuario tiene token
 
     return (
-        <div id="shopview_container" className="container my-5">
+        <div className="container my-5">
 
             <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
+            
             <div className="profile_header d-flex-row">
                 <img src={AvatarImg} className="profile_img col-12" alt="..." />
-                <div className="card-info">
-                    <p className="card-text">Type of Services: {typeOfServices}</p>
-                    <p className="card-text">Address: {address}</p>
-                    <p className="card-text">Email: {email}</p>
-                    <p className="card-text">Phone: {phone}</p>
-                    <p className="card-text">About us: {aboutUs}</p>
+                <div className="card_header card-info">
+                    <div className="card_header-text">Type of Services: {typeOfServices}</div>
+                    <div className="card_header-text">Address: {address}</div>
+                    <div className="card_header-text">Email: {email}</div>
+                    <div className="card_header-text">Phone: {phone}</div>
+                    <div className="card_header-text">About us: {aboutUs}</div>
                 </div>
             </div>
 

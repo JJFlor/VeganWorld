@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "/workspaces/VeganWorld/src/front/styles/addoffer.css";
+import fondoShop1 from "/workspaces/VeganWorld/src/front/img/fondoShop1.jpg"
 
 export const AddProduct = () => {
     const [productName, setProductName] = useState("");
@@ -52,7 +53,7 @@ export const AddProduct = () => {
             const decodedToken = jwtDecode(token); // Decodifica el token
             console.log(decodedToken); // Verifica el contenido del token decodificado
             const userId = decodedToken.sub; // Usar 'sub' en lugar de 'user_id'
-        
+
             const newProduct = {
                 product_name: productName,
                 price: parseFloat(price),
@@ -60,9 +61,9 @@ export const AddProduct = () => {
                 image_url: imageUrl,
                 user_id: userId // Incluye el ID del usuario en los datos del producto
             };
-        
+
             console.log(newProduct);
-        
+
             const response = await fetch(process.env.BACKEND_URL + '/api/products', {
                 method: 'POST',
                 headers: {
@@ -71,7 +72,7 @@ export const AddProduct = () => {
                 },
                 body: JSON.stringify(newProduct),
             });
-        
+
             if (response.ok) {
                 navigate('/shop_business');
             } else {
@@ -88,15 +89,16 @@ export const AddProduct = () => {
 
     return (
         <div className="container contAdd">
-            <div className="text-center">
+
+            <div id="background-img-shop" className="text-center">
                 <Link to="/shop_client">
-                    <span className="btn btnGoShop">SHOP NOW</span>
+                    <button className="boton-shopnow btn btnGoShop">SHOP NOW</button>
                 </Link>
             </div>
 
 
             <div className="contFormAdd p-5 mb-3">
-                <h3 id="title-offer">ADD NEW PRODUCT:</h3>
+                <h3 id="title-offer">Add new products here:</h3>
                 <br></br>
                 <div className="row mb-3">
                     <label className="col-sm-2 col-form-label">Name</label>
@@ -145,14 +147,14 @@ export const AddProduct = () => {
                     <label>Description</label>
                 </div>
                 <div className="btnsProduct">
-                    <Link to="/shop_business" className="btn btnCancel mx-2 my-4">Cancel</Link>
                     <button
-                        className="btn btnSave mx-2 my-4"
+                        className="btn btn-success mx-2 my-4"
                         onClick={handleSave}
                         disabled={isLoading}
                     >
                         {isLoading ? 'Saving...' : 'Save'}
                     </button>
+                    <Link to="/shop_business" className="btn btn-danger mx-2 my-4">Cancel</Link>
                 </div>
             </div>
         </div>

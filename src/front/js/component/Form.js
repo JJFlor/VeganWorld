@@ -44,6 +44,11 @@ export function Form() {
         <input type="text" className="form-control" id="inputAddress" placeholder="Your Adress" />
       </div>
 
+      <div className="col-12">
+        <label htmlFor="inputAbout" className="form-label">About</label>
+        <input type="text" className="form-control" id="inputAbout" placeholder="About" />
+      </div>
+
       <div className="row">
 
         <div className="col-md-8">

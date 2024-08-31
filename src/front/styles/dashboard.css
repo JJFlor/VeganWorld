@@ -1,64 +1,64 @@
 /* src/App.css */
 
 .dashboard {
-    padding: 20px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
 
-  }
-  
-  .stats-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .card h3 {
-    margin-bottom: 10px;
-    font-size: 15px;
-  }
-  
-  .card p {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .charts {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .chart-container {
-    width: 48%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }  
-  .dash-h1 {
-    -webkit-text-fill-color: #006769;
-    box-shadow: #006769 2px 4px 30px;
-    background-color: #F6FB7A;
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-    border-radius: 20px;
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.stats-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
-  }
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  .dash-h1:hover {
-      -webkit-text-fill-color: white;
-      border: 0.5px black;
-      background-color: #F6995c;
-      transition: 0.4s;     
-      
-  }
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-container {
+  width: 48%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dash-h1 {
+  justify-content: center;
+  align-items: center;
+}
+
+.boton-dashboard {
+  background-color: #006769;
+  color: #F6FB7A;
+  font-weight: 500;
+  margin-top: 10px;
+
+}
+
+.boton-dashboard:hover {
+  background-color: #F6FB7A;
+  color: #006769;
+  transition: 0.4s;
+}
