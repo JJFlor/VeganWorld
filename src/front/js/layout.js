@@ -31,6 +31,7 @@ import { ContactUs } from "./pages/ContactUs.js";
 import { ProfileUser } from "/workspaces/VeganWorld/src/front/js/pages/ProfileUser.js"
 import { SearchPremiumPartnerInfo } from "./component/SearchPremiumPartnerInfo.js";
 import { SearchBusinessFreeInfo } from "./component/SearchBusinessFreeInfo.js";
+import { Single } from "./pages/single.js";
 
 //create your first component
 const Layout = () => {
@@ -47,6 +48,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
+                        <Route element={<Single />} path="/reset" />
                         <Route element={
                             <PrivateRoute>
                                 <EditProfileModal />
@@ -100,7 +102,6 @@ const Layout = () => {
                         <Route element={<SignUpUser />} path="/SignUpUser" />
                         <Route element={<SignUpBusiness />} path="/SignUpBusiness" />
                         <Route element={<LogIn />} path="/LogIn" />
-
                         <Route element={
                             <PrivateRoute>
                                 <ProfileUser />

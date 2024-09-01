@@ -205,34 +205,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
 			editInfo: async (data) => {
+				const dataUser = data
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/edit-info`, {
 						method: 'PUT',
-						body: JSON.stringify(data),
+						body: JSON.stringify(dataUser),
 						headers: { "Content-Type": "application/json" }
 					});
 					console.log(data);
-
 					if (!response.ok) {
 						const errorData = await response.json();
 						console.error("Failed to edit info:", errorData.message || response.statusText);
 						return { success: false, message: errorData.message || "Failed to edit info." };
 					}
-
 					const data = await response.json();
 					if (data.ok) {
+						signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
 						alert("Info was edited successfully");
 						return { success: true, message: "Info was edited successfully." };
 					} else {
 						return { success: false, message: data.message || "Failed to edit info." };
 					}
-
 				} catch (error) {
 					console.error("An error occurred when updating your password:", error);
 					return { success: false, message: "An error occurred when updating your password." };
 				}
 			},
-			getPartnerInfo: async (name, typeOfServices, premium, email, password, address, phone, aboutUs) => {
+			getPartnerInfo: async () => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getPartnerInfo`,
@@ -282,7 +281,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				}
 			},
-			getUserInfo: async (email, name, address, phone) => {
+			getUserInfo: async () => {
 				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/getUsersInfo`,
@@ -320,6 +319,61 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFilteredPartnerNull: () => {
 				const store = getStore();
 				setStore({ ...store, premiumPartnersFiltered: null });
+			},
+			updatePassword: async (password, token) => {
+				try {
+					// fetching data from the backend
+					const resp = await fetch(process.env.BACKEND_URL + "/api/password_update", {
+						method: 'PUT',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${token}`
+						},
+						body: JSON.stringify({ password })
+					})
+					if (resp.status != 200) return false
+					const data = await resp.json()
+					console.log(data)
+					return data;
+				} catch (error) {
+					console.log("Error loading message from backend", error)
+				}
+			},
+			sendResetEmail: async (email) => {
+				try {
+					// fetching data from the backend
+					const resp = await fetch(process.env.BACKEND_URL + "/api/check_mail", {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ email })
+					})
+					if (resp.status != 200) return false
+					const data = await resp.json()
+					console.log(data)
+					return data;
+				} catch (error) {
+					console.log("Error loading message from backend", error)
+				}
+			},
+			checkAuth: async (token) => {
+				try {
+					// fetching data from the backend
+					const resp = await fetch(process.env.BACKEND_URL + "/api/token", {
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${token}`
+						},
+						method: 'GET',
+					})
+					if (resp.status != 200) return false
+					const data = await resp.json()
+					console.log(data)
+					return data;
+				} catch (error) {
+					console.log("Error loading message from backend", error)
+				}
 			},
 		}
 	}

@@ -10,7 +10,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 # from api.mail.mail_config import mail
 from flask_jwt_extended import JWTManager
 
@@ -32,37 +32,40 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+mail = Mail(app)
 app.url_map.strict_slashes = False
 #---------------------------------------------------------------------------------------------
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET") 
 jwt = JWTManager(app)
+
+
 #---------------------------------------------------------------------------------------------
-# app.config['MAIL_SERVER']= 'smtp.gmail.com'
-# app.config['MAIL_PORT'] = 465
-# app.config['MAIL_USERNAME'] = os.getenv("EMAIL_USERNAME")
-# app.config['MAIL_PASSWORD'] = os.getenv("EMAIL_PASSWORD")
-# app.config['MAIL_USE_SSL'] = True
-# app.config['MAIL_DEFAULT_SENDER'] = ('Pepe', 'pepe@pepe.pe')
+app.config['MAIL_SERVER']= 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = os.getenv("EMAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("EMAIL_PASSWORD")
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_DEFAULT_SENDER'] = ('Pepe', 'pepe@pepe.pe')
 
-# mail.init_app(app)  # Inicializa mail con la aplicación
+mail.init_app(app)  # Inicializa mail con la aplicación
 
-# @app.route('/api/mail/<address>', methods=['POST', 'GET'])
-# def send_email(address):
-#     try:
+@app.route('/api/mail/<address>', methods=['POST', 'GET'])
+def send_email(address):
+    try:
    
-#         msg = Message("Information", #asunto del correo
-#                       recipients=[address]) 
+        msg = Message("Information", #asunto del correo
+                      recipients=[address]) 
 
-#         # Definir cuerpo del correo
-#         msg.body = "Hola, este es un correo de prueba enviado desde Flask."
-#         msg.html = "<p>Hola, este es un <b>correo de prueba</b> enviado desde Flask.</p>"
+        # Definir cuerpo del correo
+        msg.body = "Hola, este es un correo de prueba enviado desde Flask."
+        msg.html = "<p>Hola, este es un <b>correo de prueba</b> enviado desde Flask.</p>"
 
-#         # Enviar el correo
-#         mail.send(msg)
+        # Enviar el correo
+        mail.send(msg)
 
-#         return "Correo enviado exitosamente!"
-#     except Exception as e:
-#         return f"Error al enviar el correo: {str(e)}"
+        return "Correo enviado exitosamente!"
+    except Exception as e:
+        return f"Error al enviar el correo: {str(e)}"
 
 #---------------------------------------------------------------------------------------------
 
