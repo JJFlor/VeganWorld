@@ -34,7 +34,7 @@ export const ContactUs = () => {
     <div>
 
       <div className="cuerpo container-fluid d-flex-column">
-        <h2 className="titulo_contact text-center mt-4 mb-4">Contact Us</h2>
+        <h2 className="titulo_contact text-center">Contact Us</h2>
         <form ref={form} onSubmit={sendEmail} className="carta_form form-control card flex-center-column">
           <input className="mt-2 mb-2" type="text" placeholder="Full Name" name='user_name' required />
           <input className="mt-2 mb-2" type="email" placeholder="Email" name='user_email' required />
@@ -43,7 +43,6 @@ export const ContactUs = () => {
           <button className="boton_submit btn btn-primary mt-2 mb-2" type="submit">Send Message</button>
         </form>
       </div>
-
 
       <div className="fixed-bottom">
         <Footer />

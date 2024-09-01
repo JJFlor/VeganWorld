@@ -21,6 +21,10 @@ export const Navbar = () => {
 			navigate('/ProfileBusiness');
 		} else {
 			navigate('/profile_user');
+		} else if (!store.partner?.premium) {
+			navigate('/SearchBusinessPremiumInfo');
+		} else {
+			navigate('/SearchBusinessFree');
 		}
 	}
 
@@ -70,6 +74,6 @@ export const Navbar = () => {
 					</div>
 				</div>
 			</div>
-		</nav>
+		</nav >
 	);
 };

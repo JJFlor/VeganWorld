@@ -10,6 +10,7 @@ import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 import { MdWorkspacePremium } from "react-icons/md";
 import { Context } from '../store/appContext';
 import AvatarImg from "../../img/avatarImg.png"
+import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 
 
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
@@ -18,21 +19,20 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
     const haveToken = store.token;  //comprobar si usuario tiene token
 
     return (
-        <div className=''>
-            <div id="shopview_container" className="container my-5">
+        <div className="container my-5">
 
-                <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
-                <div className="profile_header d-flex-row">
-                    <img src={AvatarImg} className="profile_img col-12" alt="..." />
-                    <div className="card-info">
-                        <p className="card-text">Type of Services: {typeOfServices}</p>
-                        <p className="card-text">Address: {address}</p>
-                        <p className="card-text">Email: {email}</p>
-                        <p className="card-text">Phone: {phone}</p>
-                        <p className="card-text">About us: {aboutUs}</p>
-                        <Link to="/shop_business" className='btn btnCreateShop mt-4'>Create your Shop ✏️</Link>
-                    </div>
+            <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
+
+            <div className="profile_header d-flex-row">
+                <img src={AvatarImg} className="profile_img col-12" alt="..." />
+                <div className="card_header card-info">
+                    <div className="card_header-text">Type of Services: {typeOfServices}</div>
+                    <div className="card_header-text">Address: {address}</div>
+                    <div className="card_header-text">Email: {email}</div>
+                    <div className="card_header-text">Phone: {phone}</div>
+                    <EditProfileModal />
                 </div>
+            </div>
 
                 <div className="b-example-divider"></div>
                 <hr className="featurette-divider" />

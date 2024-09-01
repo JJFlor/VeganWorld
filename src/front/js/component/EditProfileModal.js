@@ -11,9 +11,9 @@ export function EditProfileModal() {
 
     return (
         <div>
-            <h3 className="titulo_h3_modaledit" onClick={toggleModal} style={{ cursor: 'pointer' }}>
-                <FaUserEdit />  Edit
-            </h3>
+            <button className="botonEdit" onClick={toggleModal} style={{ cursor: 'pointer' }}>
+                <FaUserEdit />  Edit Profile
+            </button>
 
 
             {isModalOpen && (
