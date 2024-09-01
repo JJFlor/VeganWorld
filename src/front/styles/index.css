@@ -128,6 +128,9 @@
   color: #F6FB7A;
 }
 
+.card-textHome{
+  font-weight: 100 !important;
+}
 .rollCards {
   display: flex;
   overflow-x: auto;
@@ -151,13 +154,14 @@
   min-width: 300px;
 }
 
-.btnCards {
+.btnCardsHome {
+  margin-top: 1rem;
   color: #F6FB7A;
   background-color: #006769;
   font-weight: 500;
 }
 
-.btnCards:hover {
+.btnCardsHome:hover {
   transition: 0.4s;
   background-color: #F6995c;
   color: #006769;

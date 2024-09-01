@@ -17,15 +17,17 @@ export function EditProfileModal() {
 
 
             {isModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close-button" onClick={toggleModal}>&times;</span>
-                        <div className="profile_form">
-                            <Form />
+                <div className="modal-overlay" onClick={toggleModal}>
+                    <div className="modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-content">
+                            <span className="close-button" onClick={toggleModal}>&times;</span>
+                            <div className="profile_form">
+                                <Form />
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
         </div>
-    );
+            );
 }

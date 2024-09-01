@@ -1,15 +1,16 @@
-# WebApp boilerplate with React JS and Flask API
+# <VeganWorld>
 
-Build web applications using React.js for the front end and python/flask for your backend API.
+## Description
+VeganWorld is a webpage where you can find any type of vegan services in your city. 
 
-- Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
-- Here is a video on [how to use this template](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
-- Integrated with Pipenv for package managing.
-- Fast deployment to heroku [in just a few steps here](https://start.4geeksacademy.com/backend/deploy-heroku-posgres).
-- Use of .env file.
-- SQLAlchemy integration for database abstraction.
+This project was created to make easier for vegan people to find vegan services near them, since Google Maps filter for vegan places it's not always working properly, making more difficult for them to find the services they're looking for. In this way, VeganWorld tries to fix this problema by offering vegan people an app where to find this places and get information abou them and even buying from them through our shop platform. 
 
-### 1) Installation:
+While developing this project we learnt about:
+- How to create and application using React JS, Flask API and SQLAlchemy for backend integration.
+- API integration and configuration.
+- 
+
+## Installation
 
 > If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node 
 
@@ -70,12 +71,34 @@ Every Github codespace environment will have **its own database**, so if you're 
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`
 
-## Publish your website!
+## Uso
 
-This boilerplate it's 100% read to deploy with Render.com and Heroku in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
+Proporcione instrucciones y ejemplos de uso. Incluya capturas de pantalla según sea necesario.
 
-### Contributors
+Para agregar una captura de pantalla, cree una carpeta `assets/images` en su repositorio y cargue la captura de pantalla en ella. Luego, con la ruta relativa, agréguela a su README utilizando la siguiente sintaxis:
 
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
+    ```md
+    ![alt text](assets/images/screenshot.png)
+    ```
 
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
+## Contributors
+
+VeganWorld was build by [Jorge Yébenes](https://github.com/jorgeyebenes), [Sebastian Sarria](https://github.com/JSebasSN) and [Júlia Jaile](https://github.com/JJFlor). 
+
+The template that was used to build VeganWorld was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. 
+
+
+## License
+
+We use npm packages. 
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import "/workspaces/VeganWorld/src/front/styles/profileuser.css";
 import { Context } from "../store/appContext";
 import { SearchUserInfo } from "../component/SearchUserInfo.js";
-import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
+import { Footer } from '../component/Footer.js';
 
 
 export const ProfileUser = () => {
@@ -14,9 +14,9 @@ export const ProfileUser = () => {
 
 
     return (
-
         <div>
-            <div className="container-fluid">
+
+            <div className="container">
                 {
                     store.user ?
                         (<SearchUserInfo
@@ -28,8 +28,22 @@ export const ProfileUser = () => {
                         )
                         :
                         (<p>No user data available</p>)
-
                 }
+                <div className="container-fluid">
+                    {
+                        store.user ?
+                            (<SearchUserInfo
+                                key={store.user?.id}
+                                name={store.user?.name}
+                                email={store.user?.email}
+                                address={store.user?.address}
+                                phone={store.user?.phone} />
+                            )
+                            :
+                            (<p>No user data available</p>)
+
+                    }
+                </div>
             </div>
 
             <div className="fixed-bottom">
@@ -37,6 +51,5 @@ export const ProfileUser = () => {
             </div>
         </div>
 
-    );
-
+    )
 }

@@ -21,12 +21,12 @@ export const SearchUserInfo = ({ email, name, address, phone }) => {
 
             <h1 id="usuario_h1" className="profile_name text-center col-12">{name}</h1>
 
-            <div className="profile_header d-flex-row">
+            <div className="profile_header d-flex-row pt-4">
                 <div className="d-flex flex-row">
                     <img src={AvatarImg} alt="" className="imgReview" />
                     {/* <img className="profile-pic" src={JorgePic} alt=''></img> */}
                 </div>
-                <div className="card-info">
+                <div className="card-info pt-">
                     <p className="card-text">Address: {address}</p>
                     <p className="card-text">Email: {email}</p>
                     <p className="card-text">Phone: {phone}</p>

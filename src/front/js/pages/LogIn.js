@@ -5,43 +5,31 @@ import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 
+
+
 export const LogIn = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [shown, setShown] = useState(false);
-    const [newPassword, setNewPassword] = useState("");
-    const [repeatNewPassword, setRepeatNewPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
     const [showModal, setShowModal] = useState(false);
+
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
+
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
+
     const switchShown = () => {
         setShown(!shown);
     }
-    const resetPassword = async () => {
-        if (newPassword !== repeatNewPassword) {
-            setErrorMessage("Passwords do not match.");
-            return;
-        }
-        try {
-            const response = await actions.resetPassword(email, newPassword);
-            if (response.success) {
-                setSuccessMessage(response.message);
-                setErrorMessage("");
-                setShowModal(false);  // Cerrar el modal después de un reseteo exitoso
-            } else {
-                setErrorMessage(response.message);
-            }
-        } catch (error) {
-            console.error("Error resetting password:", error);
-            setErrorMessage("An error occurred while resetting the password.");
-        }
+
+    const handleClick = () => {
+        actions.sendResetEmail(email);
     }
+
     const logIn = async () => {
         const resp = await actions.logIn(email, password);
         if (resp) {
@@ -50,6 +38,7 @@ export const LogIn = () => {
             navigate('/profile_user');
         }
     }
+
     return (
         <div className="container">
             <div className="d-flex flex-column signUp-card-login w-50">
@@ -120,8 +109,6 @@ export const LogIn = () => {
                                 ></button>
                             </div>
                             <div className="modal-body">
-                                {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-                                {successMessage && <div className="alert alert-success">{successMessage}</div>}
                                 <div className="form-group mt-3">
                                     <input
                                         type="email"
@@ -130,40 +117,13 @@ export const LogIn = () => {
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
                                     />
-                                </div>
-                                <div className="form-group mt-3">
-                                    <input
-                                        type={shown ? 'text' : 'password'}
-                                        required
-                                        maxLength="12"
-                                        minLength="6"
-                                        className="form-control modalIsRelative"
-                                        placeholder="Create new password"
-                                        onChange={(e) => setNewPassword(e.target.value)}
-                                        value={newPassword}
-                                    />
                                     <span className="modalShowPasswordIcon" type="button" onClick={switchShown}>
                                         {shown ? <FaEye /> : <FaEyeSlash />}
                                     </span>
+                                    <button onClick={handleClick}>
+                                        reset
+                                    </button>
                                 </div>
-                                <div className="form-group mt-3">
-                                    <input
-                                        type={shown ? 'text' : 'password'}
-                                        required
-                                        maxLength="12"
-                                        minLength="6"
-                                        className="form-control modalTwoIsRelative"
-                                        placeholder="Repeat new password"
-                                        onChange={(e) => setRepeatNewPassword(e.target.value)}
-                                        value={repeatNewPassword}
-                                    />
-                                    <span className="modalTwoShowPasswordIcon" type="button" onClick={switchShown}>
-                                        {shown ? <FaEye /> : <FaEyeSlash />}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-reset-password" onClick={resetPassword}>Reset password</button>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import LogoNav from "../../img/aguaAmarillo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
@@ -9,9 +9,17 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
+
+	useEffect(() => {
+		console.log(store.partnerInfo);
+	}, [store.partnerInfo])
+
+
 	const handleGoToProfile = () => {
 
-		if (store.user) {
+		if (store.partnerInfo) {
+			navigate('/ProfileBusiness');
+		} else {
 			navigate('/profile_user');
 		} else if (!store.partner?.premium) {
 			navigate('/SearchBusinessPremiumInfo');
@@ -39,7 +47,8 @@ export const Navbar = () => {
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
 
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
-						<Link to={"/ContactUs"} className="nav-link itemsNavbar px-3 my-1">Contact Us</Link>
+
+						<Link to={'/ContactUs'} className="nav-link itemsNavbar px-3 my-1">Contact</Link>
 
 						{store.user ? (
 							// Si el usuario está autenticado, muestra su foto de perfil
@@ -48,9 +57,10 @@ export const Navbar = () => {
 
 								<Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<CgProfile style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }} />
+									<p style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}>{store.user.name}</p>
 								</Link>
 								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-									<li><a className="dropdown-item" href="#" onClick={() => handleGoToProfile()}>Profile</a></li>
+									<li><a className="dropdown-item" onClick={() => handleGoToProfile()}>Profile</a></li>
 									<li><a className="dropdown-item" href="#" onClick={() => handleLogout()}>Logout</a></li>
 								</ul>
 							</div>

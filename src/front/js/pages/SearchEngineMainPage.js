@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useNavigate, Link } from "react-router-dom";
 import "../../styles/searchEngine.css";
 import { Context } from "../store/appContext";
-import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
 import { SearchRestaurantsPartners } from "../component/SearchRestaurantsPartners";
 
 
@@ -15,7 +13,7 @@ export const SearchEngineMainPage = () => {
 
 
     useEffect(() => {
-        actions.getAllPartnersInfo();
+        actions.getAllPremiumPartnersInfo();
     }, [])
 
 
@@ -234,8 +232,14 @@ export const SearchEngineMainPage = () => {
                 <div className="container rollCards d-flex flex-column">
                     {console.log(store.premiumPartners)}
                     {store.premiumPartnersFiltered ? store.premiumPartnersFiltered.map(filteredPartner =>
-                    (<SearchRestaurantsPartners key={filteredPartner.id} name={filteredPartner.name}
-                        typeOfServices={filteredPartner.type_of_services} premium={filteredPartner.premium} />))
+                    (<SearchRestaurantsPartners key={filteredPartner.id}
+                        name={filteredPartner.name}
+                        typeOfServices={filteredPartner.type_of_services}
+                        address={filteredPartner.address}
+                        phone={filteredPartner.phone}
+                        email={filteredPartner.email}
+                        aboutUs={filteredPartner.about_us}
+                        premium={filteredPartner.premium} />))
                         :
                         store.premiumPartners?.map(premiumPartners => (<SearchRestaurantsPartners key={premiumPartners.id}
                             name={premiumPartners.name}
@@ -243,7 +247,8 @@ export const SearchEngineMainPage = () => {
                             phone={premiumPartners.phone}
                             email={premiumPartners.email}
                             aboutUs={premiumPartners.about_us}
-                            typeOfServices={premiumPartners.type_of_services} premium={premiumPartners.premium} />))}
+                            typeOfServices={premiumPartners.type_of_services}
+                            premium={premiumPartners.premium} />))}
                 </div>
             </div>
         </div>
