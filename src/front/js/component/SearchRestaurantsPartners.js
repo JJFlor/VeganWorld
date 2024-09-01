@@ -14,14 +14,14 @@ export const SearchRestaurantsPartners = ({ name, typeOfServices, premium, email
 
     return (
         <div className="container">
-            <div className="baseCard mx-3 mb-4 row">
+            <div className="rollCards mx-3 mb-4 row">
                 <div className="col-8 card">
                     <div className="card-body">
                         <div className="d-flex flex-row">
                             <img src={AvatarImg} alt="" className="imgReview" />
-                            <h5 className="card-title">{name}{haveToken && premium && <MdWorkspacePremium />}</h5>
+                            <h5 className="card-title-category">{name}{haveToken && premium && <MdWorkspacePremium />}</h5>
                         </div>
-                        <div className="card-info">
+                        <div className="category">
                             <p className="card-text">Type of service: {typeOfServices}</p>
                             <p className="card-text">Email: {email}</p>
                             <p className="card-text">Address: {address}</p>

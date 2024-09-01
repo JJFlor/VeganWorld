@@ -10,7 +10,7 @@ export const ProfileBusinessPremium = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getAllPartnersInfo();
+        actions.getAllPremiumPartnersInfo();
     }, [])
 
     return (

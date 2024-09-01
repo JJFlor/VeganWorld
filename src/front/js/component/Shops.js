@@ -7,7 +7,7 @@ export const Shops = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getAllPartnersInfo();  // Obtener la información de los socios al cargar el componente
+        actions.getAllPremiumPartnersInfo();  // Obtener la información de los socios al cargar el componente
     }, []);
 
     const backgroundImage = {
