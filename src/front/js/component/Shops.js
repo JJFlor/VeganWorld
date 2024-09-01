@@ -60,7 +60,7 @@ export const Shops = () => {
                                     <p className="card-textHome">{premiumPartners.address}</p>
                                     <p className="card-textHome">{premiumPartners.about_us}</p>
                                     <p className="card-textHome">{premiumPartners.type_of_services}</p>
-                                    <Link to="/" className="btn btnCardsHome text-center">Go somewhere</Link>
+                                    <Link to="/shop_client" className="btn btnCardsHome text-center">Discover Products</Link>
                                 </div>
                             </div>
                         </div>
