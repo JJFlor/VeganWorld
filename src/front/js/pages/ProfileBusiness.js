@@ -1,34 +1,41 @@
-
-import React, { useContext, useEffect } from 'react'
-import "/workspaces/VeganWorld/src/front/styles/shoppremium.css"
-import { Context } from '../store/appContext'
+import React, { useContext, useEffect, useState } from 'react';
+import '/workspaces/VeganWorld/src/front/styles/shoppremium.css';
+import { Context } from '../store/appContext';
 import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
 import { SearchBusinessFreeInfo } from '../component/SearchBusinessFreeInfo';
 import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
 
-
 export const ProfileBusiness = () => {
     const { store, actions } = useContext(Context);
+    const [selectedPartner, setSelectedPartner] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            await actions.getPartnerInfo();
+            await actions.getAllPremiumPartnersInfo();
+        };
+        fetchData();
+    }, []);
 
     useEffect(() => {
-        actions.getPartnerInfo();
-    }, [])
-
-
+        if (store.partnerInfo && store.premiumPartners.length > 0) {
+            const partner = store.premiumPartners.find(partner => partner.id === store.partnerInfo.id);
+            setSelectedPartner(partner);
+        }
+    }, [store.partnerInfo, store.premiumPartners]);
     return (
         <>
-            {
-                store.partner?.premium ?
-                    <SearchPremiumPartnerInfo
-                        key={store.premiumPartners.id}
-                        name={store.premiumPartners.name}
-                        typeOfServices={store.premiumPartners.type_of_services}
-                        email={store.premiumPartners.email}
-                        address={store.premiumPartners.address}
-                        phone={store.premiumPartners.phone}
-                        aboutUs={store.premiumPartners.about_us}
-                    />
-                    :
+            {selectedPartner ? (
+                <SearchPremiumPartnerInfo
+                    key={selectedPartner.id}
+                    name={selectedPartner.name}
+                    typeOfServices={selectedPartner.type_of_services}
+                    email={selectedPartner.email}
+                    address={selectedPartner.address}
+                    phone={selectedPartner.phone}
+                    aboutUs={selectedPartner.about_us}
+                />
+            ) : (
+                store.partnerInfo && (
                     <SearchBusinessFreeInfo
                         key={store.partnerInfo.id}
                         name={store.partnerInfo.name}
@@ -36,8 +43,10 @@ export const ProfileBusiness = () => {
                         email={store.partnerInfo.email}
                         address={store.partnerInfo.address}
                         phone={store.partnerInfo.phone}
-                        aboutUs={store.partnerInfo.about_us} />
-            }
+                        aboutUs={store.partnerInfo.about_us}
+                    />
+                )
+            )}
         </>
-    )
-}
+    );
+};
