@@ -10,6 +10,7 @@ import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 import { MdWorkspacePremium } from "react-icons/md";
 import { Context } from '../store/appContext';
 import AvatarImg from "../../img/avatarImg.png"
+import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 
 
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
@@ -21,7 +22,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
         <div className="container my-5">
 
             <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
-            
+
             <div className="profile_header d-flex-row">
                 <img src={AvatarImg} className="profile_img col-12" alt="..." />
                 <div className="card_header card-info">
@@ -29,7 +30,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                     <div className="card_header-text">Address: {address}</div>
                     <div className="card_header-text">Email: {email}</div>
                     <div className="card_header-text">Phone: {phone}</div>
-                    <div className="card_header-text">About us: {aboutUs}</div>
+                    <EditProfileModal />
                 </div>
             </div>
 
