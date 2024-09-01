@@ -71,8 +71,9 @@ Every Github codespace environment will have **its own database**, so if you're 
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`
 
-## Uso
+## Usage
 
+When uou load the webpage you'll see the Homepage, but if you try to access to any parte fo the homepage you'll be asked to Sign Up or Log In. When you'll be at the Sign Up page, you'll have to register as a User or as a Business. If you choose the Business Sign Up, you'll have to choose if you want a free profile or a premium one. When you'll be 
 Proporcione instrucciones y ejemplos de uso. Incluya capturas de pantalla según sea necesario.
 
 Para agregar una captura de pantalla, cree una carpeta `assets/images` en su repositorio y cargue la captura de pantalla en ella. Luego, con la ruta relativa, agréguela a su README utilizando la siguiente sintaxis:

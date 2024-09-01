@@ -60,7 +60,7 @@ export const SignUpBusiness = () => {
                                 <input type="text" className="form-control" placeholder="Business name" onChange={(e) => setName(e.target.value)} value={name} />
                             </div>
                             <div className="form-group mt-3">
-                                <input type="text" className="form-control" placeholder="Type of services you offer" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
+                                <input type="text" className="form-control" placeholder="Services: restaurant, shop, wellness or activism!" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
                             </div>
                             <p className="try-premium">
                                 Choose between Free or Premium!
