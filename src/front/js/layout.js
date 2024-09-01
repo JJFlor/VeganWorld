@@ -89,7 +89,7 @@ const Layout = () => {
                         } path="/add_product" />
                         <Route element={
                             <PrivateRoute>
-                                <ShopView /> />
+                                <ShopView /> 
                             </PrivateRoute>
                         } path="/shop_view" />
                         <Route element={

@@ -307,10 +307,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setCathegoryFilter: (typeOfServices) => {
 				const store = getStore();
-				const filteredPartners = store.premiumPartners.filter(partner => partner.type_of_services == typeOfServices);
-				console.log(filteredPartners)
-				setStore({ ...store, premiumPartnersFiltered: filteredPartners });
+				const filteredPartners = store.premiumPartners.filter(partner => partner.type_of_services.toLowerCase() === typeOfServices.toLowerCase());
+				console.log(filteredPartners);
+				setStore({ 
+					...store, 
+					premiumPartnersFiltered: filteredPartners, 
+					selectedCategory: typeOfServices.toLowerCase() // Guardar la categoría seleccionada en minúsculas
+				});
 			},
+			
 			showPremiumIcon: (premium) => {
 				const store = getStore();
 				const havePremiumIcon = store.premiumPartners.some(partner => partner.premium === premium);
@@ -318,8 +323,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setFilteredPartnerNull: () => {
 				const store = getStore();
-				setStore({ ...store, premiumPartnersFiltered: null });
+				setStore({ ...store, premiumPartnersFiltered: null, selectedCategory: null });
 			},
+			
+			
 		}
 	}
 }
