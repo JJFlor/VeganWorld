@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
-// import BusinessLogo1 from "/workspaces/VeganWorld/src/front/img/burgerlogo.png"
 import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
-// import { Reviews } from '/workspaces/VeganWorld/src/front/js/component/Reviews.js'
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
 import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
@@ -12,7 +10,6 @@ import { Context } from '../store/appContext';
 import AvatarImg from "../../img/avatarImg.png"
 import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
 
-
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
     const navigate = useNavigate();
     const { store } = useContext(Context)
@@ -20,7 +17,6 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
 
     return (
         <div className="container my-5">
-
             <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
 
             <div className="profile_header d-flex-row">
@@ -36,7 +32,6 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
 
             <div className="b-example-divider"></div>
             <hr className="featurette-divider" />
-
 
             <ul id="shopview_pills" className="nav nav-pills" role="tablist">
                 <li className="nav-item" role="presentation">
@@ -65,19 +60,6 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                         <i className="fa-solid fa-utensils">  MENU</i>
                     </button>
                 </li>
-                {/* <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="shopview_pills-profile-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-profile"
-                        type="button"
-                        role="tab"
-                        aria-controls="pills-profile"
-                        aria-selected="false">
-                        <i className="fa-sharp fa-solid fa-comments">  FEEDBACKS</i>
-                    </button>
-                </li> */}
                 <li className="nav-item" role="presentation">
                     <button
                         className="nav-link"
@@ -93,15 +75,10 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                 </li>
             </ul>
 
-
             <div className="tab-content" id="pills-tabContent">
-
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
                     <div className="album py-5 bg-body-tertiary">
-
                         <div className="container">
-
                             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                 <div className="col">
                                     <div className="card shadow-sm">
@@ -148,7 +125,6 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="col">
                                     <div className="card shadow-sm">
                                         <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
@@ -194,7 +170,6 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="col">
                                     <div className="card shadow-sm">
                                         <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
@@ -243,26 +218,15 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                             </div>
                         </div>
                     </div>
-
-                    <div className="boton_descuento_business_noreg">
-                    </div>
-
                 </div>
 
-                <div className="imagen_del_menu tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
-                    <img src={MenuBusiness1}></img>
-
+                <div className="tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
+                    <img src={MenuBusiness1} alt="Menu" />
                 </div>
-
-
-                {/* <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <Reviews />
-                </div> */}
 
                 <div className="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
                     <FindBusiness />
                 </div>
-
             </div>
 
             <Footer />
@@ -270,4 +234,3 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
 
     );
 }
-
