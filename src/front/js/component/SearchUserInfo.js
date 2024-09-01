@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AvatarImg from "../../img/avatarImg.png";
 // import JorgePic from "/workspaces/VeganWorld/src/front/img/redonda_jorge.png";
@@ -34,9 +34,9 @@ export const SearchUserInfo = ({ email, name, address, phone }) => {
                 <div className="d-flex-column">
                     <EditProfileModal />
                 </div>
-                <a href="#" className="btn btnCards" onClick={() => navigate('/Shops')}>Buy now</a>
+                <Link to='/shop_client' href="#" className="btn btnCards">Buy now</Link>
             </div>
-            
+
         </div>
 
     );

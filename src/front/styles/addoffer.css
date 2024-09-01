@@ -1,6 +1,30 @@
 #title-offer {
     background-color: #F6FB7A;
 }
+
 .contFormAdd {
-    background-color: #fff;
+    background-color: #ffffff;
+}
+
+.boton-shopnow {
+    background-color: #F6995c;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+.boton-shopnow:hover {
+    background-color: red;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+#background-img-shop {
+    background-image: url('/workspaces/VeganWorld/src/front/img/fondoShop1.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 100% !important;
+    height: 100px !important;
 }

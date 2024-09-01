@@ -8,7 +8,7 @@
     background-color: #006769;
 }
 
-.titulo_contact {
+.titulo_work {
     margin-top: 50px;
     align-items: center;
     justify-content: center;
@@ -24,11 +24,12 @@
 
 .boton_submit {
     background-color: #F6FB7A;
-    color:#006769;
+    color: #006769;
     border-color: black;
     font-weight: 500;
-    
+
 }
+
 .boton_submit:hover {
     transition: 0.4s;
     background-color: #F6995c;

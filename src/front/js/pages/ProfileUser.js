@@ -15,6 +15,7 @@ export const ProfileUser = () => {
 
     return (
         <div>
+
             <div className="container">
                 {
                     store.user ?
@@ -27,14 +28,28 @@ export const ProfileUser = () => {
                         )
                         :
                         (<p>No user data available</p>)
-
                 }
+                <div className="container-fluid">
+                    {
+                        store.user ?
+                            (<SearchUserInfo
+                                key={store.user?.id}
+                                name={store.user?.name}
+                                email={store.user?.email}
+                                address={store.user?.address}
+                                phone={store.user?.phone} />
+                            )
+                            :
+                            (<p>No user data available</p>)
+
+                    }
+                </div>
             </div>
+
             <div className="fixed-bottom">
                 <Footer />
             </div>
         </div>
 
-    );
-
+    )
 }
