@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import BgImage from "../../img/fondoShop1.jpg";
+import { Link } from "react-router-dom";
 
 export const Shops = () => {
     const { store, actions } = useContext(Context);
@@ -16,45 +17,51 @@ export const Shops = () => {
     };
 
     const handleCategoryClick = (typeOfServices) => {
-        if (typeOfServices === 'All') {
+        if (typeOfServices === 'all') {
             actions.setFilteredPartnerNull();  // Mostrar todos los socios
         } else {
-            actions.setCathegoryFilter(typeOfServices);  // Filtrar socios por tipo de servicio
+            actions.setCathegoryFilter(typeOfServices.toLowerCase());  // Convertir la categoría a minúscula
         }
     };
 
+
     // Determinar qué socios mostrar: todos o filtrados
-    const partnersToDisplay = store.premiumPartnersFiltered || store.premiumPartners;
+    // Determinar qué socios mostrar: todos o filtrados
+    const partnersToDisplay = store.premiumPartnersFiltered === null ? store.premiumPartners : store.premiumPartnersFiltered;
+
 
     return (
         <div className="text-center">
             <div className="container">
                 <div className="row">
+
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Restaurants', 'Restaurant')}>🍴 Restaurants</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('restaurant')}>🍴 Restaurants</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Shops')}>👜 Shops</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('wellness')}>💚 Wellness</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Wellness')}>😄 Wellness</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('activism')}>✊ Activism</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('Leisure')}>🎮 Leisure</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>🤸‍♂️ Leisure</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('All')}>Show All</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>Show All</button>
                     </div>
                 </div>
 
                 <div className="rollCards my-4">
-                    {partnersToDisplay && partnersToDisplay.map((partner, index) => (
+                    {partnersToDisplay && partnersToDisplay.map((premiumPartners, index) => (
                         <div key={index} className="baseCard mx-3 mb-4">
                             <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">{partner.name}</h5>
-                                    <p className="card-text">{partner.type_of_services}</p>
-                                    <a href="#" className="btn btnCards">Go somewhere</a>
+                                <div className="card-body text-center">
+                                    <h2 className="card-title">{premiumPartners.name}</h2>
+                                    <p className="card-textHome">{premiumPartners.address}</p>
+                                    <p className="card-textHome">{premiumPartners.about_us}</p>
+                                    <p className="card-textHome">{premiumPartners.type_of_services}</p>
+                                    <Link to="/shop_client" className="btn btnCardsHome text-center">Discover Products</Link>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +73,7 @@ export const Shops = () => {
                 <div className="textInvite">Discover a world of incredible products in our shop</div>
                 <div className="container text-center">
 
-                    <a className="btn btnShopNow">BUY NOW!</a>
+                    <a href="/Shop_client" className="btn btnShopNow">BUY NOW!</a>
 
                 </div>
                 <div className="container">

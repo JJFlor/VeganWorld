@@ -43,6 +43,7 @@ export const Navbar = () => {
 						<Link to={"/SearchEngineMainPage"} className="nav-link itemsNavbar px-3 my-1">Business</Link>
 
 						<Link to={"/shop_client"} className="nav-link itemsNavbar px-3 my-1">Shop</Link>
+
 						<Link to={'/ContactUs'} className="nav-link itemsNavbar px-3 my-1">Contact</Link>
 
 						{store.user ? (
@@ -52,7 +53,8 @@ export const Navbar = () => {
 
 								<Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<CgProfile style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }} />
-									<p style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}>{store.user.name}</p>
+									<span className='px-2 pt-2' style={{ width: '25px', height: '25px', borderRadius: '50%', color: '#F6FB7A' }}>{store.user.name}</span>
+
 								</Link>
 								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 									<li><a className="dropdown-item" onClick={() => handleGoToProfile()}>Profile</a></li>

@@ -16,7 +16,7 @@
   font-weight: 500;
 }
 
-.itemsNavbar:hover{
+.itemsNavbar:hover {
   color: #F6995c !important;
 }
 
@@ -31,6 +31,33 @@
   transition: 0.4s;
   background-color: #F6995c;
   color: white;
+}
+
+.footer {
+  background-color: #006769;
+  color: #F6FB7A;
+  font-weight: 500;
+  width: 100%;
+  min-height: 10vh;
+}
+
+
+.lgFooter {
+  max-width: 80px;
+}
+
+.contLogoFooter {
+  padding-top: 1.65rem;
+}
+
+.btnFooter {
+  color: #F6FB7A;
+  font-weight: 500;
+}
+
+.btnFooter:hover {
+  transition: 0.4s;
+  color: #F6995c;
 }
 
 .contFondo {
@@ -101,6 +128,10 @@
   color: #F6FB7A;
 }
 
+.card-textHome {
+  font-weight: 100 !important;
+}
+
 .rollCards {
   display: flex;
   overflow-x: auto;
@@ -124,13 +155,14 @@
   min-width: 300px;
 }
 
-.btnCards {
+.btnCardsHome {
+  margin-top: 1rem;
   color: #F6FB7A;
   background-color: #006769;
   font-weight: 500;
 }
 
-.btnCards:hover {
+.btnCardsHome:hover {
   transition: 0.4s;
   background-color: #F6995c;
   color: #006769;
@@ -223,27 +255,7 @@
   max-width: 1200px;
 }
 
-.footer {
-  background-color: #006769;
-  color: #F6FB7A;
-  font-weight: 500;
-  width: 100%;
-  min-height: 13vh;
-}
 
-
-.lgFooter {
-  max-width: 80px;
-}
-
-.contLogoFooter {
-  padding-top: 1.65rem;
-}
-
-.btnFooter {
-  color: #F6FB7A;
-  font-weight: 500;
-}
 
 @media (max-width: 900) {
   .titleJumbo {

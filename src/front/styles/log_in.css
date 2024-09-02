@@ -11,7 +11,6 @@
 }
 
 .showPasswordIcon {
-    position: absolute;
     display: block;
     user-select: none;
     bottom: 13.8rem;

@@ -12,8 +12,8 @@ export const ContactUs = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_5u9siwm', 'template_j7ov9af', form.current, {
-        publicKey: 'L1zvbfVOr8BkGDo0s',
+      .sendForm('service_o4jtn1m', 'template_72thuxs', form.current, {
+        publicKey: 'nomIMS5B8sy7jsrDI',
       })
       .then(
         () => {
@@ -34,7 +34,7 @@ export const ContactUs = () => {
     <div>
 
       <div className="cuerpo container-fluid d-flex-column">
-        <h2 className="titulo_contact text-center mt-4 mb-4">Contact Us</h2>
+        <h2 className="titulo_contact text-center">Contact Us</h2>
         <form ref={form} onSubmit={sendEmail} className="carta_form form-control card flex-center-column">
           <input className="mt-2 mb-2" type="text" placeholder="Full Name" name='user_name' required />
           <input className="mt-2 mb-2" type="email" placeholder="Email" name='user_email' required />
@@ -44,8 +44,9 @@ export const ContactUs = () => {
         </form>
       </div>
 
-
-      <Footer />
+      <div className="fixed-bottom">
+        <Footer />
+      </div>
     </div>
 
   )

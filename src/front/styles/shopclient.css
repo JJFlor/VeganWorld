@@ -1,0 +1,71 @@
+.titulo-shop-client {
+    text-align: center;
+    color: #006769;
+    background-color: #F6FB7A;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px black;
+    height: 70px;
+    width: auto;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    margin-top: 20px;
+
+}
+
+.boton-newproduct {
+    color: #F6FB7A;
+    background-color: #006769;
+}
+
+.boton-newproduct:hover {
+    color: white;
+    background-color: #F6995c;
+    transition: 0.4s;
+}
+
+.boton-sortby-asc {
+    color: #F6FB7A;
+    background-color: #006769;
+}
+
+.boton-sortby-asc:hover {
+    color: white;
+    background-color: #F6995c;
+    transition: 0.4s;
+}
+
+.boton-sortby-des {
+    color: #F6FB7A;
+    background-color: #006769;
+}
+
+.boton-sortby-des:hover {
+    color: white;
+    background-color: #F6995c;
+    transition: 0.4s;
+}
+
+.contCards {
+    background-color: #b5e3807b;
+
+}
+
+.banner-shop {
+    height: 200vh;
+    background-image: url(https://i.ibb.co/Pj5DRtZ/fondo-Shop1.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: inline-grid;
+    align-items: center;
+    width: 100%;
+    height: 45vh;
+    border-radius: 20px;
+    box-shadow: inset 0px -72px 47px -59px rgba(0, 0, 0, 0.75);
+}
+
+.textInvite {
+    font-size:xx-large;
+}

@@ -4,23 +4,37 @@
     margin-top: 20px;
 }
 
+.btnCreateShop {
+    font-weight: 500;
+    background-color: #F6FB7A;
+    color: #006769
+}
+
+.btnCreateShop:hover {
+    background-color: #F6995c;
+}
 
 #shopview_container_background {
-    background-color:#006769;
+    background-color: #006769;
     height: 500px;
 }
+
 #shopview_pills-home-tab {
     background-color: #006769;
 }
+
 #shopview_pills-menu-tab {
     background-color: #006769;
 }
+
 #shopview_pills-profile-tab {
     background-color: #006769;
 }
+
 #shopview_pills-map-tab {
     background-color: #006769;
 }
+
 #shopview_hero_cover_h1 {
     color: #F6FB7A;
 }
@@ -30,6 +44,7 @@
     --bs-nav-pills-link-active-color: #ec3c3c;
     --bs-nav-link-hover-color: #F6FB7A;
 }
+
 .nav {
     --bs-nav-link-color: #fff;
     --bs-nav-link-hover-color: #F6FB7A;
@@ -38,11 +53,13 @@
 .card {
     --bs-card-bg: #e9fce6;
 }
+
 .btn-outline-success {
     --bs-btn-color: #000000;
 }
+
 .profile_header {
-    
+
     margin-top: 10px;
     margin-bottom: 40px;
     max-width: 100%;
@@ -56,13 +73,15 @@
 }
 
 .profile_img {
-    align-items:center;
+    align-items: center;
     padding: 10px;
     margin: 20px;
     max-width: 400px;
     max-height: 400px;
-    border-radius: 20px;
+    border: 2px solid white;
+    border-radius: 100%;
 }
+
 .profile_name {
     max-width: 100%;
     background-color: #F6FB7A;
@@ -71,18 +90,8 @@
     color: #006769;
     border-radius: 20px;
     box-shadow: 0px 1px 15px;
-    
-}
-.profile_aboutme {
-    padding: 20px;
-    margin: 20px;
-    color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 1px 15px;
-}
-.profile_aboutme-texto {
-    max-width: 600px;
-    max-height: 400px;
+    height: 60px;
+
 }
 
 #usuario_h3 {
@@ -92,7 +101,7 @@
 .profile_body {
     padding: 20px;
     margin: 20px;
-    
+
 }
 
 #usuario_h3_info {
@@ -104,6 +113,7 @@
     border-radius: 20px;
     color: #006769;
 }
+
 .profile_form {
     padding-top: 30px;
     padding-bottom: 20px;
@@ -111,6 +121,7 @@
     margin-top: 20px;
     border-radius: 20px;
 }
+
 #profile_h3_fav {
     box-shadow: 0px 1px 15px;
     color: #006769;
@@ -120,15 +131,27 @@
     text-align: center;
     border-radius: 20px;
 }
-.profile_favoritos_coments {
-    
-    padding:20px;
-    margin: 20px;
+
+.card_header {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 500px;
+    height: 250px;
+    align-content: center;
+    color: #F6FB7A;
+    padding-left: 20px;
     justify-content: space-evenly;
+    font-size: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 500;
+
 }
-.boton_delete {
-    margin-top: 20px;
-}
-.imagen_del_menu img {
-    margin-left: 300px;
+
+.img-menu-free {
+    justify-content: center;
+    align-items: center;
+    
 }
