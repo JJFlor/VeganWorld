@@ -34,17 +34,18 @@ export const Shops = () => {
         <div className="text-center">
             <div className="container">
                 <div className="row">
+
                     <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('restaurant')}>🍴 Restaurants</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('shop')}>👜 Shops</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('wellness')}>💚 Wellness</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('wellness')}>😄 Wellness</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('activism')}>✊ Activism</button>
                     </div>
                     <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('activism')}>🎮 Leisure</button>
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>🤸‍♂️ Leisure</button>
                     </div>
                     <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>Show All</button>
@@ -72,7 +73,7 @@ export const Shops = () => {
                 <div className="textInvite">Discover a world of incredible products in our shop</div>
                 <div className="container text-center">
 
-                    <a className="btn btnShopNow">BUY NOW!</a>
+                    <a href="/Shop_client" className="btn btnShopNow">BUY NOW!</a>
 
                 </div>
                 <div className="container">

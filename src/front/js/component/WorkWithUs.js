@@ -12,8 +12,8 @@ export const WorkWithUs = () => {
         e.preventDefault();
 
         emailjs
-            .sendForm('service_5u9siwm', 'template_j7ov9af', form.current, {
-                publicKey: 'L1zvbfVOr8BkGDo0s',
+            .sendForm('service_o4jtn1m', 'template_72thuxs', form.current, {
+                publicKey: 'nomIMS5B8sy7jsrDI',
             })
             .then(
                 () => {

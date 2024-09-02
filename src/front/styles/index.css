@@ -38,7 +38,7 @@
   color: #F6FB7A;
   font-weight: 500;
   width: 100%;
-  min-height: 13vh;
+  min-height: 10vh;
 }
 
 
@@ -128,9 +128,10 @@
   color: #F6FB7A;
 }
 
-.card-textHome{
+.card-textHome {
   font-weight: 100 !important;
 }
+
 .rollCards {
   display: flex;
   overflow-x: auto;

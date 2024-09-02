@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "/workspaces/VeganWorld/src/front/styles/shopclient.css"
+import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 
 export const ShopClient = () => {
     const { store, actions } = useContext(Context);
@@ -26,13 +28,19 @@ export const ShopClient = () => {
     };
 
     return (
-        <div className="container">
-            <h1 className="text-center my-5">Shop</h1>
+        <div className="container-fluid border-box">
+            <h1 className="titulo-shop-client text-center my-5">Vegan World SHOP</h1>
 
-            <div className="my-5 ms-4">
-                <button className="btn btnSort m-2" onClick={() => sortProducts('new')}>New</button>
-                <button className="btn btnSort m-2" onClick={() => sortProducts('price_asc')}>Price Ascending</button>
-                <button className="btn btnSort m-2" onClick={() => sortProducts('price_desc')}>Price Descending</button>
+            <div className="contenedor-botones-shop-client container-fluid text-center my-5 ms-4">
+                <div id="banner-shop" className="text-center">
+                    <div className="textInvite">Verified Vegan Products & Services</div>
+                    <h3 class="txtDiscount">Use code: 4GEEKS and get 20% discount</h3>
+                    <div class="container">
+                        <button className="boton-newproduct btn btnSort m-4" onClick={() => sortProducts('new')}>New Products</button>
+                        <button className="boton-sortby-asc btn btnSort m-4" onClick={() => sortProducts('price_asc')}>Sort by: Price Ascending</button>
+                        <button className="boton-sortby-des btn btnSort m-4" onClick={() => sortProducts('price_desc')}>Sort by: Price Descending</button>
+                    </div>
+                </div>
             </div>
 
             <div className="contCards">
@@ -59,6 +67,11 @@ export const ShopClient = () => {
                     ))}
                 </div>
             </div>
+
+            <div className="fixed-bottom">
+                <Footer />
+            </div>
+
         </div>
     );
 }

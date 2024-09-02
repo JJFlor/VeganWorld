@@ -4,13 +4,13 @@
     margin-top: 20px;
 }
 
-.btnCreateShop{
+.btnCreateShop {
     font-weight: 500;
     background-color: #F6FB7A;
-    color:#006769
+    color: #006769
 }
 
-.btnCreateShop:hover{
+.btnCreateShop:hover {
     background-color: #F6995c;
 }
 
@@ -94,19 +94,6 @@
 
 }
 
-.profile_aboutme {
-    padding: 20px;
-    margin: 20px;
-    color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 1px 15px;
-}
-
-.profile_aboutme-texto {
-    max-width: 600px;
-    max-height: 400px;
-}
-
 #usuario_h3 {
     color: #F6FB7A;
 }
@@ -145,21 +132,6 @@
     border-radius: 20px;
 }
 
-.profile_favoritos_coments {
-
-    padding: 20px;
-    margin: 20px;
-    justify-content: space-evenly;
-}
-
-.boton_delete {
-    margin-top: 20px;
-}
-
-.imagen_del_menu img {
-    margin-left: 300px;
-}
-
 .card_header {
     display: flex;
     flex-direction: column;
@@ -176,4 +148,10 @@
     margin-bottom: auto;
     font-weight: 500;
 
+}
+
+.img-menu-free {
+    justify-content: center;
+    align-items: center;
+    
 }

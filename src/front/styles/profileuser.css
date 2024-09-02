@@ -1,8 +1,9 @@
-.profile_header {
+.profile_header-user {
 
     margin-top: 10px;
     margin-bottom: 40px;
     max-width: 100%;
+    height: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,77 +12,63 @@
     background-color: #006769;
     border-radius: 20px;
 }
-.profile_name {
-    max-width: 100%;
-    background-color: #F6FB7A;
-    padding: 20px;
-    margin-top: 40px;
-    color: #006769;
-    border-radius: 20px;
-    box-shadow: 0px 1px 15px;
-}
-.profile-pic {
-    border: 4px solid black;
-    box-shadow: 0px 1px 15px;
-    border-radius: 100%;
-}
 
-.profile_aboutme {
-    padding: 20px;
-    margin: 20px;
-    color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 1px 15px;
-}
-.profile_aboutme-texto {
-    max-width: 600px;
-    max-height: 400px;
-}
-
-#usuario_h3 {
-    color: #F6FB7A;
-}
-
-.profile_body {
-    padding: 20px;
-    margin: 20px;
-
-}
-
-#usuario_h3_info {
-    box-shadow: 0px 1px 15px;
-    background-color: #F6FB7A;
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-    border-radius: 20px;
-    color: #006769;
-}
-
-#profile_h3_fav {
-    box-shadow: 0px 1px 15px;
-    color: #006769;
-    background-color: #F6FB7A;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 20px;
-    width: 400px;
-    justify-content: center;
-}
-.profile_favoritos_coments {
-
-    padding:20px;
-    margin: 20px;
-    justify-content: space-evenly;
-}
-.boton_delete {
-    margin-top: 20px;
-}
-.form-label {
-    border: none;
-}
-.h3_cajita_h3 {
+.card-header-user {
+    background-color: #006769;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 600px;
+    height: 350px;
+    align-content: center;
+    color: #F6FB7A;
+    padding-left: 20px;
+    justify-content: space-evenly;
+    font-size: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 500;
+}
+
+.profile_h1-free {
+    background-color: #F6FB7A;
+    border-radius: 20px;
+    margin-top: 30px;
+    height: 60px;
     align-items: center;
+    color: #006769;
+    box-shadow: 0px 1px 15px;
+}
+
+.profile_free_img {
+    border-radius: 100%;
+    border: white 2px solid;
+}
+
+#boton-shopnow {
+    background-color: #F6995c;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+#boton-shopnow:hover {
+    background-color: red;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+.banner-shop {
+    margin-top: 50px;
+    height: 200vh;
+    background-image: url(https://i.ibb.co/Pj5DRtZ/fondo-Shop1.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: inline-grid;
+    align-items: center;
+    width: 100%;
+    height: 45vh;
+    box-shadow: inset 0px -72px 47px -59px rgba(0, 0, 0, 0.75);
 }
