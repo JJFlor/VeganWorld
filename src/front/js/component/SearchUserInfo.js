@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AvatarImg from "../../img/avatarImg.png";
-// import JorgePic from "/workspaces/VeganWorld/src/front/img/redonda_jorge.png";
+import FondoShop1 from "/workspaces/VeganWorld/src/front/img/fondoShop1.jpg";
 import "/workspaces/VeganWorld/src/front/styles/profileuser.css";
 import { Footer } from './Footer';
 import { EditProfileModal } from './EditProfileModal';
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const SearchUserInfo = ({ email, name, address, phone }) => {
     const navigate = useNavigate();
@@ -32,7 +33,16 @@ export const SearchUserInfo = ({ email, name, address, phone }) => {
                     <p className="card-text">Phone: {phone}</p>
                     <EditProfileModal />
                 </div>
-                <a href="#" className="btn btnCards" onClick={() => navigate('/shop_client')}>Buy now</a>
+            </div>
+
+            <div id="banner-shop" className="text-center">
+                <div className="textInvite">Discover a world of incredible products in our shop</div>
+                <Link to="/shop_client">
+                    <button className="boton-shopnow">SHOP NOW!</button>
+                </Link>
+                <div class="container">
+                    <p class="txtDiscount text-start">Use code: 4GEEKS and get 20% discount</p>
+                </div>
             </div>
 
         </div>

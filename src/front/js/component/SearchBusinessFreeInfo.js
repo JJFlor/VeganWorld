@@ -125,94 +125,13 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={AguacateNegro} />
-                                        <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-success">View</button>
-                                                    <button type="button" className="btn btn-sm btn-outline-warning">Download</button>
-                                                </div>
-                                                <small className="text-body-secondary">9 mins</small>
-                                            </div>
-                                        </div>
+                                <div id="banner-shop" className="text-center">
+                                    <div className="textInvite">Discover a world of incredible products in our shop</div>
+                                    <Link to="/shop_client">
+                                        <button className="boton-shopnow">SHOP NOW!</button>
+                                    </Link>
+                                    <div class="container">
+                                        <p class="txtDiscount text-start">Use code: 4GEEKS and get 20% discount</p>
                                     </div>
                                 </div>
                             </div>
@@ -220,8 +139,8 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                     </div>
                 </div>
 
-                <div className="tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
-                    <img src={MenuBusiness1} alt="Menu" />
+                <div className="tab-pane fade text-center mt-5 mb-5" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">
+                    <img className="img-menu-free text-center" src={MenuBusiness1} alt="Menu" />
                 </div>
 
                 <div className="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">

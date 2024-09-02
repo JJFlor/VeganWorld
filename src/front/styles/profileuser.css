@@ -45,3 +45,30 @@
     border-radius: 100%;
     border: white 2px solid;
 }
+
+#boton-shopnow {
+    background-color: #F6995c;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+#boton-shopnow:hover {
+    background-color: red;
+    color: white;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+.banner-shop {
+    margin-top: 50px;
+    height: 200vh;
+    background-image: url(https://i.ibb.co/Pj5DRtZ/fondo-Shop1.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: inline-grid;
+    align-items: center;
+    width: 100%;
+    height: 45vh;
+    box-shadow: inset 0px -72px 47px -59px rgba(0, 0, 0, 0.75);
+}

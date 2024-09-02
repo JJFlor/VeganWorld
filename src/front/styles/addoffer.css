@@ -20,11 +20,19 @@
     border: 2px solid black;
 }
 
-#background-img-shop {
-    background-image: url('/workspaces/VeganWorld/src/front/img/fondoShop1.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    width: 100% !important;
-    height: 100px !important;
+.container-contAdd {
+    width: 100%;
+}
+
+#banner-shop {
+    margin-top: 50px;
+    height: 200vh;
+    background-image: url(https://i.ibb.co/Pj5DRtZ/fondo-Shop1.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: inline-grid;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    box-shadow: inset 0px -72px 47px -59px rgba(0, 0, 0, 0.75);
 }

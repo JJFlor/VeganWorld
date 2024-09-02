@@ -88,9 +88,9 @@ export const AddProduct = () => {
     };
 
     return (
-        <div className="container contAdd">
+        <div className="container-contAdd">
 
-            <div id="background-img-shop" className="text-center">
+            <div id="banner-shop" className="text-center">
                 <Link to="/shop_client">
                     <button className="boton-shopnow btn btnGoShop">SHOP NOW</button>
                 </Link>
