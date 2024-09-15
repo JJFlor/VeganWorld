@@ -56,30 +56,37 @@ export const SignUpBusiness = () => {
                     <h1 className="display-4 create-account-title">Create an account</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
+                            <p className="try-premium">
+                                <FaQuestionCircle /> Choose between:
+                                <button type="button" className="btn-question-premium" onClick={() => setShowModal(true)}>
+                                    Free or Premium!
+                                </button>
+                            </p>
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Business name" onChange={(e) => setName(e.target.value)} value={name} />
                             </div>
-                            <div className="form-group mt-3">
-                                <input type="text" className="form-control" placeholder="Type: restaurant, shop, wellness or activism" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} />
-
+                            <div className="select-service">
+                                <form action="#" id="lang">
+                                    <select name="type of service" id="lang" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} className="form-control">
+                                        <option value="">Type of service</option>
+                                        <option value="restaurant">restaurant</option>
+                                        <option value="shop">shop</option>
+                                        <option value="wellness">wellness</option>
+                                        <option value="activism">activism</option>
+                                    </select>
+                                </form>
                             </div>
-                            <p className="try-premium">
-                                Choose between Free or Premium!
-                                <button type="button" className="btn-question-premium" onClick={() => setShowModal(true)}>
-                                    <FaQuestionCircle />
-                                </button>
-                            </p>
+
 
                             {showModal && (
                                 <div className="modal" tabIndex="-1">
                                     <div className="modal-dialog">
                                         <div className="modal-content">
                                             <div className="modal-header">
-                                                <h5 className="modal-title text-white">What premium offers to your business?</h5>
-                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setShowModal(false)}></button>
+                                                <h5 className="modal-title">What premium offers to your business?</h5>
+                                                <button type="button" className="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close" onClick={() => setShowModal(false)}></button>
                                             </div>
-                                            <div className="modal-body text-white">
-
+                                            <div className="modal-body">
                                                 <ul>
                                                     <li>Better positioning in our web.</li>
                                                     <li>Allows you to sell your products in our Shop.</li>
@@ -109,8 +116,8 @@ export const SignUpBusiness = () => {
                             <div className="form-group mt-3">
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
-                            <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required maxLength="12" minLength="6" className="form-control inputRelativeBusiness" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                            <div className="form-group mt-3 inputRelativeBusiness">
+                                <input type={shown ? 'text' : 'password'} required maxLength="12" minLength="6" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                                 <span className="showPasswordBusiness" type="button" onClick={switchShown}>
                                     {shown ? <FaEye /> : <FaEyeSlash />}
                                 </span>

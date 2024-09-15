@@ -1,0 +1,32 @@
+.business-card p {
+    font-size: 17px;
+    font-weight: 400;
+    text-align: justify;
+    margin-left: 60px;
+
+}
+
+.business-name {
+    margin-top: 30px;
+    align-items: center;
+    color: #006769;
+    font-size: 40px;
+
+}
+
+.categories-business-info {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.imgReview-premium {
+    max-width: 25%;
+    border-radius: 100%;
+    border: white 2px solid;
+    margin-right: 30px;
+}

@@ -50,16 +50,15 @@
 }
 
 
-form {
-    max-width: 83%;
-    background-color: #b4e380;
+.search-category-form {
+    min-width: 85%;
+    background-color: white;
     color: black;
     padding: 4px;
-    margin: 10px;
-}
-
-.card-info {
-    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 2px solid #b4e380;
 }
 
 

@@ -47,6 +47,9 @@ export const SignUpUser = () => {
                     <h1 className="display-4 create-account-title">Create an account</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
+                            <p className="try-premium">
+                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium" onClick={() => areYouAbusiness()}>Click here!</a>
+                            </p>
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
                             </div>
@@ -59,13 +62,11 @@ export const SignUpUser = () => {
                             <div className="form-group mt-3">
                                 <input type="email" className="form-control" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
                             </div>
-                            <div className="form-group mt-3">
-                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control inputIsRelative" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
+                            <div className="form-group mt-3 inputIsRelative">
+                                <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPassword" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
-                            <p className="try-premium">
-                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium" onClick={() => areYouAbusiness()}>Click here!</a>
-                            </p>
+
                         </div>
                         <div className="ms-4">
                             <img className="logoAvocado" src={LogoAvocado} href="#" />

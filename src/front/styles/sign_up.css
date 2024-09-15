@@ -44,21 +44,22 @@
     color: #006769;
 }
 
-.log_in_text {
-    color: #F6995C;
-
-}
 
 .try-premium {
-    color: #F6995C;
+    color: #006769;
     font-weight: bold;
+    margin-left: 16px;
+    margin-top: -16px;
+    margin-bottom: -6px;
 }
 
+
 .btn-question-premium {
-    color: #F6995C;
+    color: #006769;
+    font-weight: bold;
     border-radius: 5px;
     border: none;
-    margin-top: 5px;
+    margin-top: 18px;
     background-color: #b4e380;
 
 }
@@ -108,42 +109,48 @@
     margin-top: 10px;
 }
 
-.reset-password {
-    color: #006769;
-    font-weight: bold;
-}
-
-.btn-question-reset-password {
-    color: #006769;
-    border-radius: 5px;
-    border: none;
-    margin-top: 5px;
-    background-color: #b4e380;
-
-}
-
-.btn-reset-password {
-    background-color: #F6995C;
-    color: #006769;
-    border-radius: 5px;
-    border: none;
-    font-weight: bold;
-
-}
 
 .inputIsRelative {
     position: relative;
 }
 
-.showPassword {
-    display: block;
-    user-select: none;
-    bottom: 3.6rem;
-    right: 35.3rem;
+.inputIsRelative input {
+    width: 100%;
+    padding-right: 40px;
+    /* Ajusta este valor según el tamaño del ícono */
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.inputIsRelative .showPassword {
+    position: absolute;
+    right: 10px;
+    top: 52%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: black
 }
 
 .inputRelativeBusiness {
     position: relative;
+}
+
+.inputRelativeBusiness input {
+    width: 100%;
+    padding-right: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.inputRelativeBusiness .showPasswordBusiness {
+    position: absolute;
+    right: 10px;
+    top: 73%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: black
 }
 
 .showPasswordBusiness {
@@ -153,6 +160,40 @@
     right: 33.5rem
 }
 
-.modalPremium {
-    background-color: white;
+.select-service {
+    margin-left: -17px;
+    min-width: 124%;
+    color: black;
+    padding: 4px;
+
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el contenido del modal */
+.modal-dialog {
+    position: relative;
+    margin: auto;
+    margin-top: 100px;
+    max-width: 500px;
+    width: 100%;
+    z-index: 1100;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
 }

@@ -46,6 +46,12 @@ export const LogIn = () => {
                     <h1 className="display-4 create-account-title">Log In</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
+                            <p className="try-premium-login">
+                                Don't you have an account?&nbsp;
+                                <Link to="/SignUpUser" className="log_in_text fw-bold">
+                                    Sign up
+                                </Link>
+                            </p>
                             <div className="form-group mt-3">
                                 <input
                                     type="email"
@@ -55,19 +61,13 @@ export const LogIn = () => {
                                     value={email}
                                 />
                             </div>
-                            <p className="try-premium">
-                                Don't you have an account?&nbsp;
-                                <Link to="/SignUpUser" className="log_in_text fw-bold text-decoration-none">
-                                    Sign up
-                                </Link>
-                            </p>
-                            <div className="form-group mt-3">
+                            <div className="form-group mt-3 isRelative">
                                 <input
                                     type={shown ? 'text' : 'password'}
                                     required
                                     maxLength="12"
                                     minLength="6"
-                                    className="form-control isRelative"
+                                    className="form-control"
                                     placeholder="Password"
                                     onChange={(e) => setPassword(e.target.value)}
                                     value={password}
@@ -76,7 +76,7 @@ export const LogIn = () => {
                                     {shown ? <FaEye /> : <FaEyeSlash />}
                                 </span>
                             </div>
-                            <p className="reset-password">
+                            <p className="reset-password-login">
                                 Forgotten your password?
                                 <button
                                     type="button"
@@ -101,15 +101,15 @@ export const LogIn = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title fs-5" id="exampleModalLabel">Recover your password</h5>
+                                <h5 className="modal-title fs-5 text-light" id="exampleModalLabel">Recover your password</h5>
                                 <button
                                     type="button"
-                                    className="btn-close"
+                                    className="btn-close ms-3"
                                     onClick={() => setShowModal(false)}
                                 ></button>
                             </div>
                             <div className="modal-body">
-                                <div className="form-group mt-3">
+                                <div className="form-group mt-1">
                                     <input
                                         type="email"
                                         className="form-control"
@@ -117,11 +117,8 @@ export const LogIn = () => {
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
                                     />
-                                    <span className="modalShowPasswordIcon" type="button" onClick={switchShown}>
-                                        {shown ? <FaEye /> : <FaEyeSlash />}
-                                    </span>
-                                    <button onClick={handleClick}>
-                                        reset
+                                    <button className="btn-modal-reset-password" onClick={handleClick}>
+                                        Reset
                                     </button>
                                 </div>
                             </div>

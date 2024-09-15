@@ -20,7 +20,6 @@ export const SearchPremiumPartnerInfo = ({ name, typeOfServices, premium, email,
     return (
 
         <div className="container my-5">
-
             <h1 className="premiumpartnerh1 text-center col-12">
                 {name}{haveToken && premium && <MdWorkspacePremium />}
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-bookmark-star-fill" viewBox="0 0 16 16">
@@ -31,7 +30,6 @@ export const SearchPremiumPartnerInfo = ({ name, typeOfServices, premium, email,
             <div className="profile_header-premium">
 
                 <div className="card-header-premium card-info">
-
                     <div className="card-text">Type of service: {typeOfServices}</div>
                     <div className="card-text">Email: {email}</div>
                     <div className="card-text">Address: {address}</div>

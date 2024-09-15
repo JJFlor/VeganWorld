@@ -44,9 +44,9 @@ export const ContactUs = () => {
         </form>
       </div>
 
-      <div className="fixed-bottom">
+      {/* <div className="fixed-bottom">
         <Footer />
-      </div>
+      </div> */}
     </div>
 
   )

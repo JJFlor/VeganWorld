@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../store/appContext';
 import { useNavigate } from "react-router-dom";
-import "/workspaces/VeganWorld/src/front/styles/form.css"
+import "/src/front/styles/form.css"
 
 export function Form() {
   const navigate = useNavigate();
@@ -70,9 +70,7 @@ export function Form() {
 
 
   return (
-
-    <form onSubmit={handleSubmit}>
-
+    <form className="form-edit-info"onSubmit={handleSubmit}>
       <div className="col-md-12">
         <label htmlFor="inputName" className="form-label">Name</label>
         <input type="text" name="name" className="form-control" id="inputName" placeholder="Name" value={formData.name} onChange={handleChange} />
@@ -85,43 +83,37 @@ export function Form() {
         )
           :
           null}
-
       </div>
-
-      <div className="col-md-6">
-        <label htmlFor="inputEmail4" className="form-label">Email</label>
-        <input type="email" name="email" className="form-control" id="inputEmail4" placeholder="Email" value={formData.email} onChange={handleChange} />
-      </div>
-
-      <div className="col-12">
-        <label htmlFor="inputAddress" className="form-label">Address</label>
-        <input type="text" name="address" className="form-control" id="inputAddress" placeholder="Your Adress" value={formData.address} onChange={handleChange} />
+      <div className="col-md-12">
+        <label className="form-label">Email</label>
+        <input type="email" name="email" className="form-control" placeholder="Email" value={formData.email} onChange={handleChange} />
       </div>
 
       <div className="col-12">
-        <label htmlFor="inputAddress" className="form-label">Phone</label>
-        <input type="text" name="phone" className="form-control" id="inputAddress" placeholder="Your phone" value={formData.phone} onChange={handleChange} />
+        <label className="form-label">Address</label>
+        <input type="text" name="address" className="form-control" placeholder="Your Adress" value={formData.address} onChange={handleChange} />
       </div>
 
       <div className="col-12">
+        <label className="form-label">Phone</label>
+        <input type="text" name="phone" className="form-control" placeholder="Your phone" value={formData.phone} onChange={handleChange} />
+      </div>
 
+      <div className="col-12">
         {store.partnerInfo ? (<div>
-          <label htmlFor="inputAddress" className="form-label">About us</label>
-          <input type="text" name="aboutUs" className="form-control" id="inputAddress" placeholder="About us" value={formData.aboutUs} onChange={handleChange} />
+          <label className="form-label">About us</label>
+          <input type="text" name="aboutUs" className="form-control" placeholder="About us" value={formData.aboutUs} onChange={handleChange} />
         </div>
         )
           :
           null}
       </div>
-
       <div className="col-12">
-        <label htmlFor="inputAbout" className="form-label">About</label>
-        <input type="text" className="form-control" id="inputAbout" placeholder="About" />
+        <label className="form-label">About</label>
+        <input type="text" className="form-control" placeholder="About" />
       </div>
-
       <div className="row">
-
-        <div className="col-md-8">
+        <div className="col-md-12">
           <button type="submit" className="boton_form-edit btn btn-success">Save Changes</button>
         </div>
 
