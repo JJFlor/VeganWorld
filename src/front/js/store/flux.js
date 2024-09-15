@@ -204,33 +204,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("user");
 				setStore({ ...store, token: null, email: null, user: null }); // Actualizar el store para reflejar el estado de no autenticado
 			},
-			editInfo: async (data) => {
-				const dataUser = data
+			editInfo: async (dataUser) => {
+				const store = getStore();
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/api/edit-info`, {
 						method: 'PUT',
 						body: JSON.stringify(dataUser),
-						headers: { "Content-Type": "application/json" }
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}` // Asegúrate de enviar el token si es necesario
+						}
 					});
-					console.log(data);
-					if (!response.ok) {
-						const errorData = await response.json();
-						console.error("Failed to edit info:", errorData.message || response.statusText);
-						return { success: false, message: errorData.message || "Failed to edit info." };
-					}
+			
 					const data = await response.json();
-					if (data.ok) {
-						signUpPartner(email, name, typeOfServices, premium, password, address, phone, aboutUs);
-						alert("Info was edited successfully");
-						return { success: true, message: "Info was edited successfully." };
-					} else {
+					if (!response.ok) {
+						console.error("Failed to edit info:", data.message || response.statusText);
 						return { success: false, message: data.message || "Failed to edit info." };
 					}
+			
+					// Actualiza el store con los nuevos datos
+					setStore({ ...store, user: data.updatedUser || dataUser });
+			
+					alert("Info was edited successfully");
+					return { success: true, message: "Info was edited successfully." };
 				} catch (error) {
-					console.error("An error occurred when updating your password:", error);
-					return { success: false, message: "An error occurred when updating your password." };
+					console.error("An error occurred when updating your info:", error);
+					return { success: false, message: "An error occurred when updating your info." };
 				}
-			},
+			},			
 			getPartnerInfo: async () => {
 				const store = getStore();
 				try {
@@ -309,13 +310,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				const filteredPartners = store.premiumPartners.filter(partner => partner.type_of_services.toLowerCase() === typeOfServices.toLowerCase());
 				console.log(filteredPartners);
-				setStore({ 
-					...store, 
-					premiumPartnersFiltered: filteredPartners, 
+				setStore({
+					...store,
+					premiumPartnersFiltered: filteredPartners,
 					selectedCategory: typeOfServices.toLowerCase() // Guardar la categoría seleccionada en minúsculas
 				});
 			},
-			
+
 			showPremiumIcon: (premium) => {
 				const store = getStore();
 				const havePremiumIcon = store.premiumPartners.some(partner => partner.premium === premium);

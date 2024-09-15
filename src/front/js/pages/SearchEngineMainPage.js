@@ -90,7 +90,7 @@ export const SearchEngineMainPage = () => {
     ];
 
     const filteredMarkers =
-        selectedCategory ? markers.filter(marker => marker.category === selectedCategory)
+        selectedCategory ? markers?.filter(marker => marker.category === selectedCategory)
             : markers;
 
 
@@ -182,13 +182,23 @@ export const SearchEngineMainPage = () => {
 
     return (
         <div className="container-fluid">
-            <div className="chooseTitle">
-                <h2>Search a service or choose a topic:</h2>
-            </div>
+            <h2 for="lang" className="chooseTitle">Search a service or choose a topic:</h2>
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control searchEngineInput" placeholder="🧭 Search by: restaurant, shop, wellness or activism!" />
-                <button onClick={() => Search(search)} className="btn btnCards ms-3">Search</button>
+                <form action="#" id="lang">
+                    <select name="type of service" id="lang" onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control">
+                        <option value="">🧭 Choose a category</option>
+                        <option value="restaurant">restaurant</option>
+                        <option value="shop">shop</option>
+                        <option value="wellness">wellness</option>
+                        <option value="activism">activism</option>
+                    </select>
+                </form>
+                <div className="d-flex flex-row justify-content-center align-items-center">
+                    <button onClick={() => Search(search)} className="btn btnCards" ms-1>Search</button>
+                </div>
             </div>
+
+
             <button className={`btn toggle-btn ${toggled ? 'toggled' : " "}`} onClick={() => setToggled(!toggled)}>
                 <div className="toggle-btn-name">{toggled ? <p>Hide map</p> : <p>Show map</p>}</div>
             </button>
@@ -229,7 +239,7 @@ export const SearchEngineMainPage = () => {
 
             </div>
             <div>
-                <div className="container rollCards d-flex flex-column">
+                <div className="container card-info d-flex flex-column justify-content-center align-items-center mt-5">
                     {console.log(store.premiumPartners)}
                     {store.premiumPartnersFiltered ? store.premiumPartnersFiltered.map(filteredPartner =>
                     (<SearchRestaurantsPartners key={filteredPartner.id}

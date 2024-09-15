@@ -3,6 +3,7 @@ import { Form } from '/workspaces/VeganWorld/src/front/js/component/Form.js';
 import "/src/front/styles/editprofilemodal.css";
 import { FaUserEdit } from "react-icons/fa";
 
+
 export function EditProfileModal() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);

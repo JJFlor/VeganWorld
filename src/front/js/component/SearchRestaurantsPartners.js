@@ -14,7 +14,7 @@ export const SearchRestaurantsPartners = ({ name, typeOfServices, premium, email
 
     return (
         <div className="container">
-            <div className="rollCards mx-3 mb-4 row">
+            <div className=" card-info row">
                 <div className="col-8 card">
                     <div className="card-body">
                         <div className="d-flex flex-row">
@@ -28,7 +28,7 @@ export const SearchRestaurantsPartners = ({ name, typeOfServices, premium, email
                             <p className="card-text">Phone: {phone}</p>
                             <p className="card-text">About us: {aboutUs}</p>
                         </div>
-                        <a href="#" className="btn btnCards" onClick={() => navigate('/Shops')}>Buy now</a>
+                        <a href="#" className="btn btnCards" onClick={() => navigate('/shop_business')}>Buy now</a>
                         <a href="#" className="btn btnCards" onClick={() => navigate('/ProfileBusiness')}>See more</a>
                     </div>
                 </div>

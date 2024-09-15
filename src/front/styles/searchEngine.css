@@ -1,6 +1,6 @@
 .chooseTitle {
-    margin-top: 50px;
-    margin-left: 60px;
+    margin-top: 40px;
+    margin-left: 65px;
 }
 
 .mapSection {
@@ -17,7 +17,7 @@
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 3rem;
-    
+
 }
 
 .btnFind {
@@ -26,13 +26,13 @@
     font-weight: 500;
     margin-bottom: 3rem;
 }
-  
+
 .btnFind:hover {
     transition: 0.4s;
     background-color: #006769;
     color: #F6FB7A;
 }
-  
+
 .btnCategory {
     background-color: #F6FB7A;
     padding: 10px;
@@ -40,43 +40,46 @@
     font-weight: 500;
     margin-top: 4rem;
     margin-right: auto;
-    margin-left:auto;
+    margin-left: auto;
 }
-  
+
 .btnCategory:hover {
     transition: 0.4s;
     background-color: #b4e380;
     color: #006769;
 }
 
-.searchEngineInput {
+
+form {
     max-width: 83%;
     background-color: #b4e380;
     color: black;
+    padding: 4px;
+    margin: 10px;
 }
 
-.rollCards {
-    margin-left: 30px;
-    
+.card-info {
+    font-size: 15px;
 }
+
 
 .baseCard {
     min-width: 300px;
 }
-  
+
 .btnCards {
     color: #F6FB7A;
     background-color: #006769;
     font-weight: 500;
 }
-  
+
 .btnCards:hover {
     transition: 0.4s;
     background-color: #F6995c;
     color: #006769;
 }
 
-.toggle-btn{
+.toggle-btn {
     background-color: #006769;
     color: #F6FB7A;
     border-radius: 15px;
@@ -93,11 +96,3 @@
     background-color: #F6995c;
     color: #006769;
 }
-
-
-
-
-
-
-
-

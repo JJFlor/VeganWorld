@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../store/appContext';
+import { useNavigate } from "react-router-dom";
 import "/workspaces/VeganWorld/src/front/styles/form.css"
 
 export function Form() {
+  const navigate = useNavigate();
   const { store, actions } = useContext(Context);
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +21,6 @@ export function Form() {
   }, [store.partnerInfo])
 
   useEffect(() => {
-
 
     if (store.partnerInfo) {
       setFormData({
@@ -52,7 +53,19 @@ export function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.editInfo(formData)
-    console.log('Form Data Submitted:', formData);
+      .then(response => {
+        if (response.success) {
+          console.log('Info updated successfully');
+          alert('Info updated successfully');
+          navigate("/");
+        } else {
+          alert('There was an issue updating your info: ' + response.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error updating info:', error);
+        alert('There was an error updating your info.');
+      });
   };
 
 
@@ -99,8 +112,6 @@ export function Form() {
         )
           :
           null}
-
-
       </div>
 
       <div className="col-12">
@@ -114,9 +125,9 @@ export function Form() {
           <button type="submit" className="boton_form-edit btn btn-success">Save Changes</button>
         </div>
 
-        <div className="col-md-4">
+        {/* <div className="col-md-4">
           <button type="submit" className="boton_form-cancel btn btn-warning" onClick={() => setFormData({ name: '', email: '', telephone: '', address: '', aboutMe: '' })}>Cancel</button>
-        </div>
+        </div> */}
 
 
         {/* <div className="col-md-4">
