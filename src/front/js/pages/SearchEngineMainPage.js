@@ -182,11 +182,11 @@ export const SearchEngineMainPage = () => {
 
     return (
         <div className="container-fluid">
-            <h2 for="lang" className="chooseTitle">Select a service or choose from the topics to filter:</h2>
+            <h2 for="lang" className="chooseTitle">Select a service or choose a topic to find vegan business!</h2>
             <div className="d-flex flex-row justify-content-center align-items-center">
                 <form className="search-category-form" action="#" id="lang">
                     <select name="type of service" id="lang" onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control">
-                        <option value="">🧭 Choose a category</option>
+                        <option value="">🧭 Select a service</option>
                         <option value="restaurant">restaurant</option>
                         <option value="shop">shop</option>
                         <option value="wellness">wellness</option>
@@ -194,7 +194,7 @@ export const SearchEngineMainPage = () => {
                     </select>
                 </form>
                 <div className="d-flex flex-row justify-content-center align-items-center">
-                    <button onClick={() => Search(search)} className="btn btnCards" ms-1>Search</button>
+                    <button onClick={() => Search(search)} className="btn btnCards ms-1" >Search</button>
                 </div>
             </div>
 

@@ -3,13 +3,20 @@
 # <VeganWorld>
 ## Description
 VeganWorld is a webpage where you can find any type of vegan services in your city.
-This project was created to make easier for vegan people to find vegan services near them, since Google Maps filter for vegan places it's not always working properly, making more difficult for them to find the services they're looking for. In this way, VeganWorld tries to fix this problema by offering vegan people an app where to find this places and get information abou them and even buying from them through our shop platform.
-While developing this project we learnt about:
-- How to create and application using React JS, Flask API and SQLAlchemy for backend integration.
-- API integration and configuration.
--
+
+This project was created to make it easier to find vegan services near you, since Google Maps filter for vegan places it's not always working properly, making it more difficult to find the services you're looking for. In this way, VeganWorld tries to fix this problem by offering an app where to find vegan services near them and get information about these places and being able to buy products for them at special prices offered only through the shop platform.
+
+While developing this project we:
+- Learnt how to create and application using React JS, Flask API and SQLAlchemy for backend integration.
+- Improved our HTML and CSS usage by creating efficient grid UX and choose a nice color palette. 
+- Improved our usage of API integration and how to configurate it.
+- Learnt how to implement external API functionalities like Cloudinary, Google Maps and Flask mail.
+- Improved our usage of Flask JWT to handle authentication processes and to define private areas for premium users.
+- Implemented our own data base, creating SQL tables, and implemented the data structure flow and connections. All of that by using SQLAlchemy.
+
 ## Installation
-> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node
+> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node.
+
 It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
 1. Install the python packages: `$ pipenv install`
 2. Create a .env file based on the .env.example: `$ cp .env.example .env`
@@ -60,12 +67,12 @@ When you're logged in, you'll be able to go to the business navbar button, that 
 VeganWorld was build by [Jorge Yébenes](https://github.com/jorgeyebenes), [Sebastian Sarria](https://github.com/JSebasSN) and [Júlia Jaile](https://github.com/JJFlor).
 The template that was used to build VeganWorld was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors.
 
-##Future implementations
-Create a Blog
-Business reviews
-Delete Account button
-Use of AI for browsing services
-Use of Google Maps API
+## Future implementations
+- Blog forum, to allow users to create a vegan community online.
+- Display business reviews.
+- Add a "delete account" button on the profiles.
+- Implement usage of AI to filter searchs and browse worldwide services to display.
+- Improve the usage of Google Maps API to offer better mapping display.
 
 
 
