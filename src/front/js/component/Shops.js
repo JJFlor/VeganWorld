@@ -39,13 +39,13 @@ export const Shops = () => {
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('restaurant')}>🍴 Restaurants</button>
                     </div>
                     <div className="col my-4">
+                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('shop')}>👜 Shops</button>
+                    </div>
+                    <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('wellness')}>💚 Wellness</button>
                     </div>
                     <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('activism')}>✊ Activism</button>
-                    </div>
-                    <div className="col my-4">
-                        <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>🤸‍♂️ Leisure</button>
                     </div>
                     <div className="col my-4">
                         <button className="btn btnCategoryHome" onClick={() => handleCategoryClick('all')}>Show All</button>
@@ -56,11 +56,11 @@ export const Shops = () => {
                     {partnersToDisplay && partnersToDisplay.map((premiumPartners, index) => (
                         <div key={index} className="baseCard mx-3 mb-4">
                             <div className="card">
-                                <div className="card-body text-center">
+                                <div className="card-body">
                                     <h2 className="card-title">{premiumPartners.name}</h2>
-                                    <p className="card-textHome">{premiumPartners.address}</p>
-                                    <p className="card-textHome">{premiumPartners.about_us}</p>
-                                    <p className="card-textHome">{premiumPartners.type_of_services}</p>
+                                    <p className="card-textHome"><b>Address:</b> {premiumPartners.address}</p>
+                                    <p className="card-textHome"><b>About us:</b> {premiumPartners.about_us}</p>
+                                    <p className="card-textHome"><b>Type of services:</b> {premiumPartners.type_of_services}</p>
                                     <Link to="/shop_client" className="btn btnCardsHome text-center">Discover Products</Link>
                                 </div>
                             </div>

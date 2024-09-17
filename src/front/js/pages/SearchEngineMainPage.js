@@ -184,7 +184,7 @@ export const SearchEngineMainPage = () => {
         <div className="container-fluid">
             <h2 for="lang" className="chooseTitle">Select a service or choose from the topics to filter:</h2>
             <div className="d-flex flex-row justify-content-center align-items-center">
-                <form className="search-category-form"action="#" id="lang">
+                <form className="search-category-form" action="#" id="lang">
                     <select name="type of service" id="lang" onChange={(e) => setSearch(e.target.value)} value={search} type="text" className="form-control">
                         <option value="">🧭 Choose a category</option>
                         <option value="restaurant">restaurant</option>
@@ -206,9 +206,9 @@ export const SearchEngineMainPage = () => {
                 <div className="text-center">
                     <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("restaurant")}>🍴 Restaurants</button>
                     <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("shop")} >👜 Shops</button>
-                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("wellness")} >😄 Wellness</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("wellness")} >💚 Wellness</button>
                     <button className="btn btnCategory mx-3" onClick={() => handleCategoryClick("activism")}>✊ Activism</button>
-                    <button className="btn btnCategory mx-3" onClick={() => handleAllCategoriesClick()}>All Cathegories</button>
+                    <button className="btn btnCategory mx-3" onClick={() => handleAllCategoriesClick()}>All Categories</button>
                 </div>
             </div>
             <div className="mapSection">

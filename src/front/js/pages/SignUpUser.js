@@ -47,9 +47,7 @@ export const SignUpUser = () => {
                     <h1 className="display-4 create-account-title">Create an account</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
-                            <p className="try-premium">
-                                <span className="btn-question-premium"><FaQuestionCircle /></span>&nbsp; Are you a business? <a type="button" className="btn-question-premium" onClick={() => areYouAbusiness()}>Click here!</a>
-                            </p>
+                            <button type="button" className="btn-question-premium" onClick={() => areYouAbusiness()}><FaQuestionCircle />&nbsp; Are you a business? Click here!</button>
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
                             </div>

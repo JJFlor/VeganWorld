@@ -56,18 +56,15 @@ export const SignUpBusiness = () => {
                     <h1 className="display-4 create-account-title">Create an account</h1>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                         <div className="w-100">
-                            <p className="try-premium">
-                                <FaQuestionCircle /> Choose between:
                                 <button type="button" className="btn-question-premium" onClick={() => setShowModal(true)}>
-                                    Free or Premium!
+                                    <FaQuestionCircle /> Choose between: Free or Premium!
                                 </button>
-                            </p>
                             <div className="form-group mt-3">
                                 <input type="text" className="form-control" placeholder="Business name" onChange={(e) => setName(e.target.value)} value={name} />
                             </div>
                             <div className="select-service">
-                                <form action="#" id="lang">
-                                    <select name="type of service" id="lang" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} className="form-control">
+                                <form action="#" id="services">
+                                    <select name="type of service" id="services" onChange={(e) => setTypeOfServices(e.target.value)} value={typeOfServices} className="form-control">
                                         <option value="">Type of service</option>
                                         <option value="restaurant">restaurant</option>
                                         <option value="shop">shop</option>
