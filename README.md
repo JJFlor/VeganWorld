@@ -58,10 +58,10 @@ Every Github codespace environment will have **its own database**, so if you're 
 2. Start coding! start the webpack dev server `$ npm run start`
   
 ## Usage
-When you load the webpage you'll see the Homepage, but if you try to access to any parte fo the homepage you'll be asked to Sign Up or Log In. When you'll be at the Sign Up page, you'll have to register as a User or as a Business.
-If you choose the Business Sign Up, you'll have to choose if you want a free profile or a premium one, just the second one will be able to add products and sell them at the web shop. When you're signed up you'll be redirected to your profile, where you'll be able to edit your info profile and to go see the shop, if you're a user, or to add a product and see your dashboard, if you're a business premium; or just see your personal info if you're a business free.
+When you load the webpage you'll see the Homepage, but if you try to access to any part of it, you'll be asked to Sign Up or Log In. When you'll be at the Sign Up page, you'll have to register as a User or as a Business.
+If you choose the Business Sign Up, you'll have to choose if you want a Free profile or a Premium one, just the second option will be allowed to add products and sell them at the web shop. When you're signed up you'll be redirected to your profile, where you'll be able to edit your info profile and to go see the shop, if you're a user, or to add a product and see your dashboard, if you're a business premium; or just see your personal info, if you're a business free.
 I you choose go to Shop as a user, you'll be able to see all the products available at the shop and choose one and buy it. If you're a Business premium, you'll be able to add, edit, and delete products in your shop profile, and see your general shop.
-When you're logged in, you'll be able to go to the business navbar button, that will navigate you to a page where you'll be able to search for a service with the search input (using "wellness", "shop", "restaurant" or "activism"); show or hide the map where the registered business appear, and see all of them together of ilter them by category when clicking the different category buttons.
+When you're logged in, you'll be able to go to the business navbar button, that will navigate you to a page where you'll be able to select a service from the input (using "wellness", "shop", "restaurant" or "activism"); show or hide the map where the registered business appear, and see all of them together or filter them by category, when clicking the different category buttons.
 
 ## Contributors
 VeganWorld was build by [Jorge Yébenes](https://github.com/jorgeyebenes), [Sebastian Sarria](https://github.com/JSebasSN) and [Júlia Jaile](https://github.com/JJFlor).

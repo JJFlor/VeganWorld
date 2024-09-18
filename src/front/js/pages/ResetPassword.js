@@ -22,21 +22,21 @@ export const Single = () => {
 	const handleClick = async () => {
 		const resp = await actions.updatePassword(password, token)
 		if (resp.success) {
-			alert('vamos a logearnos ahora!')
-			navigate('/')
+			alert("Now, let's get logged in!")
+			navigate('/LogIn')
 		}
 	}
 
 	return (
 		<div className="card w-75">
-			<h2>Cambio de contraseña</h2>
-			<p>Hola {user && user.email}, vamos a cambiar la contraseña</p>
+			<h2>Change your password</h2>
+			<p>Hi {user && user.email}, let's change your password</p>
 			<input
 				type="text"
 				onChange={e => setPassword(e.target.value)}
 				value={password}
 			/>
-			<button onClick={handleClick}>change password</button>
+			<button onClick={handleClick}>Change password</button>
 		</div>
 	);
 };

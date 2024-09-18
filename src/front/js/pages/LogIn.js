@@ -28,6 +28,7 @@ export const LogIn = () => {
 
     const handleClick = () => {
         actions.sendResetEmail(email);
+        navigate('/ResetPassword')
     }
 
     const logIn = async () => {
