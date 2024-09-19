@@ -53,7 +53,7 @@ mail.init_app(app)  # Inicializa mail con la aplicación
 def send_email(address):
     try:
    
-        msg = Message("Information", #asunto del correo
+        msg = Message("Change your password", #asunto del correo
                       recipients=[address]) 
 
         # Definir cuerpo del correo

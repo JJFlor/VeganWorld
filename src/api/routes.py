@@ -183,10 +183,6 @@ def password_update():
         print('error: '+ e)
         return jsonify({'success': False, 'msg': 'something went wrong'})
 
-
-
-
-
 # Crear un nuevo producto
 @api.route('/products', methods=['POST'])
 @jwt_required()

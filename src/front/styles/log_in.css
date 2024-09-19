@@ -162,3 +162,27 @@
     height: 0;
 
 }
+
+.change-password-card {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 7rem;
+    color: #006769;
+}
+
+.btn-card-change-password {
+    background-color: #f6fb7a;
+    color: black;
+    float: right;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.btn-card-change-password:hover {
+    background-color: #F6995C;
+}
+
+.change-password-title {
+    color: black;
+}
