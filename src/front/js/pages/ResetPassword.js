@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = () => {
+export const ResetPassword = () => {
 	const { store, actions } = useContext(Context);
 	const location = useLocation();
 	const queryParams = new URLSearchParams(location.search);

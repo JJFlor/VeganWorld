@@ -102,7 +102,7 @@ export const LogIn = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title fs-5 text-light" id="exampleModalLabel">Recover your password</h5>
+                                <h5 className="modal-title fs-5" id="exampleModalLabel">Recover your password</h5>
                                 <button
                                     type="button"
                                     className="btn-close ms-3"
