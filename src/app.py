@@ -45,7 +45,7 @@ app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = os.getenv("EMAIL_USERNAME")
 app.config['MAIL_PASSWORD'] = os.getenv("EMAIL_PASSWORD")
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_DEFAULT_SENDER'] = ('Veganworld', 'projectveganworld@gmail.com')
+app.config['MAIL_DEFAULT_SENDER'] = ('rflq vwft wrjn klra', 'projectveganworld@gmail.com')
 
 mail.init_app(app)  # Inicializa mail con la aplicación
 
@@ -53,11 +53,11 @@ mail.init_app(app)  # Inicializa mail con la aplicación
 def send_email(address):
     try:
    
-        msg = Message("Change your password", #asunto del correo
+        msg = Message("Email prueba", #asunto del correo
                       recipients=[address]) 
 
         # Definir cuerpo del correo
-        msg.body = "Hi, este es un correo de prueba enviado desde Flask."
+        msg.body = "Hola, este es un correo de prueba enviado desde Flask."
         msg.html = "<p>Hola, este es un <b>correo de prueba</b> enviado desde Flask.</p>"
 
         # Enviar el correo

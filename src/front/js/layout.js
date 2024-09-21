@@ -48,6 +48,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
+                        {/* ruta para recuperar la contraseña */}
                         <Route element={<ResetPassword />} path="/ResetPassword" />
                         <Route element={
                             <PrivateRoute>

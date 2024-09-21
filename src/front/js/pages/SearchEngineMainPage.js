@@ -179,7 +179,6 @@ export const SearchEngineMainPage = () => {
         actions.setFilteredPartnerNull();
     }
 
-
     return (
         <div className="container-fluid">
             <h2 for="lang" className="chooseTitle">Select a service or choose a topic to find vegan businesses!</h2>

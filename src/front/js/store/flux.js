@@ -216,23 +216,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Authorization": `Bearer ${store.token}` // Asegúrate de enviar el token si es necesario
 						}
 					});
-			
+
 					const data = await response.json();
 					if (!response.ok) {
 						console.error("Failed to edit info:", data.message || response.statusText);
 						return { success: false, message: data.message || "Failed to edit info." };
 					}
-			
+
 					// Actualiza el store con los nuevos datos
 					setStore({ ...store, user: data.updatedUser || dataUser });
-			
+
 					alert("Info was edited successfully");
 					return { success: true, message: "Info was edited successfully." };
 				} catch (error) {
 					console.error("An error occurred when updating your info:", error);
 					return { success: false, message: "An error occurred when updating your info." };
 				}
-			},			
+			},
 			getPartnerInfo: async () => {
 				const store = getStore();
 				try {
@@ -329,7 +329,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			updatePassword: async (password, token) => {
 				try {
-					// fetching data from the backend
+					//recibimos password nuevo  y el token (lo necesitamos ya que es una ruta protegida la que vamos a consumir y porque del token sacaremos la identidad del usuario)
 					const resp = await fetch(process.env.BACKEND_URL + "/api/password_update", {
 						method: 'PUT',
 						headers: {
@@ -347,6 +347,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			sendResetEmail: async (email) => {
+				//recibimos el correo al que le vamos a enviar el reset del password 
 				try {
 					// fetching data from the backend
 					const resp = await fetch(process.env.BACKEND_URL + "/api/check_mail", {
