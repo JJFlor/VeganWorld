@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from "../store/appContext";
 import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
-import { SearchBusinessFreeInfo } from '../component/SearchBusinessFreeInfo';
 import { SearchPremiumPartnerInfo } from "../component/SearchPremiumPartnerInfo";
+
 
 
 export const ProfileBusinessFree = () => {

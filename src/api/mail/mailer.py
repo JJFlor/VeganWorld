@@ -18,4 +18,4 @@ def send_email(address, token):
         mail.send(msg)
         return {'success': True, 'msg': 'correo enviado exitosamente'}
     except Exception as e:
-        return {'success': False, 'msg': 'error al enviar correo' + e}
+        return {'success': False, 'msg': 'error al enviar correo' + str(e)}

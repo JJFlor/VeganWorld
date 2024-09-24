@@ -38,16 +38,17 @@
   color: #F6FB7A;
   font-weight: 500;
   width: 100%;
-  min-height: 10vh;
+  min-height: 2rem;
 }
 
 
 .lgFooter {
-  max-width: 80px;
+  max-width: 50px;
+  margin-bottom: 7px;
 }
 
 .contLogoFooter {
-  padding-top: 1.65rem;
+  padding-top: 1.50rem;
 }
 
 .btnFooter {

@@ -4,11 +4,11 @@ import '/workspaces/VeganWorld/src/front/styles/profilebusinessfree.css';
 import MenuBusiness1 from '/workspaces/VeganWorld/src/front/img/Menubusiness.png'
 import { FindBusiness } from "/workspaces/VeganWorld/src/front/js/component/FindBusiness.js";
 import AguacateNegro from "/workspaces/VeganWorld/src/front/img/aguaNegro.png"
-import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 import { MdWorkspacePremium } from "react-icons/md";
 import { Context } from '../store/appContext';
 import AvatarImg from "../../img/avatarImg.png"
 import { EditProfileModal } from "/workspaces/VeganWorld/src/front/js/component/EditProfileModal.js"
+import { Footer } from "/workspaces/VeganWorld/src/front/js/component/Footer.js"
 
 export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, address, phone, aboutUs }) => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
     const haveToken = store.token;  //comprobar si usuario tiene token
 
     return (
-        <div className="container my-5">
+        <div className="container-fluid my-5">
             <h1 id="usuario_h1" className="profile_name text-center col-12">{name}{haveToken && premium && <MdWorkspacePremium />}</h1>
 
             <div className="profile_header d-flex-row">
@@ -147,9 +147,7 @@ export const SearchBusinessFreeInfo = ({ name, typeOfServices, premium, email, a
                     <FindBusiness />
                 </div>
             </div>
-
             <Footer />
         </div>
-
     );
 }
