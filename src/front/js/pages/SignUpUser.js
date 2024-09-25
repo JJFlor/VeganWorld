@@ -9,6 +9,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 
 
 
+
 export const SignUpUser = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -64,7 +65,6 @@ export const SignUpUser = () => {
                                 <input type={shown ? 'text' : 'password'} required={true} maxLength="12" minLength="6" className="form-control" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
                                 <span className="showPassword" type="button" onClick={switchShown}>{shown ? <FaEye /> : <FaEyeSlash />}</span>
                             </div>
-
                         </div>
                         <div className="ms-4">
                             <img className="logoAvocado" src={LogoAvocado} href="#" />
@@ -73,6 +73,6 @@ export const SignUpUser = () => {
                     <button className="btn btn-signUp-user w-25 mt-4 shadow-lg" onClick={() => signUpUser(email, password, username, address, phone)}>Sign up</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

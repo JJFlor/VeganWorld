@@ -4,6 +4,8 @@ import "../../styles/log_in.css";
 import { Context } from "../store/appContext";
 import LogoAvocado from "../../img/logoAguacate.png";
 import { FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+import { signInWithGoogle, listenToAuthChanges } from "../component/firebase.js";
+import { FaGoogle } from "react-icons/fa";
 
 
 
@@ -13,6 +15,7 @@ export const LogIn = () => {
     const [password, setPassword] = useState("");
     const [shown, setShown] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [user, setUser] = useState(null);
 
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
@@ -20,6 +23,7 @@ export const LogIn = () => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        listenToAuthChanges(setUser);  // Escuchar cambios de autenticación
     }, []);
 
     const switchShown = () => {
@@ -92,6 +96,9 @@ export const LogIn = () => {
                         </div>
                     </div>
                     <button className="btn btn-signUp-user w-50 mt-4 shadow-lg" onClick={logIn}>Get logged in!</button>
+                    <div>
+                        <button className="mt-3" onClick={signInWithGoogle}><FaGoogle />   Log in with Google</button>
+                    </div>
                 </div>
             </div>
 
